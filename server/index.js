@@ -292,7 +292,23 @@ app.put('/qa/answers/:answer_id/report', (req, res) => {
     .catch(error => res.status(404).send(error));
 });
 
+// Retrieves list of products added to the cart by a user.
+app.get('/cart', (req, res) => {
+  axios({
+    method: 'get',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/cart',
+    headers: {'Authorization': process.env.GITHUB_TOKEN}
+  })
+    .then(response => res.send(response.data))
+    .catch(error => res.status(404).send(error));
+});
 
+
+
+
+
+
+///////////////////////////////////////////////////////////
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
