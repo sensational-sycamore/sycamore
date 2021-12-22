@@ -183,6 +183,9 @@ app.get('/qa/questions', (req, res) => {
 
 // Returns answers for a given question. This list does not include any reported answers.
 //// product_id	 (integer)
+//// page (integer, default 1)
+//// count (integer, default 5)
+
 app.get('/qa/questions/:question_id/answers', (req, res) => {
   let questionId = req.params.question_id;
   let params = req.query;
@@ -198,9 +201,28 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
     .catch(error => res.status(404).send(error));
 });
 
+// Adds a question for the given product
+/*
+request body sample
+{
+    "body": "frad gthtwhr fahyaterf gtagf",
+    "name": "tester",
+    "email": "tester@gmail.com",
+    "product_id": 123456
+  }
+*/
+app.post('/reviews', (req, res) => {
+  axios({
+    method: 'post',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions',
+    headers: {'Authorization': process.env.GITHUB_TOKEN},
+    data: req.body
+  })
+    .then(response => res.status(201).send(response.data))
+    .catch(error => res.status(404).send(error));
+});
 
-// Returns answers for a given question. This list does not include any reported answers.
-//// product_id	 (integer)
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
