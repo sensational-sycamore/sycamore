@@ -135,12 +135,24 @@ app.post('/reviews', (req, res) => {
     .catch(error => res.status(404).send(error));
 });
 
-
+// Updates a review to show it was found helpful.
 app.put('/reviews/:review_id/helpful', (req, res) => {
   let reviewId = req.params.review_id;
   axios({
     method: 'put',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/${reviewId}/helpful`,
+    headers: {'Authorization': process.env.GITHUB_TOKEN},
+  })
+    .then(response => res.status(204).send(response.data))
+    .catch(error => res.status(404).send(error));
+});
+
+// Updates a review to show it was found helpful.
+app.put('/reviews/:review_id/report', (req, res) => {
+  let reviewId = req.params.review_id;
+  axios({
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/${reviewId}/report`,
     headers: {'Authorization': process.env.GITHUB_TOKEN},
   })
     .then(response => res.status(204).send(response.data))
