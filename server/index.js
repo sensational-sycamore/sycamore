@@ -181,6 +181,20 @@ app.get('/qa/questions', (req, res) => {
     .catch(error => res.status(404).send(error));
 });
 
+// Returns answers for a given question. This list does not include any reported answers.
+//// product_id	 (integer)
+app.get('/qa/questions/:question_id/answers', (req, res) => {
+  let questionId = req.params.question_id;
+
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${questionId}/answers`,
+    headers: {'Authorization': process.env.GITHUB_TOKEN}
+  })
+    .then(response => res.send(response.data))
+    .catch(error => res.status(404).send(error));
+});
+
 
 
 app.listen(port, () => {
