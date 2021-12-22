@@ -211,10 +211,31 @@ request body sample
     "product_id": 123456
   }
 */
-app.post('/reviews', (req, res) => {
+app.post('/qa/questions', (req, res) => {
   axios({
     method: 'post',
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions',
+    headers: {'Authorization': process.env.GITHUB_TOKEN},
+    data: req.body
+  })
+    .then(response => res.status(201).send(response.data))
+    .catch(error => res.status(404).send(error));
+});
+
+// Adds an answer for the given question
+/*
+request body sample
+{
+    "body": "frad gthtwhr fahyaterf gtagf",
+    "name": "tester",
+    "email": "tester@gmail.com"
+  }
+*/
+app.post('/qa/questions/:question_id/answers', (req, res) => {
+  let questionId = req.params.question_id;
+  axios({
+    method: 'post',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${questionId}/answers`,
     headers: {'Authorization': process.env.GITHUB_TOKEN},
     data: req.body
   })
