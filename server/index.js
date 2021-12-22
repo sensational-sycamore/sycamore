@@ -305,6 +305,20 @@ app.get('/cart', (req, res) => {
 
 
 
+// Adds a product to the cart.
+// pass in an sku_id
+//// sku_id seems not to be working. Get 500 Internal Server Error
+//// to be revisited
+app.post('/cart', (req, res) => {
+  axios({
+    method: 'post',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/cart',
+    headers: {'Authorization': process.env.GITHUB_TOKEN},
+    data: req.body
+  })
+    .then(response => res.status(201).send(response.data))
+    .catch(error => res.status(404).send(error));
+});
 
 
 
