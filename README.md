@@ -26,7 +26,9 @@ git push origin feature-branch-name
 ```
 6. Create a pull request from your feature branch on your fork repo to the main branch on the organization repo
 
+# Code Review
 
+1. Every PR should get code review and approval for all the team members prior to "Merge pull request"
 
 # Get Started
 
