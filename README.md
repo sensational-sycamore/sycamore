@@ -4,18 +4,14 @@ This is our project Front-End Capstone.
 
 # Setup & GitHub Flow
 
-1. Create a fork from the organization repo @ https://github.com/sensational-sycamore/sycamore
-2. Clone the repo from your fork to your computer
+1. Clone the repo from the organization to your computer
 ```
-git clone git@github.com:YOUR_GIT_USERNAME/sycamore.git
+git clone https://github.com/sensational-sycamore/sycamore
 ```
-3. Add upstream to remote
+2. Create a feature branch on your computer, and commit your work to it
 ```
-git remote add upstream git@github.com:sensational-sycamore/sycamore.git
-```
-4. Create a feature branch on your computer, and commit your work to it
-```
-git pull upstream main
+git checkout main
+git pull origin main
 git checkout -b feature-branch-name
 git add .
 git commit
@@ -24,7 +20,7 @@ git commit
 ```
 git push origin feature-branch-name
 ```
-6. Create a pull request from your feature branch on your fork repo to the main branch on the organization repo
+6. Create a pull request from your feature branch to the main branch on the organization repo
 
 # Code Review
 
