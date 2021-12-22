@@ -3,6 +3,12 @@ const app = express();
 const port = 3000;
 const axios = require('axios');
 
+// middleware
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
+
 // GitHub token is stored in an .env file
 // please create a .env file in root directory
 // add this line to the .env file: GITHUB_TOKEN:<your github token>
@@ -53,16 +59,99 @@ app.get('/products/:product_id', (req, res) => {
 // support product look up with query strings page (integer, default 1) and count (integer, default 5)
 // example request: axios.get('/products/?page=2&count=5')
 app.get('/products', (req, res) => {
-  let page = req.query.page;
-  let count = req.query.count;
+
+  let params = req.query;
+  var queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+  var queryUrl = '?' + queryString;
+
   axios({
     method: 'get',
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/?page=${page}&count=${count}`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/products/${queryUrl}`,
     headers: {'Authorization': process.env.GITHUB_TOKEN}
   })
     .then(response => res.send(response.data))
     .catch(error => res.status(404).send(error));
 });
+
+// Returns review metadata for a given product with query paremeters:
+//// product_id	 (integer)
+app.get('/reviews/meta', (req, res) => {
+  let params = req.query;
+  var queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+  var queryUrl = '?' + queryString;
+
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/meta/${queryUrl}`,
+    headers: {'Authorization': process.env.GITHUB_TOKEN}
+  })
+    .then(response => res.send(response.data))
+    .catch(error => res.status(404).send(error));
+});
+
+
+// returns list of reviews for a particular product with query paremeters:
+//// page (integer, default 1)
+//// count (integer, default 5)
+//// sort (text, "newest", "helpful", or "relevant")
+//// product_id	 (integer)
+// example request: axios.get('/reviews/?product_id=63609')
+app.get('/reviews', (req, res) => {
+  let params = req.query;
+  var queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+  var queryUrl = '?' + queryString;
+
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/${queryUrl}`,
+    headers: {'Authorization': process.env.GITHUB_TOKEN}
+  })
+    .then(response => res.send(response.data))
+    .catch(error => res.status(404).send(error));
+});
+
+// adds a review for the given product
+/*
+request body sample
+{
+    "product_id": 63609,
+    "rating": 5,
+    "summary": "Great Product",
+    "body": "frad gthtwhr fahyaterf gtagf",
+    "recommend": true,
+    "name": "tester",
+    "email": "tester@gmail.com",
+    "characteristics": {}
+  }
+*/
+app.post('/reviews', (req, res) => {
+  axios({
+    method: 'post',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews',
+    headers: {'Authorization': process.env.GITHUB_TOKEN},
+    data: req.body
+  })
+    .then(response => res.status(201).send(response.data))
+    .catch(error => res.status(404).send(error));
+});
+
+
+app.put('/reviews/:review_id/helpful', (req, res) => {
+  let reviewId = req.params.review_id;
+  axios({
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews/${reviewId}/helpful`,
+    headers: {'Authorization': process.env.GITHUB_TOKEN},
+  })
+    .then(response => res.status(204).send(response.data))
+    .catch(error => res.status(404).send(error));
+});
+
+
+
+
+
+
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
