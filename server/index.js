@@ -243,6 +243,29 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
     .catch(error => res.status(404).send(error));
 });
 
+// Updates a question to show it was found helpful.
+app.put('/qa/questions/:question_id/helpful', (req, res) => {
+  let questionId = req.params.question_id;
+  axios({
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${questionId}/helpful`,
+    headers: {'Authorization': process.env.GITHUB_TOKEN},
+  })
+    .then(response => res.status(204).send(response.data))
+    .catch(error => res.status(404).send(error));
+});
+
+// Updates a question to show it was reported. Note, this action does not delete the question, but the question will not be returned in the above GET request.
+app.put('/qa/questions/:question_id/report', (req, res) => {
+  let questionId = req.params.question_id;
+  axios({
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${questionId}/report`,
+    headers: {'Authorization': process.env.GITHUB_TOKEN},
+  })
+    .then(response => res.status(204).send(response.data))
+    .catch(error => res.status(404).send(error));
+});
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
