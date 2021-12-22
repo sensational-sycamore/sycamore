@@ -28,6 +28,6 @@ git push origin feature-branch-name
 
 # Get Started
 
-TODO...
-
-
+```
+npm install
+```
