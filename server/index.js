@@ -185,10 +185,13 @@ app.get('/qa/questions', (req, res) => {
 //// product_id	 (integer)
 app.get('/qa/questions/:question_id/answers', (req, res) => {
   let questionId = req.params.question_id;
+  let params = req.query;
+  var queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+  var queryUrl = '?' + queryString;
 
   axios({
     method: 'get',
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${questionId}/answers`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${questionId}/answers/${queryUrl}`,
     headers: {'Authorization': process.env.GITHUB_TOKEN}
   })
     .then(response => res.send(response.data))
@@ -196,7 +199,8 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
 });
 
 
-
+// Returns answers for a given question. This list does not include any reported answers.
+//// product_id	 (integer)
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
