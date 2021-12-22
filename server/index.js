@@ -280,6 +280,18 @@ app.put('/qa/answers/:answer_id/helpful', (req, res) => {
     .catch(error => res.status(404).send(error));
 });
 
+// Report an answer
+app.put('/qa/answers/:answer_id/report', (req, res) => {
+  let answerId = req.params.answer_id;
+  axios({
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/answers/${answerId}/report`,
+    headers: {'Authorization': process.env.GITHUB_TOKEN},
+  })
+    .then(response => res.status(204).send(response.data))
+    .catch(error => res.status(404).send(error));
+});
+
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
