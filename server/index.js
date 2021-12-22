@@ -14,6 +14,8 @@ app.use(express.urlencoded({
 // add this line to the .env file: GITHUB_TOKEN:<your github token>
 require('dotenv').config();
 
+
+
 // server routes
 /////////////////////////////////////////////////////////////////////
 
@@ -160,8 +162,24 @@ app.put('/reviews/:review_id/report', (req, res) => {
 });
 
 
+// Retrieves a list of questions for a particular product. This list does not include any reported questions.
+//// page (integer, default 1)
+//// count (integer, default 5)
+//// product_id	 (integer)
 
+app.get('/qa/questions', (req, res) => {
+  let params = req.query;
+  var queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+  var queryUrl = '?' + queryString;
 
+  axios({
+    method: 'get',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${queryUrl}`,
+    headers: {'Authorization': process.env.GITHUB_TOKEN}
+  })
+    .then(response => res.send(response.data))
+    .catch(error => res.status(404).send(error));
+});
 
 
 
