@@ -267,6 +267,20 @@ app.put('/qa/questions/:question_id/report', (req, res) => {
     .catch(error => res.status(404).send(error));
 });
 
+
+// Updates an answer to show it was found helpful.
+app.put('/qa/answers/:answer_id/helpful', (req, res) => {
+  let answerId = req.params.answer_id;
+  axios({
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/answers/${answerId}/helpful`,
+    headers: {'Authorization': process.env.GITHUB_TOKEN},
+  })
+    .then(response => res.status(204).send(response.data))
+    .catch(error => res.status(404).send(error));
+});
+
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
