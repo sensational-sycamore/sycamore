@@ -321,6 +321,18 @@ app.post('/cart', (req, res) => {
 });
 
 
+// Adds a interaction to the db.
+app.post('/interactions', (req, res) => {
+  axios({
+    method: 'post',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/interactions',
+    headers: {'Authorization': process.env.GITHUB_TOKEN},
+    data: req.body
+  })
+    .then(response => res.status(201).send(response.data))
+    .catch(error => res.status(404).send(error));
+});
+
 
 ///////////////////////////////////////////////////////////
 app.listen(port, () => {
