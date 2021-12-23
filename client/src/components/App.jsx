@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import Overview from './Overview/Overview.jsx';
 
 class App extends React.Component {
@@ -20,5 +21,15 @@ class App extends React.Component {
   }
 }
 
+=======
+
+const App = () => {
+  return (
+    <div>
+      <h1>Hello World</h1>
+    </div>
+  );
+};
+>>>>>>> 4dacb97 (setting up Jest)
 
 export default App;
