@@ -2,12 +2,15 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const axios = require('axios');
+const path = require('path');
 
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }));
+
+app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 // GitHub token is stored in an .env file
 // please create a .env file in root directory
