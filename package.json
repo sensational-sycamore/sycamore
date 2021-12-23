@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "webpack --config webpack.config.js --mode development"
   },
   "repository": {
@@ -23,6 +23,9 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "react-test-renderer": "^17.0.2",
+    "babel-jest": "^27.4.5",
+    "jest": "^27.4.5",
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
