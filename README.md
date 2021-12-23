@@ -22,6 +22,13 @@ git push origin feature-branch-name
 ```
 6. Create a pull request from your feature branch to the main branch on the organization repo
 
+7. To comeback to the main branch
+```
+git checkout main
+git pull origin main
+```
+8. To added new branch, start with the step 2.
+
 # Code Review
 
 1. Every PR should get code review and approval for all the team members prior to "Merge pull request"
