@@ -6,12 +6,12 @@ import WritingReview from './WritingReview/WritingReview.jsx';
 import RatingBreakdown from './RatingBreakdown/RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown/ProductBreakdown.jsx';
 
-const RatingsAndReviews = () => {
+const RatingsAndReviews = ({productId} ) => {
   return (
     <div className='ratings-and-reviews'>
+      <ReviewsList productId={productId} />
+      <WritingReview productId={productId} />
       <Sorting />
-      <ReviewsList />
-      <WritingReview />
       <RatingBreakdown />
       <ProductBreakdown />
     </div>
