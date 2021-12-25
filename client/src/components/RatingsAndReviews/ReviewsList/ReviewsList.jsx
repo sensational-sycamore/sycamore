@@ -2,7 +2,7 @@ import React from 'react';
 import './ReviewsList.scss';
 import data from '../dummy_data.js';
 import ReviewsListItem from './ReviewsListItem.jsx';
-import axios from 'axios';
+
 
 class ReviewsList extends React.Component {
   constructor(props) {
@@ -10,41 +10,37 @@ class ReviewsList extends React.Component {
 
     this.state = {
       productId: props.productId,
-      reviews: [],
-      meta: {}
+      indexNum: 2,
+      showMoreReviewsButton: props.showMoreReviewsButton
     };
+    this.handMoreReviewsClick = this.handMoreReviewsClick.bind(this);
   }
 
-  componentDidMount() {
-    axios.get(`/reviews/?product_id=${this.props.productId}`)
-      .then(response => {
-        console.log('response from axios get:', response.data.results);
-        this.setState({ reviews: response.data.results });
-      })
-      .catch(err => {
-        console.log('error');
-      });
 
-    axios.get(`/reviews/meta/?product_id=${this.props.productId}`)
-      .then(response => {
-        console.log('response from axios get meta:', response.data);
-        this.setState({ meta: response.data });
-      })
-      .catch(err => {
-        console.log('error');
-      });
-
+  handMoreReviewsClick() {
+    const {reviews} = this.props;
+    const { indexNum, showMoreReviewsButton} = this.state;
+    let newIndex = indexNum + 2;
+    if (newIndex >= reviews.length) {
+      this.setState({ showMoreReviewsButton: false });
+      newIndex = reviews.length;
+    }
+    this.setState({ indexNum: newIndex});
   }
 
   render() {
-    const { productId } = this.props;
-    const { reviews } = this.state;
+    const { reviews, productId } = this.props;
+    const { indexNum, showMoreReviewsButton } = this.state;
 
     return (
       <div>
-        {reviews.map(review => (
-          <ReviewsListItem review={review} key={review.review_id} />
-        ))}
+        {reviews.map((review, index) => {
+          if (index < indexNum) {
+            return <ReviewsListItem review={review} key={review.review_id} />;
+          }
+        })}
+        {showMoreReviewsButton && <button onClick={this.handMoreReviewsClick}>MORE REVIEWS</button>}
+        <button>ADD A REVIEW</button>
 
       </div>
     );

@@ -16,11 +16,16 @@ class ReviewsListItem extends React.Component {
     return (
       <div>
         <div>
-          <span>{review.reviewer_name} </span>
+          <span>{review.review_id} </span>
+          <span>rating:{review.rating} </span>
+
           <span>{moment(review.date).format('MM/DD/YYYY')} </span>
         </div>
         <div>{review.summary}</div>
         <div>{review.body}</div>
+        {review.recommend && <div>I recommend this product</div> }
+        <div>{review.reviewer_name} </div>
+        {review.response !== null && <div>review.response:{review.response}</div>}
         <div>
           <span>Helpful? Yes({review.helpfulness})</span>
           <span> | Report </span>
