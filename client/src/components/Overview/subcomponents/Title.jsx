@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Title = () => (
+const Title = ({ product }) => (
   <div>
-    <h1>Title</h1>
+    <div>{product.slogan}</div>
   </div>
 );
 
