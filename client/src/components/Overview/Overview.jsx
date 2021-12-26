@@ -5,6 +5,7 @@ import Category from './subcomponents/Category.jsx';
 import Description from './subcomponents/Description.jsx';
 import Ratings from './subcomponents/Ratings.jsx';
 import Title from './subcomponents/Title.jsx';
+import Price from './subcomponents/Price.jsx';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -61,6 +62,7 @@ class Overview extends React.Component {
         <Description product={this.state.product} />
         <Title product={this.state.product} />
         <Ratings reviews={this.state.reviews} />
+        <Price currStyle={this.state.currStyle} />
         <hr />
       </div>
     );
