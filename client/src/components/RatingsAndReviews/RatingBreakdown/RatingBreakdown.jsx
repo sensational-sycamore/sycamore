@@ -2,6 +2,8 @@ import React from 'react';
 import './RatingBreakdown.scss';
 import RatingBreakdownItem from './RatingBreakdownItem.jsx';
 import NumberFormat from 'react-number-format';
+import StarRating from './StarRating.jsx';
+
 
 class RatingBreakdown extends React.Component {
   constructor(props) {
@@ -16,10 +18,12 @@ class RatingBreakdown extends React.Component {
 
     return (
       <div>
-        <h2>average rating is:
-          <NumberFormat displayType="text" value={averageRating} decimalScale={1} isNumericString={true} />
-
-        </h2>
+        <div>
+          <h2>
+            <NumberFormat displayType="text" value={averageRating} decimalScale={1} isNumericString={true} />
+          </h2>
+          <StarRating averageRating={averageRating} />
+        </div>
         {ratingArray.length > 0 &&
           ratingArray.map(rating => (
             <RatingBreakdownItem rating={rating} averageRating={averageRating}
