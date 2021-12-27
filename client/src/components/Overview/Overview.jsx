@@ -6,6 +6,7 @@ import Description from './subcomponents/Description.jsx';
 import Ratings from './subcomponents/Ratings.jsx';
 import Title from './subcomponents/Title.jsx';
 import Price from './subcomponents/Price.jsx';
+import StyleSelector from './subcomponents/StyleSelector.jsx';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Overview extends React.Component {
     this.getProductInfo = this.getProductInfo.bind(this);
     this.getStylesInfo = this.getStylesInfo.bind(this);
     this.getReviewsInfo = this.getReviewsInfo.bind(this);
+    this.handleStyleSelect = this.handleStyleSelect.bind(this);
   }
 
   componentDidMount() {
@@ -52,6 +54,10 @@ class Overview extends React.Component {
       }));
   }
 
+  handleStyleSelect(style) {
+    this.setState({currStyle: style});
+  }
+
   render() {
     return (
       <div>
@@ -63,6 +69,7 @@ class Overview extends React.Component {
         <Title product={this.state.product} />
         <Ratings reviews={this.state.reviews} />
         <Price currStyle={this.state.currStyle} />
+        <StyleSelector styles={this.state.styles} currStyle={this.state.currStyle} handleStyleSelect={this.handleStyleSelect}/>
         <hr />
       </div>
     );
