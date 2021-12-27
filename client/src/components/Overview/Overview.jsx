@@ -7,7 +7,7 @@ import Ratings from './subcomponents/Ratings.jsx';
 import Title from './subcomponents/Title.jsx';
 import Price from './subcomponents/Price.jsx';
 import StyleSelector from './subcomponents/StyleSelector.jsx';
-import SizeSelector from './subcomponents/SizeSelector.jsx';
+import Cart from './subcomponents/Cart.jsx';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -19,14 +19,12 @@ class Overview extends React.Component {
       styles: [],
       currStyle: {'skus': {}},
       reviews: [{'rating': 5}],
-      currSize: ''
     };
 
     this.getProductInfo = this.getProductInfo.bind(this);
     this.getStylesInfo = this.getStylesInfo.bind(this);
     this.getReviewsInfo = this.getReviewsInfo.bind(this);
     this.handleStyleSelect = this.handleStyleSelect.bind(this);
-    this.handleSizeSelect = this.handleSizeSelect.bind(this);
   }
 
   componentDidMount() {
@@ -61,10 +59,6 @@ class Overview extends React.Component {
     this.setState({currStyle: style});
   }
 
-  handleSizeSelect(size) {
-    this.setState({currSize: size});
-  }
-
   render() {
     return (
       <div>
@@ -77,7 +71,7 @@ class Overview extends React.Component {
         <Ratings reviews={this.state.reviews} />
         <Price currStyle={this.state.currStyle} />
         <StyleSelector styles={this.state.styles} currStyle={this.state.currStyle} handleStyleSelect={this.handleStyleSelect}/>
-        <SizeSelector currStyle={this.state.currStyle} handleSizeSelect={this.handleSizeSelect}/>
+        <Cart styles={this.state.styles} currStyle={this.state.currStyle} />
         <hr />
       </div>
     );

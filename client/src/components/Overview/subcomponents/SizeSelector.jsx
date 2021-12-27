@@ -5,10 +5,10 @@ const SizeSelector = ({ currStyle, handleSizeSelect }) => (
     {Object.keys(currStyle.skus).map(sku => {
       if (currStyle.skus[sku].quantity < 1) {
         return (
-          <div className="unavailable">{currStyle.skus[sku].size}</div>
+          <div key={sku} onClick={() => handleSizeSelect(sku)} className="unavailable">{currStyle.skus[sku].size}</div>
         );
       } else {
-        return <div className="available">{currStyle.skus[sku].size}</div>;
+        return <div key={sku} onClick={() => handleSizeSelect(sku)} className="available">{currStyle.skus[sku].size}</div>;
       }
     })}
   </ul>
