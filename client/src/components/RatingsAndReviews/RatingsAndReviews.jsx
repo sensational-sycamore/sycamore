@@ -17,16 +17,17 @@ class RatingsAndReviews extends React.Component {
       averageRating: 0,
       totalNumberRating: 0,
       percentRecommend: 0,
-      ratingArray: []
+      ratingArray: [],
+      numStarReviewsToRender: []
     };
     this.calcRating = this.calcRating.bind(this);
+    this.filterReviews = this.filterReviews.bind(this);
   }
 
   componentDidMount() {
     axios.get(`/reviews/?product_id=${this.props.productId}`)
       .then(response => {
         console.log('response from axios get:', response.data.results);
-
         this.setState({ reviews: response.data.results }, () => {
           if (this.state.reviews.length <= 2) {
             this.setState({ showMoreReviewsButton: false });
@@ -60,7 +61,6 @@ class RatingsAndReviews extends React.Component {
         totalScore += Number(rating[key]) * Number(key);
       }
       const averageRating = totalScore / totalNumberRating;
-      console.log('averageRating from calcRating:', averageRating);
       this.setState({ averageRating: averageRating });
       this.setState({ totalNumberRating: totalNumberRating });
       let ratingArray = [];
@@ -72,13 +72,34 @@ class RatingsAndReviews extends React.Component {
         };
         ratingArray.push(obj);
       }
-      console.log('ratingArray from calcRating:', ratingArray);
       this.setState({ ratingArray: ratingArray });
       const recommend = meta.recommended;
       const percentRecommend = (Number(recommend.true) + Number(recommend.false)) > 0 ? 100 * Number(recommend.true) / (Number(recommend.true) + Number(recommend.false)) : 0;
       this.setState({ percentRecommend: percentRecommend });
     }
   }
+
+  filterReviews(rating) {
+    let { numStarReviewsToRender } = this.state;
+    if (numStarReviewsToRender.length === 0) {
+      numStarReviewsToRender.push(rating);
+      this.setState({ numStarReviewsToRender: numStarReviewsToRender });
+    } else {
+      if (numStarReviewsToRender.indexOf(rating) !== -1) {
+        if (numStarReviewsToRender.length === 1) {
+          this.setState({ numStarReviewsToRender: [] });
+        } else {
+          let idx = numStarReviewsToRender.indexOf(rating);
+          numStarReviewsToRender.splice(idx, 1);
+          this.setState({ numStarReviewsToRender: numStarReviewsToRender });
+        }
+      } else {
+        numStarReviewsToRender.push(rating);
+        this.setState({ numStarReviewsToRender: numStarReviewsToRender });
+      }
+    }
+  }
+
 
   render() {
     const { productId } = this.props;
@@ -87,12 +108,16 @@ class RatingsAndReviews extends React.Component {
     return (
       <div className='ratings-and-reviews'>
         <h4>RATINGS AND REVIEWS</h4>
-        <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} />
+        <div className='rowC'>
+          <RatingBreakdown productId={productId} meta={meta} averageRating={averageRating} ratingArray={ratingArray} totalNumberRating={totalNumberRating}
+            percentRecommend={percentRecommend}
+            filterReviews={this.filterReviews}
+          />
+          <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} />
+        </div>
         <WritingReview productId={productId} />
-        {/* <Sorting /> */}
-        <RatingBreakdown productId={productId} meta={meta} averageRating={averageRating} ratingArray={ratingArray} totalNumberRating={totalNumberRating}
-          percentRecommend={percentRecommend} />
         {/* <ProductBreakdown /> */}
+        {/* <Sorting /> */}
       </div>
     );
   }

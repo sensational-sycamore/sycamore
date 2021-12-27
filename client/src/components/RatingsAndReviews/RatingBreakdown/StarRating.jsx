@@ -17,7 +17,7 @@ class StarRating extends React.Component {
           {[...Array(5)].map((star, i) => {
             const ratingValue = i + 1;
             return (
-              <FaStar className="star" color={ratingValue <= averageRating ? '#ffc107' : '#e4e5e9'} size={30}
+              <FaStar className="star" color={ratingValue <= averageRating ? '#ffc107' : '#e4e5e9'} size={20}
                 key={i}
               />
             );

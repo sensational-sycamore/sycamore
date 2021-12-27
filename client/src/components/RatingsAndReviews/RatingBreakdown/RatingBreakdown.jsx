@@ -13,22 +13,24 @@ class RatingBreakdown extends React.Component {
   }
 
   render() {
-    const { meta, ratingArray, averageRating, totalNumberRating, percentRecommend } = this.props;
-    console.log('ratingArray from breakdown:', ratingArray);
+    const { meta, ratingArray, averageRating, totalNumberRating, percentRecommend, filterReviews } = this.props;
 
     return (
       <div>
-        <div>
+        <div className='avg-rating'>
           <h2>
             <NumberFormat displayType="text" value={averageRating} decimalScale={1} isNumericString={true} />
           </h2>
-          <StarRating averageRating={averageRating} />
+          <span class='avg-star'>
+            <StarRating averageRating={averageRating} />
+            </span>
         </div>
         {ratingArray.length > 0 &&
           ratingArray.map(rating => (
             <RatingBreakdownItem rating={rating} averageRating={averageRating}
               totalNumberRating={totalNumberRating}
-              key={rating.level} />
+              key={rating.level}
+              filterReviews={filterReviews} />
           )
           )
         }
