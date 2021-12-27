@@ -6,8 +6,7 @@ import QuestionListItemAnswerImages from '../QuestionListItemAnswerImages/Questi
 const QuestionListItemAnswer = () => {
   return (
     <li>
-      Answer1:
-      <QuestionListItemAnswerImages />
+      The answer is that the more I know...      <QuestionListItemAnswerImages />
       <QuestionListItemAnswerActions />
     </li>
   );
