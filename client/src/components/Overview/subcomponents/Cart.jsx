@@ -1,6 +1,7 @@
 import React from 'react';
 import SizeSelector from './SizeSelector.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
+import AddToCart from './AddToCart.jsx';
 
 
 class Cart extends React.Component {
@@ -21,7 +22,7 @@ class Cart extends React.Component {
   }
   handleQuantitySelect(quantity) {
     this.setState({currQuantity: quantity});
-    console.log(this.state)
+    console.log(this.state);
   }
 
   render() {
@@ -29,6 +30,7 @@ class Cart extends React.Component {
       <div>
         <SizeSelector currStyle={this.props.currStyle} handleSizeSelect={this.handleSizeSelect}/>
         <QuantitySelector handleQuantitySelect={this.handleQuantitySelect}/>
+        <AddToCart currSku={this.state.currSku} currQuantity={this.state.currQuantity}/>
       </div>
     );
   }
