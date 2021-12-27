@@ -3,7 +3,10 @@ import './QuestionsAndAnswersActions.scss';
 
 const QuestionsAndAnswersActions = () => {
   return (
-    <p>QuestionsAndAnswersActions</p>
+    <div>
+      <button>More answered questions</button>
+      <button>Add a question</button>
+    </div>
   );
 };
 
