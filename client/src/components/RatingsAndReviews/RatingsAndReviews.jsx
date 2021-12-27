@@ -13,7 +13,8 @@ class RatingsAndReviews extends React.Component {
     this.state = {
       reviews: [],
       meta: {},
-      showMoreReviewsButton: true
+      showMoreReviewsButton: true,
+      productName: 'Camo Onesie'
     };
   }
 
@@ -45,12 +46,12 @@ class RatingsAndReviews extends React.Component {
 
   render() {
     const { productId } = this.props;
-    const {reviews, showMoreReviewsButton} = this.state;
+    const {reviews, showMoreReviewsButton, productName} = this.state;
 
     return (
       <div className='ratings-and-reviews'>
         <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} />
-        <WritingReview productId={productId} />
+        <WritingReview productId={productId} productName={productName} />
         <Sorting />
         <RatingBreakdown />
         <ProductBreakdown />

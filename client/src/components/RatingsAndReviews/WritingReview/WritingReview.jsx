@@ -1,10 +1,28 @@
 import React from 'react';
 import './WritingReview.scss';
 
-const WritingReview = () => {
-  return (
-    <p>WritingReview</p>
-  );
-};
+class WritingReview extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+    };
+
+  }
+
+
+  render() {
+    const { reviews, productId } = this.props;
+    const { indexNum, showMoreReviewsButton } = this.state;
+
+    return (
+      <form>
+        
+
+      </form>
+    );
+  }
+}
+
 
 export default WritingReview;
