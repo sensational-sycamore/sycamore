@@ -3,7 +3,9 @@ import './SearchQuestions.scss';
 
 const SearchQuestions = () => {
   return (
-    <p>SearchQuestions</p>
+    <div className="searchInput">
+      <input type="search" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."/>
+    </div>
   );
 };
 
