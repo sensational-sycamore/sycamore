@@ -8,6 +8,7 @@ import Title from './subcomponents/Title.jsx';
 import Price from './subcomponents/Price.jsx';
 import StyleSelector from './subcomponents/StyleSelector.jsx';
 import Cart from './subcomponents/Cart.jsx';
+import Gallery from './subcomponents/Gallery.jsx';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Overview extends React.Component {
       productId: this.props.productId,
       product: {},
       styles: [],
-      currStyle: {'skus': {}},
+      currStyle: {'skus': {}, 'photos': [{'url': ''}]},
       reviews: [{'rating': 5}],
     };
 
@@ -72,6 +73,7 @@ class Overview extends React.Component {
         <Price currStyle={this.state.currStyle} />
         <StyleSelector styles={this.state.styles} currStyle={this.state.currStyle} handleStyleSelect={this.handleStyleSelect}/>
         <Cart styles={this.state.styles} currStyle={this.state.currStyle} />
+        <Gallery currStyle={this.state.currStyle} />
         <hr />
       </div>
     );
