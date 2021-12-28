@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import OverviewCss from './style/overview.css';
 import Category from './subcomponents/Category.jsx';
 import Description from './subcomponents/Description.jsx';
 import Ratings from './subcomponents/Ratings.jsx';
@@ -9,7 +8,7 @@ import Price from './subcomponents/Price.jsx';
 import StyleSelector from './subcomponents/StyleSelector.jsx';
 import Cart from './subcomponents/Cart.jsx';
 import Gallery from './subcomponents/Gallery.jsx';
-
+import css from './styles/overview.module.css';
 class Overview extends React.Component {
   constructor(props) {
     super(props);
@@ -62,19 +61,19 @@ class Overview extends React.Component {
 
   render() {
     return (
-      <div>
-        <hr />
-        <h1 className="title">This is the Overview Div</h1>
-        <div>Product id {this.state.productId}</div>
-        <Category product={this.state.product} />
-        <Description product={this.state.product} />
-        <Title product={this.state.product} />
-        <Ratings reviews={this.state.reviews} />
-        <Price currStyle={this.state.currStyle} />
-        <StyleSelector styles={this.state.styles} currStyle={this.state.currStyle} handleStyleSelect={this.handleStyleSelect}/>
-        <Cart styles={this.state.styles} currStyle={this.state.currStyle} />
-        <Gallery currStyle={this.state.currStyle} />
-        <hr />
+      <div className={css.gridContainer}>
+        <div className={css.major}>
+          <Gallery className={css.gallery} currStyle={this.state.currStyle} />
+          <Description className={css.description} product={this.state.product} />
+        </div>
+        <div className={css.minor}>
+          <Category product={this.state.product} />
+          <Title product={this.state.product} />
+          <Ratings reviews={this.state.reviews} />
+          <Price currStyle={this.state.currStyle} />
+          <StyleSelector styles={this.state.styles} currStyle={this.state.currStyle} handleStyleSelect={this.handleStyleSelect}/>
+          <Cart styles={this.state.styles} currStyle={this.state.currStyle} />
+        </div>
       </div>
     );
   }

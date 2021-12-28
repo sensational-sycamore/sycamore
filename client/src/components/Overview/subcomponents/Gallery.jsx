@@ -27,7 +27,6 @@ class Gallery extends React.Component {
     const { currStyle } = this.props;
     return (
       <div>
-        <div>Gallery</div>
         <img style={{width: 300}} src={this.state.currImage} alt="" />
         {currStyle.photos.map(photo => (
           <img onClick={() => this.handleImageSelect(photo)}style={{width: 50}} src={photo.thumbnail_url} alt="" key={photo.url}/>
