@@ -41,7 +41,7 @@ class RatingsAndReviews extends React.Component {
     axios.get(`/reviews/meta/?product_id=${this.props.productId}`)
       .then(response => {
         console.log('response from axios get meta:', response.data);
-        this.setState({ meta: response.data }, () => this.calcRating.bind(this)(this.state.meta));
+        this.setState({ meta: response.data }, () => this.calcRating(this.state.meta));
       })
       .catch(err => {
         console.log('error');

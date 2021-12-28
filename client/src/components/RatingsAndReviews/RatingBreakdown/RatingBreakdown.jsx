@@ -21,7 +21,7 @@ class RatingBreakdown extends React.Component {
           <h2>
             <NumberFormat displayType="text" value={averageRating} decimalScale={1} isNumericString={true} />
           </h2>
-          <span class='avg-star'>
+          <span className='avg-star'>
             <StarRating averageRating={averageRating} />
             </span>
         </div>
