@@ -1,0 +1,17 @@
+h2 {
+  color: #888;
+  width: 60px;
+  height: 30px;
+  font-size: 30px
+};
+
+.avg-star {
+  width: 120px;
+  height: 30px;
+  line-height: 90px;
+};
+
+.avg-rating {
+    display: flex;
+    flex-direction: row;
+};
