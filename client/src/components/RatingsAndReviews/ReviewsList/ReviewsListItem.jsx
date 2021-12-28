@@ -14,17 +14,18 @@ class ReviewsListItem extends React.Component {
     const { review } = this.props;
 
     return (
-      <div>
+      <div className='review_list'>
         <div>
           <span>{review.review_id} </span>
           <span>rating:{review.rating} </span>
-
+          <span>{review.reviewer_name} </span>
           <span>{moment(review.date).format('MM/DD/YYYY')} </span>
         </div>
-        <div>{review.summary}</div>
-        <div>{review.body}</div>
-        {review.recommend && <div>I recommend this product</div> }
-        <div>{review.reviewer_name} </div>
+        <h4>{review.summary}</h4>
+        <p>{review.body}</p>
+
+        {review.recommend && <p>I recommend this product</p>}
+
         {review.response !== null && <div>review.response:{review.response}</div>}
         <div>
           <span>Helpful? Yes({review.helpfulness})</span>

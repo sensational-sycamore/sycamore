@@ -1,0 +1,21 @@
+//  .box {
+//    display:flex; flex-direction:row;
+// }
+
+.box {
+  width: 1000px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.rating_box {
+  float: left;
+  width: 350px;
+  height: 500px;
+}
+
+.reviewlist_box {
+  float: left;
+  width: 650px;
+  height: 500px;
+}
