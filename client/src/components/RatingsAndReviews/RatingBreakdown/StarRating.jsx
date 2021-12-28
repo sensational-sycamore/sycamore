@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './StarRating.scss';
 import { FaStar } from 'react-icons/fa';
 
-
 class StarRating extends React.Component {
   constructor(props) {
     super(props);

@@ -4,7 +4,6 @@ import RatingBreakdownItem from './RatingBreakdownItem.jsx';
 import NumberFormat from 'react-number-format';
 import StarRating from './StarRating.jsx';
 
-
 class RatingBreakdown extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +22,7 @@ class RatingBreakdown extends React.Component {
           </h2>
           <span className='avg-star'>
             <StarRating averageRating={averageRating} />
-            </span>
+          </span>
         </div>
         {ratingArray.length > 0 &&
           ratingArray.map(rating => (

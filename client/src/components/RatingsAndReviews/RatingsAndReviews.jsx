@@ -100,11 +100,9 @@ class RatingsAndReviews extends React.Component {
     }
   }
 
-
   render() {
     const { productId } = this.props;
     const { reviews, showMoreReviewsButton, meta, averageRating, ratingArray, totalNumberRating, percentRecommend } = this.state;
-
     return (
       <div className='ratings-and-reviews'>
         <h4>RATINGS AND REVIEWS</h4>
