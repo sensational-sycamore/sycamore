@@ -17,11 +17,9 @@ const QuestionsAndAnswers = ({productId}) => {
   useEffect(() => {
     axios(`http://localhost:3000/qa/questions?product_id=${productId}&page=1&count=5`)
       .then(res => {
-        const qa = res.data.results;
-        debugger
-        setQuestionsAndAnswers(qa);
+        setQuestionsAndAnswers(res.data.results);
       });
-  }, []);
+  }, [productId]);
 
   const renderAddQuestionModal = () => {
     if (showAddQuestionModal) {
@@ -46,7 +44,7 @@ const QuestionsAndAnswers = ({productId}) => {
     console.log('onAnswerHelpulButtonClick', id);
   };
 
-
+  console.log('Questions And Answers questionsAndAnswers', questionsAndAnswers);
 
   return (
     <div className='questions-and-answers'>

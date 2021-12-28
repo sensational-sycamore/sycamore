@@ -12,6 +12,7 @@ const QuestionsList = ({
     <>
       <ul>
         {questionsAndAnswers.map(qa => {
+          console.log('Question List QA', qa);
           return (
             <QuestionListItem
               key={qa.question_id}

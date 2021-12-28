@@ -15,6 +15,8 @@ const QuestionsListItem = ({
   onAnswerHelpulButtonClick,
   setShowAddAnswerModal
 }) => {
+  console.log('Question List Item question', question);
+  console.log('Question List Item answers', answers);
   return (
     <li>
       <div>
@@ -43,7 +45,7 @@ const QuestionsListItem = ({
                 date={answer.date}
                 helpfulness={answer.helpfulness}
                 id={answer.id}
-                photos={answer.photos}
+                images={answer.photos}
                 onHelpulButtonClick={onAnswerHelpulButtonClick}
               />
             );

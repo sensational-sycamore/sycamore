@@ -8,14 +8,13 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      productId: 63614
+      productId: 63615
     };
   }
 
   render() {
     return (
       <div>
-        <h1>Hello World</h1>
         <Overview productId={this.state.productId}/>
         <QuestionsAndAnswers productId={this.state.productId}/>
         <RatingsAndReviews productId={this.state.productId}/>

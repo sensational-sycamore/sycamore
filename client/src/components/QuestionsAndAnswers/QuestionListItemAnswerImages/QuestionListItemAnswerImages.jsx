@@ -1,11 +1,17 @@
 import React from 'react';
 import './QuestionListItemAnswerImages.scss';
 
-const QuestionListItemAnswerImages = () => {
+const QuestionListItemAnswerImages = ({images}) => {
+  console.log('images', images);
   return (
     <ul className="answer-images">
-      <li><img src="https://via.placeholder.com/150"/></li>
-      <li><img src="https://via.placeholder.com/150"/></li>
+      {images.map((image, idx) => {
+        return (
+          <li className="answer-image" key={idx}>
+            <img src={image}/>
+          </li>
+        );
+      })}
     </ul>
   );
 };
