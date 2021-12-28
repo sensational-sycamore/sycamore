@@ -2,12 +2,16 @@ import React from 'react';
 import './QuestionsList.scss';
 import QuestionListItem from '../QuestionListItem/QuestionListItem.jsx';
 
-const QuestionsList = ({questionsAndAnswers}) => {
+const QuestionsList = ({
+  questionsAndAnswers,
+  onQuestionHelpulButtonClick,
+  onAnswerHelpulButtonClick,
+  setShowAddAnswerModal
+}) => {
   return (
     <>
       <ul>
         {questionsAndAnswers.map(qa => {
-          console.log(qa)
           return (
             <QuestionListItem
               key={qa.question_id}
@@ -18,6 +22,9 @@ const QuestionsList = ({questionsAndAnswers}) => {
               id={qa.question_id}
               reported={qa.reported}
               answers={qa.answers}
+              onQuestionHelpulButtonClick={onQuestionHelpulButtonClick}
+              onAnswerHelpulButtonClick={onAnswerHelpulButtonClick}
+              setShowAddAnswerModal={setShowAddAnswerModal}
             />);
         })}
       </ul>

@@ -3,7 +3,18 @@ import './QuestionListItem.scss';
 import QuestionListItemAnswer from '../QuestionListItemAnswer/QuestionListItemAnswer.jsx';
 import QuestionListItemQuestion from '../QuestionListItemQuestion/QuestionListItemQuestion.jsx';
 
-const QuestionsListItem = ({author, question, date, helpfulness, id, reported, answers}) => {
+const QuestionsListItem = ({
+  id,
+  author,
+  question,
+  date,
+  helpfulness,
+  reported,
+  answers,
+  onQuestionHelpulButtonClick,
+  onAnswerHelpulButtonClick,
+  setShowAddAnswerModal
+}) => {
   return (
     <li>
       <div>
@@ -15,6 +26,8 @@ const QuestionsListItem = ({author, question, date, helpfulness, id, reported, a
           helpfulness={helpfulness}
           id={id}
           reported={reported}
+          onHelpulButtonClick={onQuestionHelpulButtonClick}
+          setShowAddAnswerModal={setShowAddAnswerModal}
         />
       </div>
       <div>
@@ -31,6 +44,7 @@ const QuestionsListItem = ({author, question, date, helpfulness, id, reported, a
                 helpfulness={answer.helpfulness}
                 id={answer.id}
                 photos={answer.photos}
+                onHelpulButtonClick={onAnswerHelpulButtonClick}
               />
             );
           })}

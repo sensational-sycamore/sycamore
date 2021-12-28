@@ -3,11 +3,13 @@ import './QuestionListItemAnswer.scss';
 import QuestionListItemAnswerActions from '../QuestionListItemAnswerActions/QuestionListItemAnswerActions.jsx';
 import QuestionListItemAnswerImages from '../QuestionListItemAnswerImages/QuestionListItemAnswerImages.jsx';
 
-const QuestionListItemAnswer = () => {
+const QuestionListItemAnswer = ({onHelpulButtonClick}) => {
   return (
     <li>
       The answer is that the more I know...      <QuestionListItemAnswerImages />
-      <QuestionListItemAnswerActions />
+      <QuestionListItemAnswerActions
+        onHelpulButtonClick={onHelpulButtonClick}
+      />
     </li>
   );
 };

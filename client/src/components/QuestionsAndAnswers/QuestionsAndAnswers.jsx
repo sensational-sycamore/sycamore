@@ -18,6 +18,7 @@ const QuestionsAndAnswers = ({productId}) => {
     axios(`http://localhost:3000/qa/questions?product_id=${productId}&page=1&count=5`)
       .then(res => {
         const qa = res.data.results;
+        debugger
         setQuestionsAndAnswers(qa);
       });
   }, []);
@@ -36,6 +37,15 @@ const QuestionsAndAnswers = ({productId}) => {
     return null;
   };
 
+  const onQuestionHelpulButtonClick = (id) => {
+    console.log('onHelpulButtonClick', id);
+    // https://localhost:3000/qa/questions/553823/helpful
+  };
+
+  const onAnswerHelpulButtonClick = (id) => {
+    console.log('onAnswerHelpulButtonClick', id);
+  };
+
 
 
   return (
@@ -44,10 +54,16 @@ const QuestionsAndAnswers = ({productId}) => {
       <SearchQuestions />
       <QuestionsList
         questionsAndAnswers={questionsAndAnswers}
+        onQuestionHelpulButtonClick={onQuestionHelpulButtonClick}
+        onAnswerHelpulButtonClick={onAnswerHelpulButtonClick}
+        setShowAddAnswerModal={setShowAddAnswerModal}
       />
-      <QuestionsAndAnswersActions />
-      {renderAddQuestionModal()}
-      {renderAddAnswerModal()}
+      <QuestionsAndAnswersActions
+        setShowAddQuestionModal={setShowAddQuestionModal}
+      />
+
+      {showAddQuestionModal && <AddQuestionModal />}
+      {showAddAnswerModal && <AddAnswerModal />}
     </div>
   );
 };
