@@ -1,4 +1,5 @@
 import React from 'react';
+import css from '../styles/gallery.module.css';
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -26,11 +27,13 @@ class Gallery extends React.Component {
   render() {
     const { currStyle } = this.props;
     return (
-      <div>
-        <img style={{width: 300}} src={this.state.currImage} alt="" />
-        {currStyle.photos.map(photo => (
-          <img onClick={() => this.handleImageSelect(photo)}style={{width: 50}} src={photo.thumbnail_url} alt="" key={photo.url}/>
-        ))}
+      <div className={css.gallery}>
+        <img className={css.hero} src={this.state.currImage} alt="" />
+        <div className={css.imageOptions}>
+          {currStyle.photos.map(photo => (
+            <img className={css.eachImage} onClick={() => this.handleImageSelect(photo)}style={{width: 50}} src={photo.thumbnail_url} alt="" key={photo.url}/>
+          ))}
+        </div>
       </div>
     );
   }
