@@ -5,7 +5,6 @@ import { FaStar } from 'react-icons/fa';
 class SetStarRating extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       rating: null,
       hover: null

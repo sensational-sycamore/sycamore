@@ -20,7 +20,6 @@ class ReviewsListItem extends React.Component {
           <span>{review.reviewer_name} </span>
           <span>{moment(review.date).format('MM/DD/YYYY')} </span>
         </div>
-
         <h4>{review.summary}</h4>
         <p>{review.body}</p>
         {review.recommend && <p>I recommend this product</p>}

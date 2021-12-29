@@ -4,7 +4,6 @@ import data from '../dummy_data.js';
 import ReviewsListItem from './ReviewsListItem.jsx';
 import WritingReview from '../WritingReview/WritingReview.jsx';
 
-
 class ReviewsList extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +17,6 @@ class ReviewsList extends React.Component {
     this.handMoreReviewsClick = this.handMoreReviewsClick.bind(this);
     this.handAddReviewsClick = this.handAddReviewsClick.bind(this);
   }
-
 
   handMoreReviewsClick(event) {
     event.preventDefault();
@@ -60,6 +58,5 @@ class ReviewsList extends React.Component {
     );
   }
 }
-
 
 export default ReviewsList;

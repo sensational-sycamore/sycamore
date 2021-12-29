@@ -5,7 +5,6 @@ import SetStarRating from './SetStarRating.jsx';
 class WritingReview extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       'product_id': props.productId,
       rating: 5,
@@ -20,6 +19,7 @@ class WritingReview extends React.Component {
     this.handleSubmitReview = this.handleSubmitReview.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
   getRating(rating) {
     this.setState({ rating });
   }
@@ -40,7 +40,6 @@ class WritingReview extends React.Component {
   render() {
     // const { summary, productId } = this.props;
     const { summary, body, name, email } = this.state;
-
     return (
       <form onSubmit={this.handleSubmitReview}>
         <h4>Write Your Review about </h4>
@@ -49,13 +48,11 @@ class WritingReview extends React.Component {
           <p>Overall rating</p>
           <SetStarRating getRating={this.getRating} />
         </div>
-
         <div onChange={this.handleChange}>
         <p>Do you recommend this product?</p>
           <input type="radio" value='yes' name="recommend" defaultChecked /> Yes
           <input type="radio" value='no' name="recommend" /> No
         </div>
-
         <div onChange={this.handleChange}>
           <p>Characteristics</p>
           <div>
@@ -133,6 +130,5 @@ class WritingReview extends React.Component {
     );
   }
 }
-
 
 export default WritingReview;

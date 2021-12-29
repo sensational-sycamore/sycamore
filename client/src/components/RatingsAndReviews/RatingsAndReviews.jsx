@@ -47,12 +47,10 @@ class RatingsAndReviews extends React.Component {
       .catch(err => {
         console.log('error');
       });
-
   }
 
   calcRating(meta) {
     let averageRating = 0;
-
     if (meta.ratings !== undefined) {
       const rating = meta.ratings;
       let totalNumberRating = 0;
@@ -125,4 +123,5 @@ class RatingsAndReviews extends React.Component {
     );
   }
 }
+
 export default RatingsAndReviews;
