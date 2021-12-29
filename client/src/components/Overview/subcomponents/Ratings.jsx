@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
+import css from '../styles/ratings.modules.css';
 
 
 const Ratings = ({ reviews }) => {
@@ -28,6 +29,7 @@ const Ratings = ({ reviews }) => {
   return (
     <div>
       { starArr }
+      <a href="#ratings-and-reviews">Read all reviews</a>
     </div>
   );
 };
