@@ -24,9 +24,7 @@ class Dropdown extends React.Component {
   }
 
   toggleMenu(e) {
-    console.log('ss')
     e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
     this.setState({ showMenu: !this.state.showMenu }, () => {
       if (this.state.showMenu) {
 
