@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-
     "dev": "webpack --config webpack.config.js --mode development --watch",
     "start": "node ./server/index.js"
-
   },
   "repository": {
     "type": "git",
