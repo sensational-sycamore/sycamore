@@ -43,6 +43,7 @@
     "install": "^0.13.0",
     "jest": "^27.4.5",
     "jest-dom": "^4.0.0",
+    "jest-environment-jsdom": "^27.4.4",
     "node-sass": "^7.0.0",
     "npm": "^8.3.0",
     "react-test-render": "^1.1.2",
@@ -51,7 +52,6 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.7.0",
-    "jest-environment-jsdom": "^27.4.4"
+    "webpack-dev-server": "^4.7.0"
   }
 }

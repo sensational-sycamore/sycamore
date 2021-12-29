@@ -39,7 +39,6 @@ class WritingReview extends React.Component {
 
   render() {
     // const { summary, productId } = this.props;
-
     const { summary, body, name, email } = this.state;
 
     return (
@@ -59,21 +58,45 @@ class WritingReview extends React.Component {
 
         <div onChange={this.handleChange}>
           <p>Characteristics</p>
-          <p>size</p>
+          <div>
+          <p>Size</p>
           <input type="radio" value='1' name="14" /> A size too small
           <input type="radio" value='2' name="14" /> ½ a size too small
           <input type="radio" value='3' name="14" /> Perfect
           <input type="radio" value='4' name="14" /> ½ a size too big
           <input type="radio" value='5' name="14" /> A size too wide
-          <input type="radio" value='0' name="14" defaultChecked /> none selected
+          <input type="radio" value='0' name="14" defaultChecked /> none
+          </div>
+          <div>
+          <p>Width</p>
+          <input type="radio" value='1' name="15" /> Too narrow
+          <input type="radio" value='2' name="15" /> Slightly narrow
+          <input type="radio" value='3' name="15" /> Perfect
+          <input type="radio" value='4' name="15" /> Slightly wide
+          <input type="radio" value='5' name="15" /> Too wide
+          <input type="radio" value='0' name="15" defaultChecked /> none
+          </div>
+          <div>
+          <p>Comfort</p>
+          <input type="radio" value='1' name="16" /> Uncomfortable
+          <input type="radio" value='2' name="16" /> Slightly uncomfortable
+          <input type="radio" value='3' name="16" /> Ok
+          <input type="radio" value='4' name="16" /> Comfortable
+          <input type="radio" value='5' name="16" /> Perfect
+          <input type="radio" value='0' name="16" defaultChecked /> none
+          </div>
+          <div>
+          <p>Quality</p>
+          <input type="radio" value='1' name="17" /> Poor
+          <input type="radio" value='2' name="17" /> Below average
+          <input type="radio" value='3' name="17" /> What I expected
+          <input type="radio" value='4' name="17" /> Pretty great
+          <input type="radio" value='5' name="17" /> Perfect
+          <input type="radio" value='0' name="17" defaultChecked /> none
+          </div>
+
         </div>
-
-        {/* <div>
-          <p>Add a headline</p>
-          <input name='summary' type='text' placeholder="what's most important to know?" value={summary} onChange={this.handleChange} cols={50} />
-        </div> */}
-
-<div>
+        <div>
         <p>Add a headline</p>
         <textarea
         name='summary'
