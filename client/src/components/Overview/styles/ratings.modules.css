@@ -1,0 +1,10 @@
+.reviewLink {
+  text-decoration: underline;
+  color: inherit;
+  padding-left: 2%;
+  font-size: 80%;
+}
+
+.reviewLink:hover {
+  color: #BAABDA;
+}

@@ -13,7 +13,8 @@
 
 .minor {
   grid-area: minor;
-  padding: 7%;
+  padding-left: 7%;
+  padding-right: 7%;
 }
 
 * {

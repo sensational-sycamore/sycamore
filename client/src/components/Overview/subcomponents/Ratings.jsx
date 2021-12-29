@@ -29,7 +29,7 @@ const Ratings = ({ reviews }) => {
   return (
     <div>
       { starArr }
-      <a href="#ratings-and-reviews">Read all reviews</a>
+      <a className={css.reviewLink} href="#ratings-and-reviews">Read all reviews</a>
     </div>
   );
 };
