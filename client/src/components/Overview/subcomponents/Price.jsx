@@ -2,7 +2,7 @@ import React from 'react';
 
 const Price = ({ currStyle }) => (
   <div>
-    <div>${ currStyle.original_price }</div>
+    <h4>${ currStyle.original_price }</h4>
     { currStyle.sale_price && <div>${currStyle.sale_price}</div>}
   </div>
 );

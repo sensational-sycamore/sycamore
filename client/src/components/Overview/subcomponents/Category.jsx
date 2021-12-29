@@ -2,7 +2,7 @@ import React from 'react';
 
 const Category = ({ product }) => (
   <div>
-    <div>{product.category}</div>
+    <h2>{product.category}</h2>
   </div>
 );
 

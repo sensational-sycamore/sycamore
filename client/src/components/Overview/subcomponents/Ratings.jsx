@@ -9,7 +9,7 @@ const Ratings = ({ reviews }) => {
 
   return (
     <div>
-      <div>rating: {average}</div>
+      <h4>rating: {average}</h4>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Title = ({ product }) => (
   <div>
-    <div>{product.name}</div>
+    <h1>{product.name}</h1>
   </div>
 );
 
