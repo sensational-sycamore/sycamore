@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from 'react-modal';
 import './ReviewsList.scss';
 import data from '../dummy_data.js';
 import ReviewsListItem from './ReviewsListItem.jsx';
@@ -32,7 +33,7 @@ class ReviewsList extends React.Component {
 
   handAddReviewsClick(event) {
     event.preventDefault();
-    this.setState({ showAddReviewsForm: true });
+    this.setState({ showAddReviewsForm: !this.state.showAddReviewsForm });
   }
 
   render() {
@@ -52,7 +53,10 @@ class ReviewsList extends React.Component {
         <div className='addReviews'>
           {showMoreReviewsButton && <button onClick={this.handMoreReviewsClick}>MORE REVIEWS</button>}
           <button onClick={this.handAddReviewsClick}>ADD A REVIEW</button>
-          {showAddReviewsForm && <WritingReview />}
+          <Modal isOpen={showAddReviewsForm} ariaHideApp={false}>
+            <WritingReview handAddReviewsClick={this.handAddReviewsClick} productId={productId} />
+          </Modal>
+
         </div>
       </div>
     );

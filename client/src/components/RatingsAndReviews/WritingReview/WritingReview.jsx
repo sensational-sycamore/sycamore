@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './WritingReview.scss';
 import SetStarRating from './SetStarRating.jsx';
 
@@ -25,7 +26,9 @@ class WritingReview extends React.Component {
   }
 
   handleChange(event) {
-    if (event.target.name === '14') {
+    if (event.target.name === 'size' || event.target.name === 'width' ||
+    event.target.name === 'comfort' || event.target.name === 'quality'
+    ) {
       this.setState({ characteristics: {...this.state.characteristics, [event.target.name]: event.target.value } });
     } else {
       this.setState({ [event.target.name]: event.target.value });
@@ -33,8 +36,8 @@ class WritingReview extends React.Component {
   }
 
   handleSubmitReview(event) {
-    event.preventDefault();
     console.log('this.state:', this.state);
+    this.props.handAddReviewsClick(event);
   }
 
   render() {
@@ -57,39 +60,39 @@ class WritingReview extends React.Component {
           <p>Characteristics</p>
           <div>
           <p>Size</p>
-          <input type="radio" value='1' name="14" /> A size too small
-          <input type="radio" value='2' name="14" /> ½ a size too small
-          <input type="radio" value='3' name="14" /> Perfect
-          <input type="radio" value='4' name="14" /> ½ a size too big
-          <input type="radio" value='5' name="14" /> A size too wide
-          <input type="radio" value='0' name="14" defaultChecked /> none
+          <input type="radio" value='1' name="size" /> A size too small
+          <input type="radio" value='2' name="size" /> ½ a size too small
+          <input type="radio" value='3' name="size" /> Perfect
+          <input type="radio" value='4' name="size" /> ½ a size too big
+          <input type="radio" value='5' name="size" /> A size too wide
+          <input type="radio" value='0' name="size" defaultChecked /> none
           </div>
           <div>
           <p>Width</p>
-          <input type="radio" value='1' name="15" /> Too narrow
-          <input type="radio" value='2' name="15" /> Slightly narrow
-          <input type="radio" value='3' name="15" /> Perfect
-          <input type="radio" value='4' name="15" /> Slightly wide
-          <input type="radio" value='5' name="15" /> Too wide
-          <input type="radio" value='0' name="15" defaultChecked /> none
+          <input type="radio" value='1' name="width" /> Too narrow
+          <input type="radio" value='2' name="width" /> Slightly narrow
+          <input type="radio" value='3' name="width" /> Perfect
+          <input type="radio" value='4' name="width" /> Slightly wide
+          <input type="radio" value='5' name="width" /> Too wide
+          <input type="radio" value='0' name="width" defaultChecked /> none
           </div>
           <div>
           <p>Comfort</p>
-          <input type="radio" value='1' name="16" /> Uncomfortable
-          <input type="radio" value='2' name="16" /> Slightly uncomfortable
-          <input type="radio" value='3' name="16" /> Ok
-          <input type="radio" value='4' name="16" /> Comfortable
-          <input type="radio" value='5' name="16" /> Perfect
-          <input type="radio" value='0' name="16" defaultChecked /> none
+          <input type="radio" value='1' name="comfort" /> Uncomfortable
+          <input type="radio" value='2' name="comfort" /> Slightly uncomfortable
+          <input type="radio" value='3' name="comfort" /> Ok
+          <input type="radio" value='4' name="comfort" /> Comfortable
+          <input type="radio" value='5' name="comfort" /> Perfect
+          <input type="radio" value='0' name="comfort" defaultChecked /> none
           </div>
           <div>
           <p>Quality</p>
-          <input type="radio" value='1' name="17" /> Poor
-          <input type="radio" value='2' name="17" /> Below average
-          <input type="radio" value='3' name="17" /> What I expected
-          <input type="radio" value='4' name="17" /> Pretty great
-          <input type="radio" value='5' name="17" /> Perfect
-          <input type="radio" value='0' name="17" defaultChecked /> none
+          <input type="radio" value='1' name="quality" /> Poor
+          <input type="radio" value='2' name="quality" /> Below average
+          <input type="radio" value='3' name="quality" /> What I expected
+          <input type="radio" value='4' name="quality" /> Pretty great
+          <input type="radio" value='5' name="quality" /> Perfect
+          <input type="radio" value='0' name="quality" defaultChecked /> none
           </div>
 
         </div>

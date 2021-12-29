@@ -13,7 +13,6 @@ class RatingBreakdown extends React.Component {
 
   render() {
     const { meta, ratingArray, averageRating, totalNumberRating, percentRecommend, filterReviews } = this.props;
-
     return (
       <div>
         <div className='avg-rating'>
