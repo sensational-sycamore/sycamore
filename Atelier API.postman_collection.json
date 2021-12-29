@@ -23,7 +23,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/products?page=1&count=5",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/products?page=1&count=5",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -33,7 +33,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"products"
 					],
 					"query": [
@@ -62,7 +62,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/products/11",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/products/63609",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -72,9 +72,9 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"products",
-						"11"
+						"63609"
 					]
 				}
 			},
@@ -92,7 +92,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/products?product_id=11",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/products?product_id=63609",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -102,13 +102,13 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"products"
 					],
 					"query": [
 						{
 							"key": "product_id",
-							"value": "11"
+							"value": "63609"
 						}
 					]
 				}
@@ -127,7 +127,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/products/11/styles",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/products/63609/styles",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -137,9 +137,9 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"products",
-						"11",
+						"63609",
 						"styles"
 					]
 				}
@@ -158,7 +158,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/products/11/related",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/products/63609/related",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -168,9 +168,9 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"products",
-						"11",
+						"63609",
 						"related"
 					]
 				}
@@ -189,7 +189,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/reviews?page=1&count=5&sort=newest&product_id=1",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/reviews?page=1&count=5&sort=newest&product_id=1",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -199,7 +199,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"reviews"
 					],
 					"query": [
@@ -236,7 +236,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/reviews/meta?product_id=1",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/reviews/meta?product_id=1",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -246,7 +246,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"reviews",
 						"meta"
 					],
@@ -281,7 +281,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/reviews",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/reviews",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -291,7 +291,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"reviews"
 					]
 				}
@@ -310,7 +310,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/reviews/1/helpful",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/reviews/1/helpful",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -320,7 +320,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"reviews",
 						"1",
 						"helpful"
@@ -341,7 +341,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/qa/questions?product_id=1&page=1&count=5",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/qa/questions?product_id=1&page=1&count=5",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -351,7 +351,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"qa",
 						"questions"
 					],
@@ -385,7 +385,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/qa/questions/1/answers?page=1&count=5",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/qa/questions/1/answers?page=1&count=5",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -395,7 +395,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"qa",
 						"questions",
 						"1",
@@ -436,7 +436,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/qa/questions",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/qa/questions",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -446,7 +446,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"qa",
 						"questions"
 					]
@@ -475,7 +475,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/qa/questions/1/answers",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/qa/questions/1/answers",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -485,7 +485,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"qa",
 						"questions",
 						"1",
@@ -507,7 +507,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/qa/questions/1/helpful",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/qa/questions/1/helpful",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -517,7 +517,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"qa",
 						"questions",
 						"1",
@@ -539,7 +539,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/qa/questions/1/report",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/qa/questions/1/report",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -549,7 +549,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"qa",
 						"questions",
 						"1",
@@ -571,7 +571,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/qa/answers/1/helpful",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/qa/answers/1/helpful",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -581,7 +581,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"qa",
 						"answers",
 						"1",
@@ -603,7 +603,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/qa/answers/1/report",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/qa/answers/1/report",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -613,7 +613,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"qa",
 						"answers",
 						"1",
@@ -635,7 +635,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/cart ",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/cart ",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -645,7 +645,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"cart "
 					]
 				}
@@ -673,7 +673,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/cart ",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/cart ",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -683,7 +683,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"cart "
 					]
 				}
@@ -711,7 +711,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/hrsf/cart ",
+					"raw": "https://app-hrsei-api.herokuapp.com/api/fec2/{{Campus_Code}}/cart ",
 					"protocol": "https",
 					"host": [
 						"app-hrsei-api",
@@ -721,7 +721,7 @@
 					"path": [
 						"api",
 						"fec2",
-						"hrsf",
+						"{{Campus_Code}}",
 						"cart "
 					]
 				}
