@@ -2,7 +2,6 @@ import React from 'react';
 import './QuestionListItemAnswerImages.scss';
 
 const QuestionListItemAnswerImages = ({images}) => {
-  console.log('images', images);
   return (
     <ul className="answer-images">
       {images.map((image, idx) => {

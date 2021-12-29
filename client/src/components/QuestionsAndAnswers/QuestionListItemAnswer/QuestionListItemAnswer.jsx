@@ -8,9 +8,7 @@ const QuestionListItemAnswer = ({answer, onHelpulButtonClick, images}) => {
     <li>
       <p>{answer}</p>
       {!!images.length && <QuestionListItemAnswerImages images={images} />}
-      <QuestionListItemAnswerActions
-        onHelpulButtonClick={onHelpulButtonClick}
-      />
+      <QuestionListItemAnswerActions onHelpulButtonClick={onHelpulButtonClick}/>
     </li>
   );
 };

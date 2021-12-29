@@ -44,8 +44,6 @@ const QuestionsAndAnswers = ({productId}) => {
     console.log('onAnswerHelpulButtonClick', id);
   };
 
-  console.log('Questions And Answers questionsAndAnswers', questionsAndAnswers);
-
   return (
     <div className='questions-and-answers'>
       <h2>Questions & Answers</h2>
