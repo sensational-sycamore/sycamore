@@ -18,6 +18,7 @@ class Cart extends React.Component {
   }
 
   handleSizeSelect(sku) {
+    console.log(sku);
     this.setState({currSku: sku});
   }
   handleQuantitySelect(quantity) {

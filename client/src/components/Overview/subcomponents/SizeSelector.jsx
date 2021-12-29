@@ -1,28 +1,35 @@
 import React from 'react';
+import css from '../styles/sizeSelector.module.css';
+import Dropdown from './Dropdown.jsx';
 
 const SizeSelector = ({ currStyle, handleSizeSelect }) => {
-  const isNoAvailble = (style) => {
-    return Object.keys(style.skus).reduce((acc, sku) => acc + currStyle.skus[sku].quantity, 0) === 0;
-  };
+  const availableSkus = Object.keys(currStyle.skus)
+    .filter(sku => currStyle.skus[sku].quantity !== 0);
+  const availableSizes = {};
+  for (var sku of availableSkus) {
+    availableSizes[sku] = currStyle.skus[sku].size;
+  }
 
   return (
     <ul>
-      {(isNoAvailble(currStyle)) ?
+      <Dropdown options={availableSizes} clickHandler={handleSizeSelect}/>
+      {/* {(isNoAvailble(currStyle)) ?
         <div>OUT OF STOCK</div> :
-        <div>
+        <div className={css.dropdown}>
           {Object.keys(currStyle.skus).map(sku => {
             if (currStyle.skus[sku].quantity < 1) {
               return (
-                <li key={sku} onClick={() => handleSizeSelect(sku)} className="unavailable">{currStyle.skus[sku].size}</li>
+                <li className={css.dropdownItem} key={sku} onClick={() => handleSizeSelect(sku)} className="unavailable">{currStyle.skus[sku].size}</li>
               );
             } else {
-              return <li key={sku} onClick={() => handleSizeSelect(sku)} className="available">{currStyle.skus[sku].size}</li>;
+              return <li className={css.dropdownItem} key={sku} onClick={() => handleSizeSelect(sku)} className="available">{currStyle.skus[sku].size}</li>;
             }
           })}
         </div>
-      }
+      } */}
     </ul>
   );
 };
+
 
 export default SizeSelector;
