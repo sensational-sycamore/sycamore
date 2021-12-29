@@ -35,12 +35,12 @@ class Dropdown extends React.Component {
 
 
   render() {
-    const { options, clickHandler } = this.props;
+    const { options, clickHandler, mainMessage } = this.props;
 
     return (
       <div>
         <div onClick={this.toggleMenu}>
-          Show Menu
+          {mainMessage}
         </div>
 
 
