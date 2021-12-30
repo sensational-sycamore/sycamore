@@ -25,10 +25,10 @@ class Dropdown extends React.Component {
 
   toggleMenu(e) {
     e.stopPropagation();
-    this.setState({ showMenu: !this.state.showMenu }, () => {
+    this.setState({ showMenu: true }, () => {
       if (this.state.showMenu) {
 
-        document.addEventListener('click', this.toggleMenu);
+        document.addEventListener('click', this.closeMemu);
       }
     });
   }
