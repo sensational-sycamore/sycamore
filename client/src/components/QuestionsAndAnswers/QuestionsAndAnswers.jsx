@@ -10,7 +10,7 @@ import axios from 'axios';
 
 const QuestionsAndAnswers = ({productId}) => {
   const [showAddAnswerModal, setShowAddAnswerModal] = useState(false);
-  const [showAddQuestionModal, setShowAddQuestionModal] = useState(false);
+  const [showAddQuestionModal, setShowAddQuestionModal] = useState(true);
 
   const [questionsAndAnswers, setQuestionsAndAnswers] = useState([]);
 
