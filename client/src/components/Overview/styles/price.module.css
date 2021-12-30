@@ -1,0 +1,12 @@
+.oldPrice {
+  text-decoration: line-through;
+}
+
+.newPrice {
+  color: red;
+  font-weight: 600;
+}
+
+.regularPrice {
+  font-weight: 600;
+}
