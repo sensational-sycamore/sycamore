@@ -17,8 +17,8 @@ class App extends React.Component {
     return (
       <div>
         <Overview productId={this.state.productId}/>
-        {/* <QuestionsAndAnswers productId={this.state.productId}/>
-        <RatingsAndReviews productId={this.state.productId}/> */}
+        <QuestionsAndAnswers productId={this.state.productId}/>
+        <RatingsAndReviews productId={this.state.productId}/>
       </div>
     );
   }
