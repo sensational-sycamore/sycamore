@@ -10,7 +10,7 @@ import axios from 'axios';
 
 const QuestionsAndAnswers = ({productId}) => {
   const [showAddAnswerModal, setShowAddAnswerModal] = useState(false);
-  const [showAddQuestionModal, setShowAddQuestionModal] = useState(true);
+  const [showAddQuestionModal, setShowAddQuestionModal] = useState(false);
 
   const [questionsAndAnswers, setQuestionsAndAnswers] = useState([]);
 
@@ -20,20 +20,6 @@ const QuestionsAndAnswers = ({productId}) => {
         setQuestionsAndAnswers(res.data.results);
       });
   }, [productId]);
-
-  const renderAddQuestionModal = () => {
-    if (showAddQuestionModal) {
-      return <AddQuestionModal />;
-    }
-    return null;
-  };
-
-  const renderAddAnswerModal = () => {
-    if (showAddAnswerModal) {
-      return <AddAnswerModal />;
-    }
-    return null;
-  };
 
   const onQuestionHelpulButtonClick = (id) => {
     console.log('onHelpulButtonClick', id);
@@ -58,7 +44,10 @@ const QuestionsAndAnswers = ({productId}) => {
         setShowAddQuestionModal={setShowAddQuestionModal}
       />
 
-      {showAddQuestionModal && <AddQuestionModal />}
+      {showAddQuestionModal && <AddQuestionModal
+        productId={productId}
+        setShowAddQuestionModal={setShowAddQuestionModal}
+      />}
       {showAddAnswerModal && <AddAnswerModal />}
     </div>
   );
