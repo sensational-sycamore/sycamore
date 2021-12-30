@@ -1,3 +1,7 @@
 .answer-images {
   display: flex;
+  .answer-image img{
+    width: 100px;
+    margin: 10px;
+  }
 }

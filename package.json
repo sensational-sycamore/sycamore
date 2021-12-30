@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "dev": "webpack --config webpack.config.js --mode development --watch",
+    "watch": "nodemon ./server/index.js",
     "start": "node ./server/index.js"
   },
   "repository": {
@@ -27,11 +28,14 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@testing-library/jest-dom": "^5.16.1",
     "axios": "^0.24.0",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-modal": "^3.14.4",
     "react-number-format": "^4.9.0"
   },
   "devDependencies": {
@@ -47,7 +51,9 @@
     "install": "^0.13.0",
     "jest": "^27.4.5",
     "jest-dom": "^4.0.0",
+    "jest-environment-jsdom": "^27.4.4",
     "node-sass": "^7.0.0",
+    "nodemon": "^2.0.15",
     "npm": "^8.3.0",
     "react-test-render": "^1.1.2",
     "react-test-renderer": "^17.0.2",
@@ -55,7 +61,6 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.7.0",
-    "jest-environment-jsdom": "^27.4.4"
+    "webpack-dev-server": "^4.7.0"
   }
 }

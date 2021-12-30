@@ -2,7 +2,6 @@ import React from 'react';
 import './RatingsAndReviews.scss';
 import Sorting from './Sorting/Sorting.jsx';
 import ReviewsList from './ReviewsList/ReviewsList.jsx';
-import WritingReview from './WritingReview/WritingReview.jsx';
 import RatingBreakdown from './RatingBreakdown/RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown/ProductBreakdown.jsx';
 import axios from 'axios';
@@ -18,7 +17,8 @@ class RatingsAndReviews extends React.Component {
       totalNumberRating: 0,
       percentRecommend: 0,
       ratingArray: [],
-      numStarReviewsToRender: []
+      numStarReviewsToRender: [],
+      productName: 'Camo Onesie'
     };
     this.calcRating = this.calcRating.bind(this);
     this.filterReviews = this.filterReviews.bind(this);
@@ -46,12 +46,10 @@ class RatingsAndReviews extends React.Component {
       .catch(err => {
         console.log('error');
       });
-
   }
 
   calcRating(meta) {
     let averageRating = 0;
-
     if (meta.ratings !== undefined) {
       const rating = meta.ratings;
       let totalNumberRating = 0;
@@ -106,18 +104,22 @@ class RatingsAndReviews extends React.Component {
     return (
       <div id='ratings-and-reviews' className='ratings-and-reviews'>
         <h4>RATINGS AND REVIEWS</h4>
-        <div className='rowC'>
-          <RatingBreakdown productId={productId} meta={meta} averageRating={averageRating} ratingArray={ratingArray} totalNumberRating={totalNumberRating}
-            percentRecommend={percentRecommend}
-            filterReviews={this.filterReviews}
-          />
-          <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} />
+        <div className='box'>
+          <div className='rating_box'>
+            <RatingBreakdown productId={productId} meta={meta} averageRating={averageRating} ratingArray={ratingArray} totalNumberRating={totalNumberRating}
+              percentRecommend={percentRecommend}
+              filterReviews={this.filterReviews}
+            />
+          </div>
+          <div className='reviewlist_box'>
+            <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} />
+          </div>
         </div>
-        <WritingReview productId={productId} />
         {/* <ProductBreakdown /> */}
         {/* <Sorting /> */}
       </div>
     );
   }
 }
+
 export default RatingsAndReviews;
