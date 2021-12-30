@@ -1,5 +1,5 @@
 import React from 'react';
-// import css from '../styles/sizeSelector.module.css';
+import css from '../styles/dropDown.module.css';
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -38,8 +38,8 @@ class Dropdown extends React.Component {
     const { options, clickHandler, mainMessage } = this.props;
 
     return (
-      <div>
-        <div onClick={this.toggleMenu}>
+      <div className={css.dropDownContainer}>
+        <div onClick={this.toggleMenu} className={css.dropDownButton}>
           {mainMessage}
         </div>
 
@@ -47,7 +47,7 @@ class Dropdown extends React.Component {
         {
           this.state.showMenu ? (
             <div className="menu">
-              {Object.keys(options).map(option => <div key={option} onClick={() => clickHandler(option)}>{options[option]}</div>)}
+              {Object.keys(options).map(option => <div className={css.dropDownOptions} key={option} onClick={() => clickHandler(option)}>{options[option]}</div>)}
             </div>
           )
             : ( null )
