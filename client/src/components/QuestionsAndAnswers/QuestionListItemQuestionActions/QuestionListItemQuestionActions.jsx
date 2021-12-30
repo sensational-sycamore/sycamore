@@ -1,13 +1,26 @@
 import React from 'react';
 import './QuestionListItemQuestionActions.scss';
-import HelpfullButton from '../HelpfullButton/HelpfullButton.jsx';
+import HelpfulButton from '../../Shared/HelpfulButton/HelpfulButton.jsx';
 
-const QuestionListItemQuestionActions = () => {
+const QuestionListItemQuestionActions = ({
+  helpfulness,
+  id,
+  onHelpulButtonClick,
+  setShowAddAnswerModal
+}) => {
+  const handleOpenAddAnswerModal = () => {
+    setShowAddAnswerModal(true);
+  };
+
   return (
     <div className="question-actions">
-      <HelpfullButton />
-      <p>|</p>
-      <button>Add answer</button>
+      <HelpfulButton
+        helpfulness={helpfulness}
+        id={id}
+        onHelpulButtonClick={onHelpulButtonClick}
+      />
+      <p className="separator">|</p>
+      <button className="add-answer-button" onClick={handleOpenAddAnswerModal}>Add answer</button>
     </div>
   );
 };

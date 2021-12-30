@@ -3,12 +3,16 @@ import './QuestionListItemAnswer.scss';
 import QuestionListItemAnswerActions from '../QuestionListItemAnswerActions/QuestionListItemAnswerActions.jsx';
 import QuestionListItemAnswerImages from '../QuestionListItemAnswerImages/QuestionListItemAnswerImages.jsx';
 
-const QuestionListItemAnswer = () => {
+const QuestionListItemAnswer = ({answer, onHelpulButtonClick, images, author, date}) => {
   return (
-    <li>
-      Answer1:
-      <QuestionListItemAnswerImages />
-      <QuestionListItemAnswerActions />
+    <li className="answer">
+      <p className="answer-text">{answer}</p>
+      {!!images.length && <QuestionListItemAnswerImages images={images} />}
+      <QuestionListItemAnswerActions
+        onHelpulButtonClick={onHelpulButtonClick}
+        author={author}
+        date={date}
+      />
     </li>
   );
 };
