@@ -21,20 +21,6 @@ const QuestionsAndAnswers = ({productId}) => {
       });
   }, [productId]);
 
-  const renderAddQuestionModal = () => {
-    if (showAddQuestionModal) {
-      return <AddQuestionModal />;
-    }
-    return null;
-  };
-
-  const renderAddAnswerModal = () => {
-    if (showAddAnswerModal) {
-      return <AddAnswerModal />;
-    }
-    return null;
-  };
-
   const onQuestionHelpulButtonClick = (id) => {
     console.log('onHelpulButtonClick', id);
     // https://localhost:3000/qa/questions/553823/helpful
@@ -58,7 +44,10 @@ const QuestionsAndAnswers = ({productId}) => {
         setShowAddQuestionModal={setShowAddQuestionModal}
       />
 
-      {showAddQuestionModal && <AddQuestionModal />}
+      {showAddQuestionModal && <AddQuestionModal
+        productId={productId}
+        setShowAddQuestionModal={setShowAddQuestionModal}
+      />}
       {showAddAnswerModal && <AddAnswerModal />}
     </div>
   );
