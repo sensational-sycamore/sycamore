@@ -1,0 +1,39 @@
+.navbarContainer {
+  display: flex;
+  background-color: #D77FA1;
+  margin-bottom: 4%;
+}
+
+.searchContainer {
+  position: absolute;
+  right: 5%;
+  top: 8%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logo {
+  width: 80px;
+}
+
+.title {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 130%;
+  color: white;
+}
+
+.input {
+  height: 20%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+}
+
+.searchIcon {
+  color: white;
+}
