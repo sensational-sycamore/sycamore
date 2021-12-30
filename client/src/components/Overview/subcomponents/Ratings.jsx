@@ -1,4 +1,8 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
+import css from '../styles/ratings.modules.css';
+
 
 const Ratings = ({ reviews }) => {
   const length = reviews.length;
@@ -6,10 +10,26 @@ const Ratings = ({ reviews }) => {
     return acc + review.rating;
   }, 0);
   const average = total / length;
+  const star = <FontAwesomeIcon icon={faStar} size="xs"/>;
+  const halfStar = <FontAwesomeIcon icon={faStarHalf} size="xs"/>;
+  const starArr = [];
+  const populateStar = () => {
+    for (var i = 0; i < Math.floor(average); i++) {
+      starArr.push(star);
+    }
+
+    if (average % 1 >= 0.5) {
+      starArr.push(halfStar);
+    }
+  };
+
+  populateStar();
+
 
   return (
     <div>
-      <h4>rating: {average}</h4>
+      { starArr }
+      <a className={css.reviewLink} href="#ratings-and-reviews">Read all reviews</a>
     </div>
   );
 };

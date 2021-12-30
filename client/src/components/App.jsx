@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      productId: 63609
+      productId: 63611
     };
   }
 
@@ -17,8 +17,8 @@ class App extends React.Component {
       <div>
         <h1>Hello World</h1>
         <Overview productId={this.state.productId}/>
-        <QuestionsAndAnswers productId={this.state.productId}/>
-        <RatingsAndReviews productId={this.state.productId}/>
+        {/* <QuestionsAndAnswers productId={this.state.productId}/>
+        <RatingsAndReviews productId={this.state.productId}/> */}
       </div>
     );
   }

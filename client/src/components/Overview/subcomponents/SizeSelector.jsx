@@ -11,9 +11,7 @@ const SizeSelector = ({ currStyle, handleSizeSelect }) => {
   }
 
   return (
-    <ul>
-      <Dropdown options={availableSizes} clickHandler={handleSizeSelect}/>
-    </ul>
+    <Dropdown options={availableSizes} clickHandler={handleSizeSelect} mainMessage={'SELECT SIZE'}/>
   );
 };
 
