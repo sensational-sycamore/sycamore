@@ -2,16 +2,17 @@ import React from 'react';
 import './QuestionListItemAnswerActions.scss';
 import HelpfulButton from '../../Shared/HelpfulButton/HelpfulButton.jsx';
 
-const QuestionListItemAnswerActions = ({onHelpulButtonClick}) => {
+const QuestionListItemAnswerActions = ({onHelpulButtonClick, author, date}) => {
   return (
     <div className="answer-actions">
-      <p>by User123, May 2, 2019</p>
-      <p>|</p>
+      {/* <p>by User123, May 2, 2019</p> */}
+      <p>by {author}, {date}</p>
+      <p className="separator">|</p>
       <HelpfulButton
         onHelpulButtonClick={onHelpulButtonClick}
       />
-      <p>|</p>
-      <button>Report</button>
+      <p className="separator">|</p>
+      <button className="report-button">Report</button>
     </div>
   );
 };

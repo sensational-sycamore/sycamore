@@ -1,3 +1,17 @@
 .question-actions {
   display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: gray;
+  .separator {
+    margin: 0 10px;
+  }
+  .add-answer-button{
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    background-color: transparent;
+    font-size: 12px;
+    color: gray;
+  }
 }

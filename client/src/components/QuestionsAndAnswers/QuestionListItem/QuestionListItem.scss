@@ -1,0 +1,18 @@
+.questions-list-item {
+  .question-wrapper {
+    margin-bottom: 10px;
+    display: flex;
+    h3 {
+      margin-right: 10px;
+    }
+  }
+  .answer-wrapper {
+    display: flex;
+    h3 {
+      margin-right: 10px;
+    }
+    .answer-list {
+      width: 100%;
+    }
+  }
+}

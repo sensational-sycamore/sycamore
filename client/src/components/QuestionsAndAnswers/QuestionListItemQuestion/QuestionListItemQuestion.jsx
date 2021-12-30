@@ -13,8 +13,8 @@ const QuestionListItemQuestion = ({
   setShowAddAnswerModal
 }) => {
   return (
-    <div>
-      <p>{question}</p>
+    <div className="question">
+      <p className="question-text">{question}</p>
       <QuestionListItemQuestionActions
         helpfulness={helpfulness}
         id={id}

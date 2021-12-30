@@ -19,8 +19,8 @@ const QuestionListItemQuestionActions = ({
         id={id}
         onHelpulButtonClick={onHelpulButtonClick}
       />
-      <p>|</p>
-      <button onClick={handleOpenAddAnswerModal}>Add answer</button>
+      <p className="separator">|</p>
+      <button className="add-answer-button" onClick={handleOpenAddAnswerModal}>Add answer</button>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import Overview from './Overview/Overview.jsx';
 import QuestionsAndAnswers from './QuestionsAndAnswers/QuestionsAndAnswers.jsx';
 import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
+import './App.scss';
 
 class App extends React.Component {
   constructor(props) {

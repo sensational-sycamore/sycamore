@@ -1,3 +1,16 @@
 .answer-actions {
   display: flex;
+  font-size: 12px;
+  color: gray;
+  .report-button {
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    background-color: transparent;
+    font-size: 12px;
+    color: gray;
+  }
+  .separator {
+    margin: 0 10px;
+  }
 }

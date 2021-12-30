@@ -10,7 +10,7 @@ const QuestionsList = ({
 }) => {
   return (
     <>
-      <ul>
+      <ul className="question-list">
         {questionsAndAnswers.map(qa => {
           console.log('Question List QA', qa);
           return (

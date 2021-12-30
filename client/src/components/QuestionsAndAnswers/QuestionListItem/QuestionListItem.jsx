@@ -18,9 +18,9 @@ const QuestionsListItem = ({
   console.log('Question List Item question', question);
   console.log('Question List Item answers', answers);
   return (
-    <li>
-      <div>
-        <h3>Question:</h3>
+    <li className="questions-list-item">
+      <div className="question-wrapper">
+        <h3>Q:</h3>
         <QuestionListItemQuestion
           author={author}
           question={question}
@@ -32,9 +32,9 @@ const QuestionsListItem = ({
           setShowAddAnswerModal={setShowAddAnswerModal}
         />
       </div>
-      <div>
-        <h3>Answer(s):</h3>
-        <ul>
+      { !!Object.keys(answers).length && <div className="answer-wrapper">
+        <h3>A:</h3>
+        <ul className="answer-list">
           {Object.keys(answers).map(answerId => {
             const answer = answers[answerId];
 
@@ -47,11 +47,12 @@ const QuestionsListItem = ({
                 id={answer.id}
                 images={answer.photos}
                 onHelpulButtonClick={onAnswerHelpulButtonClick}
+                author={answer.answerer_name}
               />
             );
           })}
         </ul>
-      </div>
+      </div>}
     </li>
   );
 };
