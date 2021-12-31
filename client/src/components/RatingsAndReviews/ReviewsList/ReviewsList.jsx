@@ -15,7 +15,7 @@ class ReviewsList extends React.Component {
       showAddReviewsForm: false
     };
     this.handMoreReviewsClick = this.handMoreReviewsClick.bind(this);
-    this.handAddReviewsClick = this.handAddReviewsClick.bind(this);
+    this.handleCloseAddReviewsForm = this.handleCloseAddReviewsForm.bind(this);
   }
 
   handMoreReviewsClick(event) {
@@ -30,13 +30,13 @@ class ReviewsList extends React.Component {
     this.setState({ indexNum: newIndex });
   }
 
-  handAddReviewsClick(event) {
+  handleCloseAddReviewsForm(event) {
     event.preventDefault();
     this.setState({ showAddReviewsForm: !this.state.showAddReviewsForm });
   }
 
   render() {
-    const { reviews, productId, characteristics } = this.props;
+    const { reviews, productId, characteristics, AddReview } = this.props;
     const { indexNum, showMoreReviewsButton, showAddReviewsForm } = this.state;
     const len = reviews.length;
     return (
@@ -51,9 +51,9 @@ class ReviewsList extends React.Component {
         </div>
         <div className='addReviews'>
           {showMoreReviewsButton && <button onClick={this.handMoreReviewsClick}>MORE REVIEWS</button>}
-          <button onClick={this.handAddReviewsClick}>ADD A REVIEW</button>
+          <button onClick={this.handleCloseAddReviewsForm}>ADD A REVIEW</button>
           <Modal isOpen={showAddReviewsForm} ariaHideApp={false}>
-            <WritingReview handAddReviewsClick={this.handAddReviewsClick} productId={productId} characteristics={characteristics}/>
+            <WritingReview handleCloseAddReviewsForm={this.handleCloseAddReviewsForm} productId={productId} characteristics={characteristics} AddReview={AddReview} />
           </Modal>
 
         </div>

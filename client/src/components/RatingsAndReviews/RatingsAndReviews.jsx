@@ -21,6 +21,7 @@ class RatingsAndReviews extends React.Component {
     };
     this.calcRating = this.calcRating.bind(this);
     this.filterReviews = this.filterReviews.bind(this);
+    this.AddReview = this.AddReview.bind(this);
   }
 
   componentDidMount() {
@@ -45,6 +46,28 @@ class RatingsAndReviews extends React.Component {
       .catch(err => {
         console.log('error');
       });
+  }
+
+  AddReview(review) {
+    axios.post('/reviews', review)
+      .then((response) => {
+        console.log('success', response.data);
+      })
+      .catch(err => {
+        console.log('err from add review:', err);
+      });
+
+    // const headers = {
+    //   'Authorization': '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'
+    // };
+    // axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews', review, { headers })
+    //   .then((response) => {
+    //     console.log('success', response.data);
+    //   })
+    //   .catch(err => {
+    //     console.log('err from add review:', err);
+    //   });
+
   }
 
   calcRating(meta) {
@@ -112,7 +135,7 @@ class RatingsAndReviews extends React.Component {
             />
           </div>
           <div className='reviewlist_box'>
-            <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} characteristics={meta.characteristics} />
+            <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} characteristics={meta.characteristics} AddReview={this.AddReview} />
           </div>
         </div>
         {/* <ProductBreakdown /> */}
