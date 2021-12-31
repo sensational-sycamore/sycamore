@@ -9,15 +9,16 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      productId: 63615
+      // productId: 63615
+      productId: 63609
     };
   }
 
   render() {
     return (
       <div>
-        <Overview productId={this.state.productId}/>
-        <QuestionsAndAnswers productId={this.state.productId}/>
+        {/* <Overview productId={this.state.productId}/> */}
+        {/* <QuestionsAndAnswers productId={this.state.productId}/> */}
         <RatingsAndReviews productId={this.state.productId}/>
       </div>
     );

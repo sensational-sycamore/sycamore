@@ -18,7 +18,6 @@ class RatingsAndReviews extends React.Component {
       percentRecommend: 0,
       ratingArray: [],
       numStarReviewsToRender: [],
-      productName: 'Camo Onesie'
     };
     this.calcRating = this.calcRating.bind(this);
     this.filterReviews = this.filterReviews.bind(this);
@@ -58,7 +57,8 @@ class RatingsAndReviews extends React.Component {
         totalNumberRating += Number(rating[key]);
         totalScore += Number(rating[key]) * Number(key);
       }
-      const averageRating = totalScore / totalNumberRating;
+      const averageRating = parseFloat(totalScore / totalNumberRating).toFixed(1);
+      console.log('averageRating from ratingandreviews:', averageRating);
       this.setState({ averageRating: averageRating });
       this.setState({ totalNumberRating: totalNumberRating });
       let ratingArray = [];
@@ -112,7 +112,7 @@ class RatingsAndReviews extends React.Component {
             />
           </div>
           <div className='reviewlist_box'>
-            <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} />
+            <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} characteristics={meta.characteristics} />
           </div>
         </div>
         {/* <ProductBreakdown /> */}

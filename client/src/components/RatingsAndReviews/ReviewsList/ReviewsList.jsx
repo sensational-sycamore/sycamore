@@ -1,7 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
 import './ReviewsList.scss';
-import data from '../dummy_data.js';
 import ReviewsListItem from './ReviewsListItem.jsx';
 import WritingReview from '../WritingReview/WritingReview.jsx';
 
@@ -37,7 +36,7 @@ class ReviewsList extends React.Component {
   }
 
   render() {
-    const { reviews, productId } = this.props;
+    const { reviews, productId, characteristics } = this.props;
     const { indexNum, showMoreReviewsButton, showAddReviewsForm } = this.state;
     const len = reviews.length;
     return (
@@ -54,7 +53,7 @@ class ReviewsList extends React.Component {
           {showMoreReviewsButton && <button onClick={this.handMoreReviewsClick}>MORE REVIEWS</button>}
           <button onClick={this.handAddReviewsClick}>ADD A REVIEW</button>
           <Modal isOpen={showAddReviewsForm} ariaHideApp={false}>
-            <WritingReview handAddReviewsClick={this.handAddReviewsClick} productId={productId} />
+            <WritingReview handAddReviewsClick={this.handAddReviewsClick} productId={productId} characteristics={characteristics}/>
           </Modal>
 
         </div>
