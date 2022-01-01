@@ -27,8 +27,8 @@ class App extends React.Component {
         <Navbar />
         <Overview productId={this.state.productId}/>
         <Related productId={this.state.productId} changeProductId={this.changeProductId}/>
-        {/* <QuestionsAndAnswers productId={this.state.productId}/>
-        <RatingsAndReviews productId={this.state.productId}/> */}
+        <QuestionsAndAnswers productId={this.state.productId}/>
+        <RatingsAndReviews productId={this.state.productId}/>
       </div>
     );
   }
