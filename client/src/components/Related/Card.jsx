@@ -7,18 +7,22 @@ import css from './styles/card.module.css';
 const Card = ({ product, currProduct, changeProductId }) => {
 
   const star = <FontAwesomeIcon icon={faStar} size="xs"/>;
+  const [showComparison, setShowComparison] = useState(false);
 
   return (
     <div id={product.details.id} className="product" onClick={() => changeProductId(product.details.id)}>
-      <div value="compare">{star}</div>
+      <div value="compare" onClick={() => setShowComparison(!showComparison)}>{star}</div>
       <img className={css.cardImg} src={product.styles[0].photos[0].url} alt="" />
       <div>{product.details.category}</div>
       <div>{product.styles[0].original_price}</div>
       <Ratings reviews={product.reviews}/>
-      <div>
-        {currProduct.features.map(feature => <div>{feature.value}</div>)}
-        {product.details.features.map(feature => <div>{feature.value}</div>)}
-      </div>
+      {showComparison && (
+        <div>
+          {currProduct.features.map(feature => <div>{feature.value}</div>)}
+          {product.details.features.map(feature => <div>{feature.value}</div>)}
+        </div>
+      )}
+
     </div>
   );
 };
