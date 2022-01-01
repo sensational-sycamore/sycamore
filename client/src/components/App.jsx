@@ -13,14 +13,20 @@ class App extends React.Component {
     this.state = {
       productId: 63611
     };
+
+    this.changeProductId = this.changeProductId.bind(this);
+  }
+
+  changeProductId(productId) {
+    this.setState({ productId });
   }
 
   render() {
     return (
       <div>
-        <Navbar />
-        <Overview productId={this.state.productId}/>
-        <Related />
+        {/* <Navbar />
+        <Overview productId={this.state.productId}/> */}
+        <Related productId={this.state.productId} changeProductId={this.changeProductId}/>
         {/* <QuestionsAndAnswers productId={this.state.productId}/>
         <RatingsAndReviews productId={this.state.productId}/> */}
       </div>
