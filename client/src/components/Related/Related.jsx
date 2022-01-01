@@ -34,7 +34,7 @@ const Related = ({ productId, changeProductId }) => {
     getRelatedProducts();
     getCurrProduct();
 
-  }, []);
+  }, [productId]);
 
 
   return (
