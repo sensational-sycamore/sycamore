@@ -6,11 +6,31 @@ const Related = ({ productId, changeProductId }) => {
 
   const [relatedProducts, setRelatedProducts] = useState([]);
 
+  // useEffect(() => {
+  //   async function getRelatedProducts() {
+  //     const { data } = await axios.get(`/products/${productId}/related`)
+  //     Promise.all(data.map(async (id) => await axios.get(`/products/${id}`)))
+  //       .then(data => data.map(product => product.data))
+  //       .then(results => setRelatedProducts(results))
+  //   }
+
+  //   getRelatedProducts();
+
+  // }, []);
+
   useEffect(() => {
     async function getRelatedProducts() {
-      const { data } = await axios.get(`/products/${productId}/related`)
-      Promise.all(data.map(async (id) => await axios.get(`/products/${id}`)))
-        .then(data => data.map(product => product.data))
+      const { data } = await axios.get(`/products/${productId}/related`);
+      Promise.all(data.map(async (id) => await Promise.all([
+          await axios.get(`/products/${id}`),
+          await axios.get(`/products/${id}/styles`)
+        ])))
+        .then(data => data.map(productArr => {
+          let product = {};
+          product.details = productArr[0].data;
+          product.styles = productArr[1].data;
+          return product;
+        }))
         .then(results => setRelatedProducts(results))
     }
 
@@ -19,11 +39,10 @@ const Related = ({ productId, changeProductId }) => {
   }, []);
 
 
-
   return (
     <div >
       Related
-      {relatedProducts.map(product => <Card key={product.id} product={product}/>)}
+      {relatedProducts.map(product => <Card key={product.details.id} product={product}/>)}
     </div>
   );
 };
