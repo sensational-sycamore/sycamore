@@ -1,0 +1,4 @@
+.relatedContainer {
+  display: flex;
+  flex-direction: row;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './Card.jsx';
+import css from './styles/related.module.css';
 
 const Related = ({ productId, changeProductId }) => {
 
@@ -42,8 +43,7 @@ const Related = ({ productId, changeProductId }) => {
 
 
   return (
-    <div >
-      Related
+    <div className={css.relatedContainer}>
       {relatedProducts.map(product => <Card key={product.details.id} product={product}/>)}
     </div>
   );
