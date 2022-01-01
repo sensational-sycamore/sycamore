@@ -6,18 +6,7 @@ import css from './styles/related.module.css';
 const Related = ({ productId, changeProductId }) => {
 
   const [relatedProducts, setRelatedProducts] = useState([]);
-
-  // useEffect(() => {
-  //   async function getRelatedProducts() {
-  //     const { data } = await axios.get(`/products/${productId}/related`)
-  //     Promise.all(data.map(async (id) => await axios.get(`/products/${id}`)))
-  //       .then(data => data.map(product => product.data))
-  //       .then(results => setRelatedProducts(results))
-  //   }
-
-  //   getRelatedProducts();
-
-  // }, []);
+  const [currProduct, setcurrProduct] = useState([]);
 
   useEffect(() => {
     async function getRelatedProducts() {
@@ -25,7 +14,7 @@ const Related = ({ productId, changeProductId }) => {
       Promise.all(data.map(async (id) => await Promise.all([
           await axios.get(`/products/${id}`),
           await axios.get(`/products/${id}/styles`),
-          await axios.get(`/reviews?product_id=${id}`)
+          await axios.get(`/reviews?product_id=${id}`),
         ])))
         .then(data => data.map(productArr => {
           let product = {};
@@ -37,14 +26,20 @@ const Related = ({ productId, changeProductId }) => {
         .then(results => setRelatedProducts(results))
     }
 
+    async function getCurrProduct() {
+      const { data } = await axios.get(`/products/${productId}`)
+      setcurrProduct(data)
+    }
+
     getRelatedProducts();
+    getCurrProduct();
 
   }, []);
 
 
   return (
     <div className={css.relatedContainer}>
-      {relatedProducts.map(product => <Card key={product.details.id} product={product}/>)}
+      {relatedProducts.map(product => <Card key={product.details.id} currProduct={currProduct} product={product} changeProductId={changeProductId}/>)}
     </div>
   );
 };

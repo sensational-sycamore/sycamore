@@ -33,6 +33,14 @@ class Overview extends React.Component {
     this.getReviewsInfo();
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.productId !== prevProps.productId) {
+      this.getProductInfo();
+      this.getStylesInfo();
+      this.getReviewsInfo();
+    }
+  }
+
   getProductInfo() {
     axios.get(`/products/${this.props.productId}`)
       .then(response => this.setState({
