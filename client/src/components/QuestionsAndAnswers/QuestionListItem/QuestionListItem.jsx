@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './QuestionListItem.scss';
 import QuestionListItemAnswer from '../QuestionListItemAnswer/QuestionListItemAnswer.jsx';
 import QuestionListItemQuestion from '../QuestionListItemQuestion/QuestionListItemQuestion.jsx';
@@ -15,8 +15,23 @@ const QuestionsListItem = ({
   onAnswerHelpulButtonClick,
   setShowAddAnswerModal
 }) => {
-  console.log('Question List Item question', question);
-  console.log('Question List Item answers', answers);
+
+  const [showMoreAnswers, setShowMoreAnswers] = useState(false);
+
+  const answersIds = Object.keys(answers);
+
+  const getAnswers = () => {
+    if (showMoreAnswers) {
+      return answersIds;
+    } else {
+      return answersIds.slice(0, 2);
+    }
+  };
+
+  const handleShowMoreAnswers = () => {
+    setShowMoreAnswers(!showMoreAnswers);
+  };
+
   return (
     <li className="questions-list-item">
       <div className="question-wrapper">
@@ -35,7 +50,7 @@ const QuestionsListItem = ({
       { !!Object.keys(answers).length && <div className="answer-wrapper">
         <h3>A:</h3>
         <ul className="answer-list">
-          {Object.keys(answers).map(answerId => {
+          {getAnswers().map(answerId => {
             const answer = answers[answerId];
 
             return (
@@ -53,6 +68,11 @@ const QuestionsListItem = ({
           })}
         </ul>
       </div>}
+      {
+        Object.keys(answers).length > 2 &&
+        <button onClick={handleShowMoreAnswers}>{showMoreAnswers ? 'Show less answers' : 'Load more answers'}</button>
+      }
+
     </li>
   );
 };
