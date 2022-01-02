@@ -18,8 +18,8 @@ const Card = ({ product, currProduct, changeProductId }) => {
       <Ratings reviews={product.reviews}/>
       {showComparison && (
         <div>
-          {currProduct.features.map(feature => <div>{feature.value}</div>)}
-          {product.details.features.map(feature => <div>{feature.value}</div>)}
+          {currProduct.features.map(feature => <div key={feature.value}>{feature.value}</div>)}
+          {product.details.features.map(feature => <div key={feature.value}>{feature.value}</div>)}
         </div>
       )}
 
