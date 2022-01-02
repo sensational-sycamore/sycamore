@@ -165,16 +165,16 @@ class WritingReview extends React.Component {
         />
       </div>
         <div>
-          <label>your nickname:
+          <p>your nickname:
             <input name='name' type='text' value={name} onChange={this.handleChange} />
-          </label>
+          </p>
           </div>
           <div>
-          <label>your email:
+            <p>your email:
             <input name='email' type='text' value={email} onChange={this.handleChange} />
-          </label>
+          </p>
         </div>
-        <button>Submit</button>
+        <button className='submit_btn'>Submit</button>
       </form>
     );
   }

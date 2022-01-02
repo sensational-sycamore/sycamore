@@ -18,21 +18,27 @@ class RatingsAndReviews extends React.Component {
       percentRecommend: 0,
       ratingArray: [],
       numStarReviewsToRender: [],
+      page: 1
     };
     this.calcRating = this.calcRating.bind(this);
     this.filterReviews = this.filterReviews.bind(this);
     this.AddReview = this.AddReview.bind(this);
+    this.getNextPageReviews = this.getNextPageReviews.bind(this);
   }
 
   componentDidMount() {
-    axios.get(`/reviews/?product_id=${this.props.productId}`)
+    console.log( 'page from component did mount:', this.state.page);
+    axios.get(`/reviews/?product_id=${this.props.productId}`,
+      {
+        params: {
+          count: 2,
+          page: this.state.page
+        }
+      })
       .then(response => {
         console.log('response from axios get:', response.data.results);
-        this.setState({ reviews: response.data.results }, () => {
-          if (this.state.reviews.length <= 2) {
-            this.setState({ showMoreReviewsButton: false });
-          }
-        });
+        console.log('current reviews:', this.state.reviews);
+        this.setState({ reviews: this.state.reviews.length === 0 ? response.data.results : [...response.data.results, ...this.state.reviews] });
       })
       .catch(err => {
         console.log('error');
@@ -70,6 +76,27 @@ class RatingsAndReviews extends React.Component {
 
   }
 
+  getNextPageReviews() {
+    let p = this.state.page + 1;
+    this.setState({page: p});
+    console.log( 'page from get nextpagereview func:', p);
+    axios.get(`/reviews/?product_id=${this.props.productId}`,
+      {
+        params: {
+          count: 2,
+          page: p
+        }
+      })
+      .then(response => {
+        console.log('response from axios get next page review:', response.data.results);
+        console.log('current reviews:', this.state.reviews);
+        this.setState({ reviews: this.state.reviews.length === 0 ? response.data.results : [...response.data.results, ...this.state.reviews] });
+      })
+      .catch(err => {
+        console.log('error');
+      });
+  }
+
   calcRating(meta) {
     let averageRating = 0;
     if (meta.ratings !== undefined) {
@@ -84,6 +111,9 @@ class RatingsAndReviews extends React.Component {
       console.log('averageRating from ratingandreviews:', averageRating);
       this.setState({ averageRating: averageRating });
       this.setState({ totalNumberRating: totalNumberRating });
+      if (totalNumberRating <= 2 || this.state.reviews.length >= totalNumberRating ) {
+        this.setState({ showMoreReviewsButton: false });
+      }
       let ratingArray = [];
       for (let i = 5; i >= 1; i--) {
         let obj = {
@@ -135,7 +165,7 @@ class RatingsAndReviews extends React.Component {
             />
           </div>
           <div className='reviewlist_box'>
-            <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} characteristics={meta.characteristics} AddReview={this.AddReview} />
+            <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} characteristics={meta.characteristics} AddReview={this.AddReview} totalNumberRating={totalNumberRating} getNextPageReviews={this.getNextPageReviews}/>
           </div>
         </div>
         {/* <ProductBreakdown /> */}

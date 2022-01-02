@@ -10,7 +10,7 @@ class ReviewsList extends React.Component {
 
     this.state = {
       productId: props.productId,
-      indexNum: 2,
+      // indexNum: 2,
       showMoreReviewsButton: props.showMoreReviewsButton,
       showAddReviewsForm: false
     };
@@ -20,14 +20,20 @@ class ReviewsList extends React.Component {
 
   handMoreReviewsClick(event) {
     event.preventDefault();
-    const { reviews } = this.props;
-    const { indexNum, showMoreReviewsButton } = this.state;
-    let newIndex = indexNum + 2;
-    if (newIndex >= reviews.length) {
+    const { reviews, totalNumberRating, getNextPageReviews } = this.props;
+    const { showMoreReviewsButton } = this.state;
+    // let newIndex = indexNum + 2;
+    // if (newIndex >= reviews.length) {
+    //   this.setState({ showMoreReviewsButton: false });
+    //   newIndex = reviews.length;
+    // }
+    // this.setState({ indexNum: newIndex });
+
+    if (reviews.length >= totalNumberRating ) {
       this.setState({ showMoreReviewsButton: false });
-      newIndex = reviews.length;
+    } else {
+      this.props.getNextPageReviews();
     }
-    this.setState({ indexNum: newIndex });
   }
 
   handleCloseAddReviewsForm(event) {
@@ -36,26 +42,23 @@ class ReviewsList extends React.Component {
   }
 
   render() {
-    const { reviews, productId, characteristics, AddReview } = this.props;
+    const { reviews, productId, characteristics, AddReview, totalNumberRating } = this.props;
     const { indexNum, showMoreReviewsButton, showAddReviewsForm } = this.state;
-    const len = reviews.length;
+    console.log('review from review list:', reviews);
     return (
       <div className='reviews_section'>
-        <h4>{len} reviews, sorted by relevance</h4>
+        <h4>{totalNumberRating} reviews, sorted by relevance</h4>
         <div>
-          {reviews.map((review, index) => {
-            if (index < indexNum) {
-              return <ReviewsListItem review={review} key={review.review_id} />;
-            }
-          })}
+          {
+            reviews.map((review, index) => <ReviewsListItem review={review} key={review.review_id} />)
+          }
         </div>
         <div className='addReviews'>
-          {showMoreReviewsButton && <button onClick={this.handMoreReviewsClick}>MORE REVIEWS</button>}
-          <button onClick={this.handleCloseAddReviewsForm}>ADD A REVIEW</button>
+          {showMoreReviewsButton && <button onClick={this.handMoreReviewsClick} className='review_btn' >MORE REVIEWS</button>}
+          <button onClick={this.handleCloseAddReviewsForm} className='review_btn' >ADD A REVIEW  +</button>
           <Modal isOpen={showAddReviewsForm} ariaHideApp={false}>
             <WritingReview handleCloseAddReviewsForm={this.handleCloseAddReviewsForm} productId={productId} characteristics={characteristics} AddReview={AddReview} />
           </Modal>
-
         </div>
       </div>
     );

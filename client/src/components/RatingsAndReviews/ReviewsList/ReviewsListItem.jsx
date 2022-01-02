@@ -12,7 +12,6 @@ class ReviewsListItem extends React.Component {
 
   render() {
     const { review } = this.props;
-
     return (
       <div className='review_list'>
         <div className='reviewer_name'>

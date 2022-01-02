@@ -11,7 +11,6 @@ class RatingBreakdownItem extends React.Component {
   handleClick(event) {
     event.preventDefault();
     let rating = Number(event.target.innerText[0]);
-    console.log(rating);
     this.props.filterReviews(rating);
   }
 
