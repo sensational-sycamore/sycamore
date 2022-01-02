@@ -1,9 +1,8 @@
 import React from 'react';
+import css from '../styles/category.module.css';
 
 const Category = ({ product }) => (
-  <div>
-    <h2>{product.category}</h2>
-  </div>
+  <p className={css.title}>{product.category}</p>
 );
 
 export default Category;

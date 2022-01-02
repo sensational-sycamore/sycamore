@@ -33,6 +33,14 @@ class Overview extends React.Component {
     this.getReviewsInfo();
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.productId !== prevProps.productId) {
+      this.getProductInfo();
+      this.getStylesInfo();
+      this.getReviewsInfo();
+    }
+  }
+
   getProductInfo() {
     axios.get(`/products/${this.props.productId}`)
       .then(response => this.setState({
@@ -67,9 +75,9 @@ class Overview extends React.Component {
           <Description className={css.description} product={this.state.product} />
         </div>
         <div className={css.minor}>
+          <Ratings reviews={this.state.reviews} />
           <Category product={this.state.product} />
           <Title product={this.state.product} />
-          <Ratings reviews={this.state.reviews} />
           <Price currStyle={this.state.currStyle} />
           <StyleSelector styles={this.state.styles} currStyle={this.state.currStyle} handleStyleSelect={this.handleStyleSelect}/>
           <Cart styles={this.state.styles} currStyle={this.state.currStyle} />

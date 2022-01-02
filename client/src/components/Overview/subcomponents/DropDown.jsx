@@ -1,5 +1,5 @@
 import React from 'react';
-// import css from '../styles/sizeSelector.module.css';
+import css from '../styles/dropDown.module.css';
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -25,29 +25,29 @@ class Dropdown extends React.Component {
 
   toggleMenu(e) {
     e.stopPropagation();
-    this.setState({ showMenu: !this.state.showMenu }, () => {
+    this.setState({ showMenu: true }, () => {
       if (this.state.showMenu) {
 
-        document.addEventListener('click', this.toggleMenu);
+        document.addEventListener('click', this.closeMemu);
       }
     });
   }
 
 
   render() {
-    const { options, clickHandler } = this.props;
+    const { options, clickHandler, mainMessage } = this.props;
 
     return (
-      <div>
-        <div onClick={this.toggleMenu}>
-          Show Menu
+      <div className={css.dropDownContainer}>
+        <div onClick={this.toggleMenu} className={css.dropDownButton}>
+          {mainMessage}
         </div>
 
 
         {
           this.state.showMenu ? (
             <div className="menu">
-              {Object.keys(options).map(option => <div key={option} onClick={() => clickHandler(option)}>{options[option]}</div>)}
+              {Object.keys(options).map(option => <div className={css.dropDownOptions} key={option} onClick={() => clickHandler(option)}>{options[option]}</div>)}
             </div>
           )
             : ( null )

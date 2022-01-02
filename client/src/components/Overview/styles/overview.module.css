@@ -1,6 +1,6 @@
 .gridContainer {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 4fr 2fr;
   grid-template-rows: auto;
   grid-template-areas:
     "major minor"
@@ -13,4 +13,10 @@
 
 .minor {
   grid-area: minor;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }

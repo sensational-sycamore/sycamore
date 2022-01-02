@@ -27,7 +27,7 @@ class RatingsAndReviews extends React.Component {
   }
 
   componentDidMount() {
-    console.log( 'page from component did mount:', this.state.page);
+    console.log('page from component did mount:', this.state.page);
     axios.get(`/reviews/?product_id=${this.props.productId}`,
       {
         params: {
@@ -78,8 +78,8 @@ class RatingsAndReviews extends React.Component {
 
   getNextPageReviews() {
     let p = this.state.page + 1;
-    this.setState({page: p});
-    console.log( 'page from get nextpagereview func:', p);
+    this.setState({ page: p });
+    console.log('page from get nextpagereview func:', p);
     axios.get(`/reviews/?product_id=${this.props.productId}`,
       {
         params: {
@@ -88,9 +88,16 @@ class RatingsAndReviews extends React.Component {
         }
       })
       .then(response => {
-        console.log('response from axios get next page review:', response.data.results);
-        console.log('current reviews:', this.state.reviews);
-        this.setState({ reviews: this.state.reviews.length === 0 ? response.data.results : [...response.data.results, ...this.state.reviews] });
+        // console.log('response from axios get next page review:', response.data.results);
+        let newReviews = [...response.data.results, ...this.state.reviews];
+        console.log('this.state.totalNumberRating from getnextpage review:', this.state.totalNumberRating);
+        console.log('newReview from getnextpage review:', newReviews);
+
+        this.setState({ reviews: this.state.reviews.length === 0 ? response.data.results : [...response.data.results, ...this.state.reviews] }, () => {
+          if (this.state.reviews.length >= this.state.totalNumberRating) {
+            this.setState({ showMoreReviewsButton: false });
+          }
+        });
       })
       .catch(err => {
         console.log('error');
@@ -111,7 +118,7 @@ class RatingsAndReviews extends React.Component {
       console.log('averageRating from ratingandreviews:', averageRating);
       this.setState({ averageRating: averageRating });
       this.setState({ totalNumberRating: totalNumberRating });
-      if (totalNumberRating <= 2 || this.state.reviews.length >= totalNumberRating ) {
+      if (totalNumberRating <= 2 || this.state.reviews.length >= totalNumberRating) {
         this.setState({ showMoreReviewsButton: false });
       }
       let ratingArray = [];
@@ -154,8 +161,10 @@ class RatingsAndReviews extends React.Component {
   render() {
     const { productId } = this.props;
     const { reviews, showMoreReviewsButton, meta, averageRating, ratingArray, totalNumberRating, percentRecommend } = this.state;
+    console.log('showMoreReviewsButton from ratingandreviews:', showMoreReviewsButton);
+
     return (
-      <div className='ratings-and-reviews'>
+      <div id='ratings-and-reviews' className='ratings-and-reviews'>
         <h4>RATINGS AND REVIEWS</h4>
         <div className='box'>
           <div className='rating_box'>
@@ -165,7 +174,7 @@ class RatingsAndReviews extends React.Component {
             />
           </div>
           <div className='reviewlist_box'>
-            <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} characteristics={meta.characteristics} AddReview={this.AddReview} totalNumberRating={totalNumberRating} getNextPageReviews={this.getNextPageReviews}/>
+            <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} characteristics={meta.characteristics} AddReview={this.AddReview} totalNumberRating={totalNumberRating} getNextPageReviews={this.getNextPageReviews} />
           </div>
         </div>
         {/* <ProductBreakdown /> */}

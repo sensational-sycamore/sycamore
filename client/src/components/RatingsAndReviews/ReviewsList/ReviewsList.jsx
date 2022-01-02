@@ -10,8 +10,6 @@ class ReviewsList extends React.Component {
 
     this.state = {
       productId: props.productId,
-      // indexNum: 2,
-      showMoreReviewsButton: props.showMoreReviewsButton,
       showAddReviewsForm: false
     };
     this.handMoreReviewsClick = this.handMoreReviewsClick.bind(this);
@@ -20,20 +18,7 @@ class ReviewsList extends React.Component {
 
   handMoreReviewsClick(event) {
     event.preventDefault();
-    const { reviews, totalNumberRating, getNextPageReviews } = this.props;
-    const { showMoreReviewsButton } = this.state;
-    // let newIndex = indexNum + 2;
-    // if (newIndex >= reviews.length) {
-    //   this.setState({ showMoreReviewsButton: false });
-    //   newIndex = reviews.length;
-    // }
-    // this.setState({ indexNum: newIndex });
-
-    if (reviews.length >= totalNumberRating ) {
-      this.setState({ showMoreReviewsButton: false });
-    } else {
-      this.props.getNextPageReviews();
-    }
+    this.props.getNextPageReviews();
   }
 
   handleCloseAddReviewsForm(event) {
@@ -42,9 +27,9 @@ class ReviewsList extends React.Component {
   }
 
   render() {
-    const { reviews, productId, characteristics, AddReview, totalNumberRating } = this.props;
-    const { indexNum, showMoreReviewsButton, showAddReviewsForm } = this.state;
-    console.log('review from review list:', reviews);
+    const { reviews, productId, characteristics, AddReview, totalNumberRating, showMoreReviewsButton } = this.props;
+    const { showAddReviewsForm } = this.state;
+    console.log('showMoreReviewsButton from reviewlist:', showMoreReviewsButton);
     return (
       <div className='reviews_section'>
         <h4>{totalNumberRating} reviews, sorted by relevance</h4>

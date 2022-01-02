@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import css from '../styles/addToCart.module.css';
 
 const AddToCart = ({ currSku, currQuantity }) => {
   const postToCart = () => {
@@ -26,7 +27,7 @@ const AddToCart = ({ currSku, currQuantity }) => {
 
 
   return (
-    <button onClick={() => handleClicked()}>Add to Cart</button>
+    <button className={css.addToCartButton} onClick={() => handleClicked()}>Add to Cart</button>
   );
 };
 
