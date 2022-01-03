@@ -2,7 +2,7 @@ import React from 'react';
 import './RatingBreakdown.scss';
 import RatingBreakdownItem from './RatingBreakdownItem.jsx';
 import NumberFormat from 'react-number-format';
-import StarRating from './StarRating.jsx';
+import StarRating from '../../Shared/StarRating/StarRating.jsx';
 
 class RatingBreakdown extends React.Component {
   constructor(props) {

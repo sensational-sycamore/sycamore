@@ -9,7 +9,6 @@ class StarRating extends React.Component {
 
   render() {
     const { averageRating } = this.props;
-    console.log('aveage rating from star rating:', averageRating);
     if (averageRating >= 0) {
       return (
         <div>
@@ -24,6 +23,8 @@ class StarRating extends React.Component {
         </div>
       );
     }
+    return null;
   }
 }
+
 export default StarRating;

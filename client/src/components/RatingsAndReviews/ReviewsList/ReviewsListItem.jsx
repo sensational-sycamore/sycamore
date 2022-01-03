@@ -1,7 +1,7 @@
 import React from 'react';
 import './ReviewsListItem.scss';
 const moment = require('moment');
-import StarRating from '../RatingBreakdown/StarRating.jsx';
+import StarRating from '../../Shared/StarRating/StarRating.jsx';
 
 class ReviewsListItem extends React.Component {
   constructor(props) {
