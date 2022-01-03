@@ -1,15 +1,19 @@
 import React from 'react';
 import './QuestionsAndAnswersActions.scss';
 
-const QuestionsAndAnswersActions = ({setShowAddQuestionModal}) => {
+const QuestionsAndAnswersActions = ({setShowAddQuestionModal, setShowMoreQuestionAndAnswers, showMoreQuestionAndAnswers}) => {
   const handleShowAddQuestionModal = () => {
     setShowAddQuestionModal(true);
   };
 
+  const onLoadMoreQuestions = () => {
+    setShowMoreQuestionAndAnswers(!showMoreQuestionAndAnswers);
+  };
+
   return (
     <div>
-      <button>More answered questions</button>
-      <button onClick={handleShowAddQuestionModal}>Add a question</button>
+      <button onClick={onLoadMoreQuestions}>More answered questions</button>
+      <button onClick={handleShowAddQuestionModal}>Add a question +</button>
     </div>
   );
 };
