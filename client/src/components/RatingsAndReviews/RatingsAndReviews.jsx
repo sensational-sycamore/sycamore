@@ -23,27 +23,11 @@ class RatingsAndReviews extends React.Component {
     this.calcRating = this.calcRating.bind(this);
     this.AddReview = this.AddReview.bind(this);
     this.getNextPageReviews = this.getNextPageReviews.bind(this);
+    this.getMeta = this.getMeta.bind(this);
   }
 
-  componentDidMount() {
-    console.log('page from component did mount:', this.state.page);
-    axios.get(`/reviews/?product_id=${this.props.productId}`,
-      {
-        params: {
-          count: 2,
-          page: this.state.page
-        }
-      })
-      .then(response => {
-        console.log('response from axios get:', response.data.results);
-        console.log('current reviews:', this.state.reviews);
-        this.setState({ reviews: response.data.results });
-      })
-      .catch(err => {
-        console.log('error');
-      });
-
-    axios.get(`/reviews/meta/?product_id=${this.props.productId}`)
+  getMeta(id) {
+    axios.get(`/reviews/meta/?product_id=${id}`)
       .then(response => {
         console.log('response from axios get meta:', response.data);
         this.setState({ meta: response.data }, () => this.calcRating(this.state.meta));
@@ -53,32 +37,38 @@ class RatingsAndReviews extends React.Component {
       });
   }
 
+  componentDidMount() {
+    axios.get(`/reviews/?product_id=${this.props.productId}`,
+      {
+        params: {
+          count: 2,
+          page: this.state.page
+        }
+      })
+      .then(response => {
+        this.setState({ reviews: response.data.results });
+      })
+      .catch(err => {
+        console.log('error');
+      });
+    this.getMeta(this.props.productId);
+  }
+
   AddReview(review) {
+    const {productId} = this.props;
     axios.post('/reviews', review)
       .then((response) => {
         console.log('success', response.data);
+        this.getMeta(productId);
       })
       .catch(err => {
         console.log('err from add review:', err);
       });
-
-    // const headers = {
-    //   'Authorization': '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'
-    // };
-    // axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/reviews', review, { headers })
-    //   .then((response) => {
-    //     console.log('success', response.data);
-    //   })
-    //   .catch(err => {
-    //     console.log('err from add review:', err);
-    //   });
-
   }
 
   getNextPageReviews() {
     let p = this.state.page + 1;
     this.setState({ page: p });
-    console.log('page from get nextpagereview func:', p);
     axios.get(`/reviews/?product_id=${this.props.productId}`,
       {
         params: {
@@ -87,11 +77,7 @@ class RatingsAndReviews extends React.Component {
         }
       })
       .then(response => {
-        // console.log('response from axios get next page review:', response.data.results);
         let newReviews = [...response.data.results, ...this.state.reviews];
-        console.log('this.state.totalNumberRating from getnextpage review:', this.state.totalNumberRating);
-        console.log('newReview from getnextpage review:', newReviews);
-
         this.setState({ reviews: this.state.reviews.length === 0 ? response.data.results : [...response.data.results, ...this.state.reviews] }, () => {
           if (this.state.reviews.length >= this.state.totalNumberRating) {
             this.setState({ showMoreReviewsButton: false });
@@ -138,7 +124,7 @@ class RatingsAndReviews extends React.Component {
 
   render() {
     const { productId } = this.props;
-    const { reviews, showMoreReviewsButton, meta, averageRating, ratingArray, totalNumberRating, percentRecommend } = this.state; 
+    const { reviews, showMoreReviewsButton, meta, averageRating, ratingArray, totalNumberRating, percentRecommend } = this.state;
     return (
       <div id='ratings-and-reviews' className='ratings-and-reviews'>
         <h4>RATINGS AND REVIEWS</h4>
