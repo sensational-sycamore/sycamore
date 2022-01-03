@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <coverage generated="1641352308880" clover="3.2.0">
   <project timestamp="1641352308880" name="All files">
     <metrics statements="2393" coveredstatements="77" conditionals="48" coveredconditionals="7" methods="48" coveredmethods="7" elements="2489" coveredelements="91" complexity="0" loc="2393" ncloc="2393" packages="28" files="45" classes="45"/>
@@ -2310,6 +2311,10 @@
 =======
 <coverage generated="1641234793968" clover="3.2.0">
   <project timestamp="1641234793968" name="All files">
+=======
+<coverage generated="1641240753780" clover="3.2.0">
+  <project timestamp="1641240753780" name="All files">
+>>>>>>> 80d88aa (added incomplete dom test)
     <metrics statements="78" coveredstatements="65" conditionals="8" coveredconditionals="7" methods="7" coveredmethods="7" elements="93" coveredelements="79" complexity="0" loc="78" ncloc="78" packages="2" files="6" classes="6"/>
     <package name="Overview.subcomponents">
       <metrics statements="68" coveredstatements="55" conditionals="7" coveredconditionals="6" methods="6" coveredmethods="6"/>
