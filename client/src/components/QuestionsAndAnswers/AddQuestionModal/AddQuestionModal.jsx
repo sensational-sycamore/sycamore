@@ -43,7 +43,7 @@ const AddQuestionModal = ({setShowAddQuestionModal, productId}) => {
   };
 
   const handleNicknameInputChange = function() {
-    if (icknameRef.current.value.length > 60) {
+    if (nicknameRef.current.value.length > 60) {
       nicknameRef.current.value = nicknameRef.current.value.slice(0, 60);
     } else {
       setNicknameLength(nicknameRef.current.value.length);
