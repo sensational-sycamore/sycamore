@@ -236,6 +236,8 @@ request body sample
 */
 app.post('/qa/questions/:question_id/answers', (req, res) => {
   let questionId = req.params.question_id;
+
+  console.log('post /qa/questions/:question_id/answers');
   axios({
     method: 'post',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-sfo/qa/questions/${questionId}/answers`,

@@ -9,6 +9,7 @@ import axios from 'axios';
 
 const QuestionsAndAnswers = ({productId}) => {
   const [showAddAnswerModal, setShowAddAnswerModal] = useState(false);
+  const [answerModalQuestionId, setAnswerModalQuestionId] = useState(null);
   const [showAddQuestionModal, setShowAddQuestionModal] = useState(false);
   const [questionsAndAnswers, setQuestionsAndAnswers] = useState([]);
   const [showMoreQuestionAndAnswers, setShowMoreQuestionAndAnswers] = useState(false);
@@ -42,6 +43,22 @@ const QuestionsAndAnswers = ({productId}) => {
     }
   };
 
+  const handleOpenAddAnswerModal = (questionId) => {
+    // set the state
+    setAnswerModalQuestionId(questionId);
+    setShowAddAnswerModal(true);
+  };
+
+  const handleCloseAnswerModal = () => {
+    setAnswerModalQuestionId(null);
+    setShowAddAnswerModal(false);
+  };
+
+  const getQuestionBody = () => {
+    const question = questionsAndAnswers.find(qa => qa.question_id === answerModalQuestionId);
+    return question ? question.question_body : '';
+  };
+
   return (
     <div className='questions-and-answers'>
       <h2>Questions & Answers</h2>
@@ -51,6 +68,7 @@ const QuestionsAndAnswers = ({productId}) => {
         onQuestionHelpulButtonClick={onQuestionHelpulButtonClick}
         onAnswerHelpulButtonClick={onAnswerHelpulButtonClick}
         setShowAddAnswerModal={setShowAddAnswerModal}
+        handleOpenAddAnswerModal={handleOpenAddAnswerModal}
       />
       <QuestionsAndAnswersActions
         setShowAddQuestionModal={setShowAddQuestionModal}
@@ -62,7 +80,12 @@ const QuestionsAndAnswers = ({productId}) => {
         productId={productId}
         setShowAddQuestionModal={setShowAddQuestionModal}
       />}
-      {showAddAnswerModal && <AddAnswerModal />}
+      {showAddAnswerModal && <AddAnswerModal
+        productId={productId}
+        handleCloseAnswerModal={handleCloseAnswerModal}
+        questionBody={getQuestionBody()}
+        questionId={answerModalQuestionId}
+      />}
     </div>
   );
 };
