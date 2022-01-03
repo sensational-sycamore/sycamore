@@ -24,10 +24,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <Navbar />
-        <Overview productId={this.state.productId}/> */}
-        {/* <Related productId={this.state.productId} changeProductId={this.changeProductId}/>
-        <QuestionsAndAnswers productId={this.state.productId}/> */}
+        <Navbar />
+        <Overview productId={this.state.productId}/>
+        <Related productId={this.state.productId} changeProductId={this.changeProductId}/>
+        <QuestionsAndAnswers productId={this.state.productId}/>
         <RatingsAndReviews productId={this.state.productId}/>
       </div>
     );
