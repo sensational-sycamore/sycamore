@@ -41,19 +41,41 @@ class Overview extends React.Component {
     }
   }
 
+  // getProductInfo() {
+  //   axios.get(`/products/${this.props.productId}`)
+  //     .then(response => this.setState({
+  //       product: response.data
+  //     }));
+  // }
+
   getProductInfo() {
     axios.get(`/products/${this.props.productId}`)
-      .then(response => this.setState({
+      .then(response => {
+        console.log('product response data from overview:', response.data);
+        this.setState({
         product: response.data
-      }));
+      })
+    });
   }
+
+  // getStylesInfo() {
+  //   axios.get(`/products/${this.props.productId}/styles`)
+  //     .then(response => this.setState({
+  //       styles: response.data.results,
+  //       currStyle: response.data.results[0]
+  //     }));
+  // }
 
   getStylesInfo() {
     axios.get(`/products/${this.props.productId}/styles`)
-      .then(response => this.setState({
+      .then(response => {
+        console.log('styles response data from overview:', response.data);
+
+        this.setState({
         styles: response.data.results,
         currStyle: response.data.results[0]
-      }));
+      })
+    });
   }
 
   getReviewsInfo() {

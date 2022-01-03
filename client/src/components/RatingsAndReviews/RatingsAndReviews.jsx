@@ -21,7 +21,6 @@ class RatingsAndReviews extends React.Component {
       page: 1
     };
     this.calcRating = this.calcRating.bind(this);
-    this.filterReviews = this.filterReviews.bind(this);
     this.AddReview = this.AddReview.bind(this);
     this.getNextPageReviews = this.getNextPageReviews.bind(this);
   }
@@ -38,7 +37,7 @@ class RatingsAndReviews extends React.Component {
       .then(response => {
         console.log('response from axios get:', response.data.results);
         console.log('current reviews:', this.state.reviews);
-        this.setState({ reviews: this.state.reviews.length === 0 ? response.data.results : [...response.data.results, ...this.state.reviews] });
+        this.setState({ reviews: response.data.results });
       })
       .catch(err => {
         console.log('error');
@@ -137,32 +136,9 @@ class RatingsAndReviews extends React.Component {
     }
   }
 
-  filterReviews(rating) {
-    let { numStarReviewsToRender } = this.state;
-    if (numStarReviewsToRender.length === 0) {
-      numStarReviewsToRender.push(rating);
-      this.setState({ numStarReviewsToRender: numStarReviewsToRender });
-    } else {
-      if (numStarReviewsToRender.indexOf(rating) !== -1) {
-        if (numStarReviewsToRender.length === 1) {
-          this.setState({ numStarReviewsToRender: [] });
-        } else {
-          let idx = numStarReviewsToRender.indexOf(rating);
-          numStarReviewsToRender.splice(idx, 1);
-          this.setState({ numStarReviewsToRender: numStarReviewsToRender });
-        }
-      } else {
-        numStarReviewsToRender.push(rating);
-        this.setState({ numStarReviewsToRender: numStarReviewsToRender });
-      }
-    }
-  }
-
   render() {
     const { productId } = this.props;
-    const { reviews, showMoreReviewsButton, meta, averageRating, ratingArray, totalNumberRating, percentRecommend } = this.state;
-    console.log('showMoreReviewsButton from ratingandreviews:', showMoreReviewsButton);
-
+    const { reviews, showMoreReviewsButton, meta, averageRating, ratingArray, totalNumberRating, percentRecommend } = this.state; 
     return (
       <div id='ratings-and-reviews' className='ratings-and-reviews'>
         <h4>RATINGS AND REVIEWS</h4>
@@ -170,7 +146,6 @@ class RatingsAndReviews extends React.Component {
           <div className='rating_box'>
             <RatingBreakdown productId={productId} meta={meta} averageRating={averageRating} ratingArray={ratingArray} totalNumberRating={totalNumberRating}
               percentRecommend={percentRecommend}
-              filterReviews={this.filterReviews}
             />
           </div>
           <div className='reviewlist_box'>

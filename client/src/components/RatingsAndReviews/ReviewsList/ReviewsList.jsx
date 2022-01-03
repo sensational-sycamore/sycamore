@@ -29,7 +29,6 @@ class ReviewsList extends React.Component {
   render() {
     const { reviews, productId, characteristics, AddReview, totalNumberRating, showMoreReviewsButton } = this.props;
     const { showAddReviewsForm } = this.state;
-    console.log('showMoreReviewsButton from reviewlist:', showMoreReviewsButton);
     return (
       <div className='reviews_section'>
         <h4>{totalNumberRating} reviews, sorted by relevance</h4>

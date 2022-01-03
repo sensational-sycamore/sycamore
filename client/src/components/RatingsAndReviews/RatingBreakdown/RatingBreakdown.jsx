@@ -12,7 +12,7 @@ class RatingBreakdown extends React.Component {
   }
 
   render() {
-    const { meta, ratingArray, averageRating, totalNumberRating, percentRecommend, filterReviews } = this.props;
+    const { meta, ratingArray, averageRating, totalNumberRating, percentRecommend } = this.props;
     return (
       <div>
         <div className='avg-rating'>
@@ -27,8 +27,7 @@ class RatingBreakdown extends React.Component {
           ratingArray.map(rating => (
             <RatingBreakdownItem rating={rating} averageRating={averageRating}
               totalNumberRating={totalNumberRating}
-              key={rating.level}
-              filterReviews={filterReviews} />
+              key={rating.level} />
           )
           )
         }

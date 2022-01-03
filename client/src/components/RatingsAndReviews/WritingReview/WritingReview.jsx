@@ -52,18 +52,15 @@ class WritingReview extends React.Component {
   render() {
     const chars = this.props.characteristics;
     const { summary, body, name, email } = this.state;
-    // const keys = ['Size', 'Width', 'Comfort', 'Quality', 'Length', 'Fit'];
     let sizeStr = !!chars.Size ? `${chars.Size.id}` : 'size';
     let widthStr= !!chars.Width ? `${chars.Width.id}` : 'width';
     let comfortStr = !!chars.Comfort ? `${chars.Comfort.id}` : 'comfort';
     let qualityStr = !!chars.Quality ? `${chars.Quality.id}` : 'quality';
     let lengthStr = !!chars.Length ? `${chars.Length.id}` : 'length';
     let fitStr = !!chars.Fit ? `${chars.Fit.id}` : 'fit';
-
     return (
       <form onSubmit={this.handleSubmitReview}>
-        <h4>Write Your Review about </h4>
-        {/* <p>about {productId}</p> */}
+        <h4>Write Your Review </h4>
         <div>
           <p>Overall rating</p>
           <SetStarRating getRating={this.getRating} />
