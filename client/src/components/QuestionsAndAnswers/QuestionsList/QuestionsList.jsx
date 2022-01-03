@@ -8,11 +8,11 @@ const QuestionsList = ({
   onAnswerHelpulButtonClick,
   setShowAddAnswerModal
 }) => {
+
   return (
     <>
       <ul className="question-list">
         {questionsAndAnswers.map(qa => {
-          console.log('Question List QA', qa);
           return (
             <QuestionListItem
               key={qa.question_id}
@@ -29,7 +29,6 @@ const QuestionsList = ({
             />);
         })}
       </ul>
-      <button>Load more answers</button>
     </>
   );
 };
