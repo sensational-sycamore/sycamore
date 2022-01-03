@@ -7,27 +7,39 @@ import AddQuestionModal from './AddQuestionModal/AddQuestionModal.jsx';
 import QuestionsAndAnswersActions from './QuestionsAndAnswersActions/QuestionsAndAnswersActions.jsx';
 import axios from 'axios';
 
-
 const QuestionsAndAnswers = ({productId}) => {
   const [showAddAnswerModal, setShowAddAnswerModal] = useState(false);
   const [showAddQuestionModal, setShowAddQuestionModal] = useState(false);
-
   const [questionsAndAnswers, setQuestionsAndAnswers] = useState([]);
+  const [showMoreQuestionAndAnswers, setShowMoreQuestionAndAnswers] = useState(false);
 
   useEffect(() => {
-    axios(`http://localhost:3000/qa/questions?product_id=${productId}&page=1&count=5`)
-      .then(res => {
-        setQuestionsAndAnswers(res.data.results);
-      });
+    fetchAllQuestions();
   }, [productId]);
 
   const onQuestionHelpulButtonClick = (id) => {
-    console.log('onHelpulButtonClick', id);
-    // https://localhost:3000/qa/questions/553823/helpful
+    axios.put(`/qa/questions/${id}/helpful`)
+      .then(res => fetchAllQuestions());
   };
 
   const onAnswerHelpulButtonClick = (id) => {
-    console.log('onAnswerHelpulButtonClick', id);
+    axios.put(`/qa/answers/${id}/helpful`)
+      .then(res => fetchAllQuestions());
+  };
+
+  const fetchAllQuestions = () => {
+    axios(`http://localhost:3000/qa/questions?product_id=${productId}`)
+      .then(res => {
+        setQuestionsAndAnswers(res.data.results);
+      });
+  };
+
+  const getQuestionsAndAnswers = () => {
+    if (showMoreQuestionAndAnswers) {
+      return questionsAndAnswers;
+    } else {
+      return questionsAndAnswers.slice(0, 4);
+    }
   };
 
   return (
@@ -35,13 +47,15 @@ const QuestionsAndAnswers = ({productId}) => {
       <h2>Questions & Answers</h2>
       <SearchQuestions />
       <QuestionsList
-        questionsAndAnswers={questionsAndAnswers}
+        questionsAndAnswers={getQuestionsAndAnswers()}
         onQuestionHelpulButtonClick={onQuestionHelpulButtonClick}
         onAnswerHelpulButtonClick={onAnswerHelpulButtonClick}
         setShowAddAnswerModal={setShowAddAnswerModal}
       />
       <QuestionsAndAnswersActions
         setShowAddQuestionModal={setShowAddQuestionModal}
+        setShowMoreQuestionAndAnswers={setShowMoreQuestionAndAnswers}
+        showMoreQuestionAndAnswers={showMoreQuestionAndAnswers}
       />
 
       {showAddQuestionModal && <AddQuestionModal
