@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category component renders correctly 1`] = `
+<p>
+  Accessories
+</p>
+`;
+
+exports[`Description component renders correctly 1`] = `
+<div>
+  <h3>
+    Reality is often disappointing. That is, it was. Now, reality can be whatever I want.
+  </h3>
+  <h3>
+    The Infinity Stones are six immensely powerful stone-like objects tied to different aspects of the universe, created by the Cosmic Entities. Each of the stones possesses unique capabilities that have been enhanced and altered by various alien civilizations for millennia.
+  </h3>
+</div>
+`;
+
+exports[`Reviews component renders correctly 1`] = `
+<div>
+  <a
+    href="#ratings-and-reviews"
+  >
+    Read all reviews
+  </a>
+</div>
+`;
+
+exports[`Title component renders correctly 1`] = `
+<div>
+  <h1>
+    Infinity Stone
+  </h1>
+</div>
+`;
