@@ -26,4 +26,5 @@ class StarRating extends React.Component {
     return null;
   }
 }
+
 export default StarRating;
