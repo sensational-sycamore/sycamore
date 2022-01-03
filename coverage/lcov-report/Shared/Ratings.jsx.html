@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Overview/subcomponents/Cart.jsx</title>
+    <title>Code coverage report for Shared/Ratings.jsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">Overview/subcomponents</a> Cart.jsx</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">Shared</a> Ratings.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85% </span>
+                <span class="strong">94.28% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>34/40</span>
+                <span class='fraction'>33/35</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">80% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
+                <span class="quiet">Functions</span>
                 <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>2/4</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">85% </span>
+                <span class="strong">94.28% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/40</span>
+                <span class='fraction'>33/35</span>
             </div>
         
             
@@ -98,12 +98,7 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -119,15 +114,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -144,45 +134,40 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import SizeSelector from './SizeSelector.jsx';
-import QuantitySelector from './QuantitySelector.jsx';
-import AddToCart from './AddToCart.jsx';
+import css from './styles/ratings.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
+&nbsp;
+const Ratings = ({ reviews }) =&gt; {
+  const length = reviews.length;
+  const total = reviews.reduce((acc, review) =&gt; {
+    return acc + review.rating;
+  }, 0);
+  const average = total / length;
+  const star = &lt;FontAwesomeIcon icon={faStar} size="xs"/&gt;;
+  const halfStar = &lt;FontAwesomeIcon icon={faStarHalf} size="xs"/&gt;;
+  const starArr = [];
+  const populateStar = () =&gt; {
+    for (var i = 0; i &lt; Math.floor(average); i++) {
+      starArr.push(&lt;div key={i}&gt;{star}&lt;/div&gt;);
+    }
+&nbsp;
+    if (average % 1 &gt;= 0.5) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >      starArr.push(&lt;div key={i}&gt;{halfStar}&lt;/div&gt;);</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+  };
+&nbsp;
+  populateStar();
 &nbsp;
 &nbsp;
-class Cart extends React.Component {
-  constructor(props) {
-    super(props);
+  return (
+    &lt;div className={css.ratingsContainer} &gt;
+      { starArr }
+    &lt;/div&gt;
+  );
+};
 &nbsp;
-    this.handleSizeSelect = this.handleSizeSelect.bind(this);
-    this.handleQuantitySelect = this.handleQuantitySelect.bind(this);
-&nbsp;
-    this.state = {
-      currSku: '',
-      currQuantity: '',
-    };
-  }
-&nbsp;
-<span class="fstat-no" title="function not covered" >  handleSizeSelect(sku) {</span>
-<span class="cstat-no" title="statement not covered" >    console.log(sku);</span>
-<span class="cstat-no" title="statement not covered" >    this.setState({currSku: sku});</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="fstat-no" title="function not covered" >  handleQuantitySelect(quantity) {</span>
-<span class="cstat-no" title="statement not covered" >    this.setState({currQuantity: quantity});</span>
-<span class="cstat-no" title="statement not covered" >    console.log(this.state);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-&nbsp;
-  render() {
-    return (
-      &lt;div&gt;
-        &lt;SizeSelector currStyle={this.props.currStyle} handleSizeSelect={this.handleSizeSelect}/&gt;
-        &lt;QuantitySelector handleQuantitySelect={this.handleQuantitySelect}/&gt;
-        &lt;AddToCart currSku={this.state.currSku} currQuantity={this.state.currQuantity}/&gt;
-      &lt;/div&gt;
-    );
-  }
-}
-&nbsp;
-export default Cart;
+export default Ratings;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -193,14 +178,14 @@ export default Cart;
                 at Sun Jan 02 2022 23:38:30 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
-        <script src="../../prettify.js"></script>
+        <script src="../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
     </body>
 </html>
     

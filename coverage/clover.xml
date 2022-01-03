@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <coverage generated="1641352308880" clover="3.2.0">
   <project timestamp="1641352308880" name="All files">
     <metrics statements="2393" coveredstatements="77" conditionals="48" coveredconditionals="7" methods="48" coveredmethods="7" elements="2489" coveredelements="91" complexity="0" loc="2393" ncloc="2393" packages="28" files="45" classes="45"/>
@@ -2306,6 +2307,13 @@
         <line num="39" count="1" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
       </file>
+=======
+<coverage generated="1641234793968" clover="3.2.0">
+  <project timestamp="1641234793968" name="All files">
+    <metrics statements="78" coveredstatements="65" conditionals="8" coveredconditionals="7" methods="7" coveredmethods="7" elements="93" coveredelements="79" complexity="0" loc="78" ncloc="78" packages="2" files="6" classes="6"/>
+    <package name="Overview.subcomponents">
+      <metrics statements="68" coveredstatements="55" conditionals="7" coveredconditionals="6" methods="6" coveredmethods="6"/>
+>>>>>>> d02313e (added snapshot tests)
       <file name="Category.jsx" path="/Users/vanhsieh/Desktop/Hack Reactor/FEC/client/src/components/Overview/subcomponents/Category.jsx">
         <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -2331,6 +2339,7 @@
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
       </file>
+<<<<<<< HEAD
       <file name="DropDown.jsx" path="/Users/vanhsieh/Desktop/Hack Reactor/FEC/client/src/components/Overview/subcomponents/DropDown.jsx">
         <metrics statements="60" coveredstatements="45" conditionals="3" coveredconditionals="2" methods="5" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
@@ -2521,13 +2530,15 @@
         <line num="41" count="1" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
       </file>
+=======
+>>>>>>> d02313e (added snapshot tests)
       <file name="Price.jsx" path="/Users/vanhsieh/Desktop/Hack Reactor/FEC/client/src/components/Overview/subcomponents/Price.jsx">
-        <metrics statements="26" coveredstatements="20" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <metrics statements="26" coveredstatements="13" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="6" count="1" type="cond" truecount="0" falsecount="1"/>
 >>>>>>> 8d270ae (added jest configuration to manage css modules)
         <line num="7" count="0" type="stmt"/>
@@ -2537,6 +2548,9 @@
         <line num="11" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d02313e (added snapshot tests)
         <line num="13" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
@@ -2544,6 +2558,7 @@
         <line num="17" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
+<<<<<<< HEAD
         <line num="20" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
@@ -2878,16 +2893,18 @@
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
+=======
+>>>>>>> d02313e (added snapshot tests)
         <line num="20" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
       </file>
-      <file name="QuantitySelector.jsx" path="/Users/vanhsieh/Desktop/Hack Reactor/FEC/client/src/components/Overview/subcomponents/QuantitySelector.jsx">
-        <metrics statements="9" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="Reviews.jsx" path="/Users/vanhsieh/Desktop/Hack Reactor/FEC/client/src/components/Overview/subcomponents/Reviews.jsx">
+        <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -2897,88 +2914,10 @@
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
-      </file>
-      <file name="Ratings.jsx" path="/Users/vanhsieh/Desktop/Hack Reactor/FEC/client/src/components/Overview/subcomponents/Ratings.jsx">
-        <metrics statements="37" coveredstatements="35" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="17" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="18" count="5" type="stmt"/>
-        <line num="19" count="5" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="21" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="34" count="2" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-      </file>
-      <file name="SizeSelector.jsx" path="/Users/vanhsieh/Desktop/Hack Reactor/FEC/client/src/components/Overview/subcomponents/SizeSelector.jsx">
-        <metrics statements="19" coveredstatements="17" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-      </file>
-      <file name="StyleSelector.jsx" path="/Users/vanhsieh/Desktop/Hack Reactor/FEC/client/src/components/Overview/subcomponents/StyleSelector.jsx">
-        <metrics statements="17" coveredstatements="17" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
       </file>
       <file name="Title.jsx" path="/Users/vanhsieh/Desktop/Hack Reactor/FEC/client/src/components/Overview/subcomponents/Title.jsx">
         <metrics statements="10" coveredstatements="10" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
