@@ -11,3 +11,14 @@
   padding-right: 12%;
   padding-bottom: 8%;
 }
+
+.scrollIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  padding-left: 3%;
+  padding-bottom: 2%;
+}
