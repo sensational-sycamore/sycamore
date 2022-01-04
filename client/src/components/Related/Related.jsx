@@ -39,7 +39,10 @@ const Related = ({ productId, changeProductId }) => {
 
   return (
     <div className={css.relatedContainer}>
-      {relatedProducts.map(product => <Card key={product.details.id} currProduct={currProduct} product={product} changeProductId={changeProductId}/>)}
+      RELATED PRODUCTS
+      <div className={css.cardsContainer}>
+        {relatedProducts.map(product => <Card key={product.details.id} currProduct={currProduct} product={product} changeProductId={changeProductId}/>)}
+      </div>
     </div>
   );
 };

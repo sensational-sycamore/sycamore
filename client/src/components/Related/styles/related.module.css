@@ -1,9 +1,13 @@
-.relatedContainer {
+.cardsContainer {
   display: flex;
   flex-direction: row;
+  height: 20rem;
+  width: 100%;
+}
+
+
+.relatedContainer {
   padding-left: 12%;
   padding-right: 12%;
   padding-bottom: 8%;
-  height: 20rem;
-  width: 100%;
 }
