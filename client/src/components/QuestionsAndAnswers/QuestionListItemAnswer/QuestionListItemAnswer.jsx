@@ -3,7 +3,7 @@ import './QuestionListItemAnswer.scss';
 import QuestionListItemAnswerActions from '../QuestionListItemAnswerActions/QuestionListItemAnswerActions.jsx';
 import QuestionListItemAnswerImages from '../QuestionListItemAnswerImages/QuestionListItemAnswerImages.jsx';
 
-const QuestionListItemAnswer = ({answer, onHelpulButtonClick, images, author, date, helpfulness, id}) => {
+const QuestionListItemAnswer = ({answer, onHelpulButtonClick, images, author, date, helpfulness, id, setShowAddAnswerModal}) => {
   return (
     <li className="answer">
       <p className="answer-text">{answer}</p>
@@ -14,6 +14,7 @@ const QuestionListItemAnswer = ({answer, onHelpulButtonClick, images, author, da
         date={date}
         helpfulness={helpfulness}
         id={id}
+        setShowAddAnswerModal={setShowAddAnswerModal}
       />
     </li>
   );

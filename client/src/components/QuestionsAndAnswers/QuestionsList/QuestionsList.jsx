@@ -6,7 +6,8 @@ const QuestionsList = ({
   questionsAndAnswers,
   onQuestionHelpulButtonClick,
   onAnswerHelpulButtonClick,
-  setShowAddAnswerModal
+  setShowAddAnswerModal,
+  handleOpenAddAnswerModal
 }) => {
 
   return (
@@ -26,6 +27,7 @@ const QuestionsList = ({
               onQuestionHelpulButtonClick={onQuestionHelpulButtonClick}
               onAnswerHelpulButtonClick={onAnswerHelpulButtonClick}
               setShowAddAnswerModal={setShowAddAnswerModal}
+              handleOpenAddAnswerModal={handleOpenAddAnswerModal}
             />);
         })}
       </ul>
