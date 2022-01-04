@@ -11,7 +11,7 @@ class WritingReview extends React.Component {
       rating: 5,
       summary: '',
       body: '',
-      recommend: 'yes',
+      recommend: true,
       name: '',
       email: '',
       characteristics: {}
@@ -26,10 +26,18 @@ class WritingReview extends React.Component {
   }
 
   handleChange(event) {
-    if (event.target.name === 'size' || event.target.name === 'width' ||
-    event.target.name === 'comfort' || event.target.name === 'quality'
+    const chars = this.props.characteristics;
+    if (
+     !!chars.Size && event.target.name === chars.Size.id.toString() ||
+     !!chars.Width && event.target.name === chars.Width.id.toString() ||
+     !!chars.Comfort && event.target.name === chars.Comfort.id.toString() ||
+     !!chars.Quality && event.target.name === chars.Quality.id.toString() ||
+     !!chars.Length && event.target.name === chars.Length.id.toString() ||
+     !!chars.Fit && event.target.name === chars.Fit.id.toString()
     ) {
-      this.setState({ characteristics: {...this.state.characteristics, [event.target.name]: event.target.value } });
+      this.setState({ characteristics: {...this.state.characteristics, [event.target.name]: Number(event.target.value) } });
+    } else if (event.target.name === 'recommend') {
+      this.setState({ [event.target.name]: event.target.value==='yes'? true: false });
     } else {
       this.setState({ [event.target.name]: event.target.value });
     }
@@ -37,16 +45,22 @@ class WritingReview extends React.Component {
 
   handleSubmitReview(event) {
     console.log('this.state:', this.state);
-    this.props.handAddReviewsClick(event);
+    this.props.AddReview(this.state);
+    this.props.handleCloseAddReviewsForm(event);
   }
 
   render() {
-    // const { summary, productId } = this.props;
+    const chars = this.props.characteristics;
     const { summary, body, name, email } = this.state;
+    let sizeStr = !!chars.Size ? `${chars.Size.id}` : 'size';
+    let widthStr= !!chars.Width ? `${chars.Width.id}` : 'width';
+    let comfortStr = !!chars.Comfort ? `${chars.Comfort.id}` : 'comfort';
+    let qualityStr = !!chars.Quality ? `${chars.Quality.id}` : 'quality';
+    let lengthStr = !!chars.Length ? `${chars.Length.id}` : 'length';
+    let fitStr = !!chars.Fit ? `${chars.Fit.id}` : 'fit';
     return (
       <form onSubmit={this.handleSubmitReview}>
-        <h4>Write Your Review about </h4>
-        {/* <p>about {productId}</p> */}
+        <h4>Write Your Review </h4>
         <div>
           <p>Overall rating</p>
           <SetStarRating getRating={this.getRating} />
@@ -58,44 +72,73 @@ class WritingReview extends React.Component {
         </div>
         <div onChange={this.handleChange}>
           <p>Characteristics</p>
+          {chars.Size &&
           <div>
           <p>Size</p>
-          <input type="radio" value='1' name="size" /> A size too small
-          <input type="radio" value='2' name="size" /> ½ a size too small
-          <input type="radio" value='3' name="size" /> Perfect
-          <input type="radio" value='4' name="size" /> ½ a size too big
-          <input type="radio" value='5' name="size" /> A size too wide
-          <input type="radio" value='0' name="size" defaultChecked /> none
+          <input type="radio" value='1' name={sizeStr} /> A size too small
+          <input type="radio" value='2' name={sizeStr} /> ½ a size too small
+          <input type="radio" value='3' name={sizeStr} /> Perfect
+          <input type="radio" value='4' name={sizeStr} /> ½ a size too big
+          <input type="radio" value='5' name={sizeStr} /> A size too wide
+          <input type="radio" value='0' name={sizeStr} defaultChecked /> none
           </div>
+          }
+           {chars.Width &&
           <div>
           <p>Width</p>
-          <input type="radio" value='1' name="width" /> Too narrow
-          <input type="radio" value='2' name="width" /> Slightly narrow
-          <input type="radio" value='3' name="width" /> Perfect
-          <input type="radio" value='4' name="width" /> Slightly wide
-          <input type="radio" value='5' name="width" /> Too wide
-          <input type="radio" value='0' name="width" defaultChecked /> none
+          <input type="radio" value='1' name={widthStr} /> Too narrow
+          <input type="radio" value='2' name={widthStr} /> Slightly narrow
+          <input type="radio" value='3' name={widthStr} /> Perfect
+          <input type="radio" value='4' name={widthStr} /> Slightly wide
+          <input type="radio" value='5' name={widthStr} /> Too wide
+          <input type="radio" value='0' name={widthStr} defaultChecked /> none
           </div>
+          }
+          {chars.Comfort &&
           <div>
           <p>Comfort</p>
-          <input type="radio" value='1' name="comfort" /> Uncomfortable
-          <input type="radio" value='2' name="comfort" /> Slightly uncomfortable
-          <input type="radio" value='3' name="comfort" /> Ok
-          <input type="radio" value='4' name="comfort" /> Comfortable
-          <input type="radio" value='5' name="comfort" /> Perfect
-          <input type="radio" value='0' name="comfort" defaultChecked /> none
+          <input type="radio" value='1' name={comfortStr} /> Uncomfortable
+          <input type="radio" value='2' name={comfortStr} /> Slightly uncomfortable
+          <input type="radio" value='3' name={comfortStr} /> Ok
+          <input type="radio" value='4' name={comfortStr} /> Comfortable
+          <input type="radio" value='5' name={comfortStr} /> Perfect
+          <input type="radio" value='0' name={comfortStr} defaultChecked /> none
           </div>
+          }
+          {chars.Quality &&
           <div>
           <p>Quality</p>
-          <input type="radio" value='1' name="quality" /> Poor
-          <input type="radio" value='2' name="quality" /> Below average
-          <input type="radio" value='3' name="quality" /> What I expected
-          <input type="radio" value='4' name="quality" /> Pretty great
-          <input type="radio" value='5' name="quality" /> Perfect
-          <input type="radio" value='0' name="quality" defaultChecked /> none
+          <input type="radio" value='1' name={qualityStr} /> Poor
+          <input type="radio" value='2' name={qualityStr}/> Below average
+          <input type="radio" value='3' name={qualityStr} /> What I expected
+          <input type="radio" value='4' name={qualityStr} /> Pretty great
+          <input type="radio" value='5' name={qualityStr} /> Perfect
+          <input type="radio" value='0' name={qualityStr} defaultChecked /> none
           </div>
-
-        </div>
+          }
+          {chars.Length &&
+          <div>
+          <p>Length</p>
+          <input type="radio" value='1' name={lengthStr} /> Runs Short
+          <input type="radio" value='2' name={lengthStr} /> Runs slightly short
+          <input type="radio" value='3' name={lengthStr} /> Perfect
+          <input type="radio" value='4' name={lengthStr} /> Runs slightly long
+          <input type="radio" value='5' name={lengthStr} /> Runs long
+          <input type="radio" value='0' name={lengthStr} defaultChecked /> none
+          </div>
+          }
+          {chars.Fit &&
+          <div>
+          <p>Fit</p>
+          <input type="radio" value='1' name={fitStr} /> Runs tight
+          <input type="radio" value='2' name={fitStr}/> Runs slightly tight
+          <input type="radio" value='3' name={fitStr} /> Perfect
+          <input type="radio" value='4' name={fitStr} /> Runs slightly long
+          <input type="radio" value='5' name={fitStr} /> Runs long
+          <input type="radio" value='0' name={fitStr} defaultChecked /> none
+          </div>
+           }
+       </div>
         <div>
         <p>Add a headline</p>
         <textarea
@@ -119,16 +162,16 @@ class WritingReview extends React.Component {
         />
       </div>
         <div>
-          <label>your nickname:
+          <p>your nickname:
             <input name='name' type='text' value={name} onChange={this.handleChange} />
-          </label>
+          </p>
           </div>
           <div>
-          <label>your email:
+            <p>your email:
             <input name='email' type='text' value={email} onChange={this.handleChange} />
-          </label>
+          </p>
         </div>
-        <button>Submit</button>
+        <button className='submit_btn'>Submit</button>
       </form>
     );
   }
