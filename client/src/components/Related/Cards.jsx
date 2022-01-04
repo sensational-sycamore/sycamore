@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card.jsx';
-import css from './styles/related.module.css';
+import css from './styles/cards.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 
@@ -8,12 +8,12 @@ import { faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 const Cards = ({ products, currProduct, changeProductId }) => {
 
   const [productsStart, setProductsStart] = useState(0);
-  const [productsEnd, setProductsEnd] = useState(6);
+  const [productsEnd, setProductsEnd] = useState(4);
 
   const handleUp = () => {
-    if (product > 0) {
-      setProductsStart(photosStart - 1);
-      setProductsEnd(photosEnd - 1);
+    if (productsStart > 0) {
+      setProductsStart(productsStart - 1);
+      setProductsEnd(productsEnd - 1);
     }
   };
 
@@ -26,18 +26,19 @@ const Cards = ({ products, currProduct, changeProductId }) => {
 
 
   return (
-    <div className={css.imageOptions}>
-      <div onClick={handleUp} >
-        <div className={css.scrollIcon}><FontAwesomeIcon icon={faChevronLeft} size="lg"/></div>
+    <div className={css.cardsContainer}>
+      <div className={css.scrollIcon} onClick={handleUp} >
+        <FontAwesomeIcon icon={faChevronLeft} size="lg"/>
       </div>
 
       {products.slice(productsStart, productsEnd).map(product => (
         <Card key={product.details.id} currProduct={currProduct} product={product} changeProductId={changeProductId}/>
       ))}
 
-      <div onClick={handleDown} className={css.scrollButton}>
-        <div className={css.scrollIcon}><FontAwesomeIcon icon={faChevronRight} size="lg"/></div>
+      <div className={css.scrollIcon} onClick={handleDown} >
+        <FontAwesomeIcon icon={faChevronRight} size="lg"/>
       </div>
+
     </div>
   );
 };

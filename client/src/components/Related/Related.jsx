@@ -40,9 +40,7 @@ const Related = ({ productId, changeProductId }) => {
   return (
     <div className={css.relatedContainer}>
       <div className={css.heading}>RELATED PRODUCTS</div>
-      <div className={css.cardsContainer}>
-          <Cards products={relatedProducts} currProduct={currProduct} changeProductId={changeProductId}/>
-      </div>
+      <Cards products={relatedProducts} currProduct={currProduct} changeProductId={changeProductId}/>
     </div>
   );
 };

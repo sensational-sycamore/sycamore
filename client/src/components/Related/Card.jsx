@@ -13,9 +13,10 @@ const Card = ({ product, currProduct, changeProductId }) => {
     <div id={product.details.id} className={css.cardContainer} onClick={() => changeProductId(product.details.id)}>
       <div className={css.compare} onClick={() => setShowComparison(!showComparison)}>{star}</div>
       <img className={css.cardImg} src={product.styles[0].photos[0].url} alt="" />
-      <div>{product.details.category}</div>
-      <div>{product.styles[0].original_price}</div>
-      <Ratings reviews={product.reviews}/>
+      <div className={css.category}>{product.details.category.toUpperCase()}</div>
+      <div className={css.name}>{product.details.name}</div>
+      <div className={css.price}>{product.styles[0].original_price}</div>
+      <div className={css.rating}><Ratings reviews={product.reviews}/></div>
       {showComparison && (
         <div>
           {currProduct.features.map(feature => <div key={feature.value}>{feature.value}</div>)}
