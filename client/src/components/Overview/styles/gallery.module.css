@@ -8,21 +8,8 @@
   object-fit: cover;
 }
 
+
 .hero, .imageOptions {
   grid-column: 1;
   grid-row: 1;
 }
-
-.imageOptions {
-  display: flex;
-  flex-direction: column;
-  padding: 3%;
-}
-
-.eachImage {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  padding: 1%;
-}
-
