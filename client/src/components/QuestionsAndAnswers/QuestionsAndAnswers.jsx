@@ -45,14 +45,14 @@ const QuestionsAndAnswers = ({productId}) => {
   return (
     <div className='questions-and-answers'>
       <h2>Questions & Answers</h2>
-      {/* <SearchQuestions /> */}
+      <SearchQuestions />
       <QuestionsList
         questionsAndAnswers={getQuestionsAndAnswers()}
         onQuestionHelpulButtonClick={onQuestionHelpulButtonClick}
         onAnswerHelpulButtonClick={onAnswerHelpulButtonClick}
         setShowAddAnswerModal={setShowAddAnswerModal}
       />
-      {/* <QuestionsAndAnswersActions
+      <QuestionsAndAnswersActions
         setShowAddQuestionModal={setShowAddQuestionModal}
         setShowMoreQuestionAndAnswers={setShowMoreQuestionAndAnswers}
         showMoreQuestionAndAnswers={showMoreQuestionAndAnswers}
@@ -62,7 +62,7 @@ const QuestionsAndAnswers = ({productId}) => {
         productId={productId}
         setShowAddQuestionModal={setShowAddQuestionModal}
       />}
-      {showAddAnswerModal && <AddAnswerModal />} */}
+      {showAddAnswerModal && <AddAnswerModal />}
     </div>
   );
 };
