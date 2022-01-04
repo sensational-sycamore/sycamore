@@ -26,7 +26,7 @@ const GalleryImages = ({ handleImageSelect, photos}) => {
 
   return (
     <div className={css.imageOptions}>
-      <div onClick={handleUp} classname={css.scrollButton}>
+      <div onClick={handleUp} >
         <FontAwesomeIcon color="white" icon={faChevronUp} size="sm"/>
       </div>
 
