@@ -8,10 +8,13 @@ const SizeSelector = ({ currStyle, handleSizeSelect }) => {
   const selectSize = (selection) => {
     setSelected(currStyle.skus[selection].size);
     handleSizeSelect(selection);
-  }
+  };
+
   const availableSkus = Object.keys(currStyle.skus)
     .filter(sku => currStyle.skus[sku].quantity !== 0);
+
   const availableSizes = {};
+
   for (var sku of availableSkus) {
     availableSizes[sku] = currStyle.skus[sku].size;
   }
