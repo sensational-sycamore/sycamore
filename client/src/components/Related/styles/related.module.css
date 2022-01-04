@@ -1,4 +1,9 @@
 .relatedContainer {
   display: flex;
   flex-direction: row;
+  padding-left: 12%;
+  padding-right: 12%;
+  padding-bottom: 8%;
+  height: 20rem;
+  width: 100%;
 }

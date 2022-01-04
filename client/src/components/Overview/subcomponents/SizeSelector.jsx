@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import css from '../styles/sizeSelector.module.css';
 import Dropdown from './Dropdown.jsx';
 
 const SizeSelector = ({ currStyle, handleSizeSelect }) => {
