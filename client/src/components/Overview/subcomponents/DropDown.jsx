@@ -1,5 +1,7 @@
 import React from 'react';
 import css from '../styles/dropDown.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown} from '@fortawesome/free-solid-svg-icons';
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -40,7 +42,10 @@ class Dropdown extends React.Component {
     return (
       <div className={css.dropDownContainer}>
         <div onClick={this.toggleMenu} className={css.dropDownButton}>
-          {mainMessage}
+          <div class={css.mainMessage}>{mainMessage}</div>
+          <div className={css.downIcon}>
+            <FontAwesomeIcon icon={faChevronDown} color="black" size="sm"/>
+          </div>
         </div>
 
 

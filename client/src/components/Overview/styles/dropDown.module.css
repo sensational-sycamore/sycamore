@@ -1,22 +1,60 @@
-.dropDownButton {
+/* .dropDownButton {
   background-color: white;
   border: 1px black solid;
   color: black;
   padding: 15px 32px;
   text-align: left;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
   margin-top: 5%;
+  border-radius: 5px;
+  width: 9rem;
 }
 
 .dropDownOptions {
   background-color: white;
   border: 1px black solid;
+  border-radius: 5px;
   color: black;
   padding: 15px 32px;
   text-align: left;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+
+.downIcon {
+  margin-left: 5rem;
+  justify-content: right;
+}
+
+.mainMessage {
+  color: white;
+} */
+
+.dropDownButton {
+  width: auto;
+  height: auto;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  padding-left: 6%;
+  border-radius: 5px;
+  border: solid black 1px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.mainMessage {
+  margin-right: 5rem;
+}
+
+.downIcon {
+  margin-left: auto;
+  padding-right: 1rem;
 }
