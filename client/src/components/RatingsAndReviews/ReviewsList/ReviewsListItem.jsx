@@ -2,6 +2,7 @@ import React from 'react';
 import './ReviewsListItem.scss';
 const moment = require('moment');
 import StarRating from '../../Shared/StarRating/StarRating.jsx';
+import HelpfulButton from '../../Shared/HelpfulButton/HelpfulButton.jsx';
 
 class ReviewsListItem extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class ReviewsListItem extends React.Component {
   }
 
   render() {
-    const { review } = this.props;
+    const { review, onHelpulButtonClick } = this.props;
     return (
       <div className='review_list'>
         <div className='reviewer_name'>
@@ -23,9 +24,10 @@ class ReviewsListItem extends React.Component {
         <p>{review.body}</p>
         {review.recommend && <p>I recommend this product</p>}
         {review.response !== null && <div>review.response:{review.response}</div>}
-        <div className='reviewer_helpful'>
-          <span>Helpful? Yes({review.helpfulness})</span>
-          <span> | Report </span>
+        <div className="reviewer_helpful">
+          <HelpfulButton helpfulness={review.helpfulness} id={review.review_id} onHelpulButtonClick={onHelpulButtonClick} />
+          <p className="separator">|</p>
+          <button className="report-button">Report</button>
         </div>
       </div>
     );

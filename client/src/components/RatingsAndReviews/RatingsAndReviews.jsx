@@ -24,6 +24,7 @@ class RatingsAndReviews extends React.Component {
     this.AddReview = this.AddReview.bind(this);
     this.getNextPageReviews = this.getNextPageReviews.bind(this);
     this.getMeta = this.getMeta.bind(this);
+    this.onHelpulButtonClick = this.onHelpulButtonClick.bind(this);
   }
 
   getMeta(id) {
@@ -77,8 +78,7 @@ class RatingsAndReviews extends React.Component {
         }
       })
       .then(response => {
-        let newReviews = [...response.data.results, ...this.state.reviews];
-        this.setState({ reviews: this.state.reviews.length === 0 ? response.data.results : [...response.data.results, ...this.state.reviews] }, () => {
+        this.setState({ reviews: this.state.reviews.length === 0 ? response.data.results : [...this.state.reviews, ...response.data.results] }, () => {
           if (this.state.reviews.length >= this.state.totalNumberRating) {
             this.setState({ showMoreReviewsButton: false });
           }
@@ -122,6 +122,24 @@ class RatingsAndReviews extends React.Component {
     }
   }
 
+  onHelpulButtonClick(id) {
+    const { reviews } = this.state;
+    axios.put(`/reviews/${id}/helpful`)
+      .then(res => {
+        let nReviews = reviews.map(review => {
+          if (review.review_id === id) {
+            return {...review, helpfulness: review.helpfulness + 1}
+          }
+          return review;
+        })
+        this.setState({reviews: nReviews});
+      })
+      .catch(err => {
+        console.log('error in updating helpful button:', err);
+      })
+      ;
+  }
+
   render() {
     const { productId } = this.props;
     const { reviews, showMoreReviewsButton, meta, averageRating, ratingArray, totalNumberRating, percentRecommend } = this.state;
@@ -135,11 +153,10 @@ class RatingsAndReviews extends React.Component {
             />
           </div>
           <div className='reviewlist_box'>
-            <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} characteristics={meta.characteristics} AddReview={this.AddReview} totalNumberRating={totalNumberRating} getNextPageReviews={this.getNextPageReviews} />
+            <ReviewsList productId={productId} reviews={reviews} showMoreReviewsButton={showMoreReviewsButton} characteristics={meta.characteristics} AddReview={this.AddReview} totalNumberRating={totalNumberRating} getNextPageReviews={this.getNextPageReviews} onHelpulButtonClick={this.onHelpulButtonClick}
+            />
           </div>
         </div>
-        {/* <ProductBreakdown /> */}
-        {/* <Sorting /> */}
       </div>
     );
   }
