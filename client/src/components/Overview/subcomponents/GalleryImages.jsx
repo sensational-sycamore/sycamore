@@ -34,7 +34,7 @@ const GalleryImages = ({ handleImageSelect, photos}) => {
         <img className={css.eachImage} onClick={() => handleImageSelect(photo)} src={photo.thumbnail_url} alt="" key={photo.url}/>
       ))}
 
-      <div onClick={handleDown} classname={css.scrollButton}>
+      <div onClick={handleDown} className={css.scrollButton}>
         <FontAwesomeIcon color="white" icon={faChevronDown} size="sm"/>
       </div>
     </div>
