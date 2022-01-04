@@ -12,29 +12,18 @@ class Dropdown extends React.Component {
     };
 
     this.toggleMenu = this.toggleMenu.bind(this);
-    this.closeMenu = this.closeMenu.bind(this);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.closeMemu);
-  }
-
-  closeMenu() {
-    this.setState({ showMenu: false }, () => {
-      document.removeEventListener('click', this.closeMemu);
-    });
+    this.selectOption = this.selectOption.bind(this);
   }
 
   toggleMenu(e) {
-    e.stopPropagation();
-    this.setState({ showMenu: true }, () => {
-      if (this.state.showMenu) {
-
-        document.addEventListener('click', this.closeMemu);
-      }
-    });
+    this.setState({ showMenu: !this.state.showMenu});
   }
 
+  selectOption(option) {
+    console.log('selected option');
+    this.props.clickHandler(option);
+    this.setState({ showMenu: false});
+  }
 
   render() {
     const { options, clickHandler, mainMessage } = this.props;
@@ -52,7 +41,7 @@ class Dropdown extends React.Component {
         {
           this.state.showMenu ? (
             <div className={css.menu}>
-              {Object.keys(options).map(option => <div className={css.dropDownOptions} key={option} onClick={() => clickHandler(option)}>{options[option]}</div>)}
+              {Object.keys(options).map(option => <div className={css.dropDownOptions} key={option} onClick={() => this.selectOption(option)}>{options[option]}</div>)}
             </div>
           )
             : ( null )
