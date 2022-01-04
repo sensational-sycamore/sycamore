@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import './SearchQuestions.scss';
 
-const SearchQuestions = () => {
+const SearchQuestions = ({setSearchQuery}) => {
+  const searchRef = useRef();
+
+  const handleOnChangeSeachQuery = () => {
+    setSearchQuery(searchRef.current.value);
+  };
+
   return (
     <div className="search-question">
-      <input type="search" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."/>
+      <input ref={searchRef} onChange={handleOnChangeSeachQuery} type="search" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."/>
     </div>
   );
 };

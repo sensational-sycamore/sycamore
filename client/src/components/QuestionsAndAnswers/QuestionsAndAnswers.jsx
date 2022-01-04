@@ -12,6 +12,7 @@ const QuestionsAndAnswers = ({productId}) => {
   const [showAddQuestionModal, setShowAddQuestionModal] = useState(false);
   const [questionsAndAnswers, setQuestionsAndAnswers] = useState([]);
   const [showMoreQuestionAndAnswers, setShowMoreQuestionAndAnswers] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     fetchAllQuestions();
@@ -35,17 +36,22 @@ const QuestionsAndAnswers = ({productId}) => {
   };
 
   const getQuestionsAndAnswers = () => {
-    if (showMoreQuestionAndAnswers) {
-      return questionsAndAnswers;
-    } else {
+    if (searchQuery.length > 2) {
+      return questionsAndAnswers.filter(qa => qa.question_body.toLowerCase().includes(searchQuery.toLowerCase()));
+    }
+    if (!showMoreQuestionAndAnswers) {
       return questionsAndAnswers.slice(0, 4);
     }
+    return questionsAndAnswers;
   };
 
   return (
     <div className='questions-and-answers'>
       <h2>Questions & Answers</h2>
-      <SearchQuestions />
+      <SearchQuestions
+        questionsAndAnswers={getQuestionsAndAnswers()}
+        setSearchQuery={setSearchQuery}
+      />
       <QuestionsList
         questionsAndAnswers={getQuestionsAndAnswers()}
         onQuestionHelpulButtonClick={onQuestionHelpulButtonClick}
