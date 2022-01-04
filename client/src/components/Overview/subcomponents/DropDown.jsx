@@ -51,7 +51,7 @@ class Dropdown extends React.Component {
 
         {
           this.state.showMenu ? (
-            <div className="menu">
+            <div className={css.menu}>
               {Object.keys(options).map(option => <div className={css.dropDownOptions} key={option} onClick={() => clickHandler(option)}>{options[option]}</div>)}
             </div>
           )

@@ -1,42 +1,10 @@
-/* .dropDownButton {
-  background-color: white;
-  border: 1px black solid;
-  color: black;
-  padding: 15px 32px;
-  text-align: left;
-  text-decoration: none;
-  display: flex;
-  flex-direction: row;
-  font-size: 14px;
-  margin-top: 5%;
-  border-radius: 5px;
-  width: 9rem;
-}
-
-.dropDownOptions {
-  background-color: white;
-  border: 1px black solid;
-  border-radius: 5px;
-  color: black;
-  padding: 15px 32px;
-  text-align: left;
-  text-decoration: none;
+.dropDownContainer {
+  position: relative;
   display: inline-block;
-  font-size: 16px;
 }
-
-
-.downIcon {
-  margin-left: 5rem;
-  justify-content: right;
-}
-
-.mainMessage {
-  color: white;
-} */
 
 .dropDownButton {
-  width: auto;
+  width: 100%;
   height: auto;
   padding-top: 4%;
   padding-bottom: 4%;
@@ -47,7 +15,6 @@
   display: flex;
   flex-direction: row;
   margin-top: 0.7rem;
-  margin-bottom: 0.7rem;
 }
 
 .mainMessage {
@@ -57,4 +24,20 @@
 .downIcon {
   margin-left: auto;
   padding-right: 1rem;
+}
+
+.menu {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  background: white;
+  border-radius: 5px;
+  border: solid black 1px;
+}
+
+.dropDownOptions {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
