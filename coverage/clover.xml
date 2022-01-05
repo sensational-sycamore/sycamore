@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <coverage generated="1641352308880" clover="3.2.0">
   <project timestamp="1641352308880" name="All files">
     <metrics statements="2393" coveredstatements="77" conditionals="48" coveredconditionals="7" methods="48" coveredmethods="7" elements="2489" coveredelements="91" complexity="0" loc="2393" ncloc="2393" packages="28" files="45" classes="45"/>
@@ -2327,6 +2328,13 @@
     <package name="Overview.subcomponents">
       <metrics statements="95" coveredstatements="82" conditionals="14" coveredconditionals="13" methods="8" coveredmethods="8"/>
 >>>>>>> 943b178 (rendering and click event test for style selector)
+=======
+<coverage generated="1641401552779" clover="3.2.0">
+  <project timestamp="1641401552779" name="All files">
+    <metrics statements="105" coveredstatements="99" conditionals="15" coveredconditionals="14" methods="9" coveredmethods="9" elements="129" coveredelements="122" complexity="0" loc="105" ncloc="105" packages="2" files="7" classes="7"/>
+    <package name="Overview.subcomponents">
+      <metrics statements="95" coveredstatements="89" conditionals="14" coveredconditionals="13" methods="8" coveredmethods="8"/>
+>>>>>>> e7bda59 (added currStyle for Price component snapshot test)
       <file name="Category.jsx" path="/Users/vanhsieh/Desktop/Hack Reactor/FEC/client/src/components/Overview/subcomponents/Category.jsx">
         <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -2546,12 +2554,12 @@
 =======
 >>>>>>> d02313e (added snapshot tests)
       <file name="Price.jsx" path="/Users/vanhsieh/Desktop/Hack Reactor/FEC/client/src/components/Overview/subcomponents/Price.jsx">
-        <metrics statements="26" coveredstatements="13" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <metrics statements="26" coveredstatements="20" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="6" count="1" type="cond" truecount="0" falsecount="1"/>
 >>>>>>> 8d270ae (added jest configuration to manage css modules)
         <line num="7" count="0" type="stmt"/>
@@ -2560,6 +2568,7 @@
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -2899,6 +2908,8 @@
         <line num="344" count="0" type="stmt"/>
         <line num="345" count="0" type="stmt"/>
 =======
+=======
+>>>>>>> e7bda59 (added currStyle for Price component snapshot test)
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
@@ -2906,12 +2917,15 @@
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
+<<<<<<< HEAD
 =======
 >>>>>>> d02313e (added snapshot tests)
+=======
+>>>>>>> e7bda59 (added currStyle for Price component snapshot test)
         <line num="20" count="1" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>

@@ -9,7 +9,7 @@ import Reviews from '../../components/Overview/subcomponents/Reviews.jsx';
 import Price from '../../components/Overview/subcomponents/Price.jsx';
 
 
-// fake product object
+// fake product data
 const fakeProductDetails = {
   'id': 63618,
   'campus': 'hr-sfo',
@@ -22,6 +22,8 @@ const fakeProductDetails = {
   'updated_at': '2021-12-21T17:19:40.556Z',
   'features': []
 };
+
+var fakeStyles = {'product_id': '63610', 'results': [{'style_id': 391652, 'name': 'Black Lenses & Black Frame', 'original_price': '69.00', 'sale_price': null, 'default?': false, 'photos': [{'thumbnail_url': null, 'url': null}], 'skus': {'null': {'quantity': null, 'size': null}}}, {'style_id': 391653, 'name': 'Black Lenses & Gold Frame', 'original_price': '69.00', 'sale_price': null, 'default?': true, 'photos': [{'thumbnail_url': null, 'url': null}], 'skus': {'null': {'quantity': null, 'size': null}}}, {'style_id': 391654, 'name': 'Gold Lenses & Black Frame', 'original_price': '69.00', 'sale_price': null, 'default?': false, 'photos': [{'thumbnail_url': null, 'url': null}], 'skus': {'null': {'quantity': null, 'size': null}}}, {'style_id': 391655, 'name': 'Gold Lenses & Gold Frame', 'original_price': '69.00', 'sale_price': null, 'default?': false, 'photos': [{'thumbnail_url': null, 'url': null}], 'skus': {'null': {'quantity': null, 'size': null}}}]};
 
 it('Title component renders correctly', () => {
   const tree = renderer
@@ -49,7 +51,7 @@ it('Reviews component renders correctly', () => {
 });
 it('Price component renders correctly', () => {
   const tree = renderer
-    .create(<Price product={fakeProductDetails}/>)
+    .create(<Price currStyle={fakeStyles.results[0]}/>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
