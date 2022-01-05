@@ -3,7 +3,7 @@ import Dropdown from './Dropdown.jsx';
 
 
 const QuantitySelector = ({ handleQuantitySelect }) => {
-  const [selected, setSelected] = useState('SELECT SIZE');
+  const [selected, setSelected] = useState('SELECT QUANTITY');
 
   const selectQuantity = (selection) => {
     setSelected(selection);
