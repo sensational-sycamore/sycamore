@@ -17,6 +17,15 @@ exports[`Description component renders correctly 1`] = `
 </div>
 `;
 
+exports[`Price component renders correctly 1`] = `
+<div>
+  <div>
+    $
+    69.00
+  </div>
+</div>
+`;
+
 exports[`Reviews component renders correctly 1`] = `
 <div>
   <a
