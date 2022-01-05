@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
 import css from '../styles/ratings.modules.css';
 
+import uniqid from 'uniqid';
+
 
 const Ratings = ({ reviews }) => {
   const length = reviews.length;
@@ -10,26 +12,27 @@ const Ratings = ({ reviews }) => {
     return acc + review.rating;
   }, 0);
   const average = total / length;
-  const star = <FontAwesomeIcon icon={faStar} size="xs"/>;
-  const halfStar = <FontAwesomeIcon icon={faStarHalf} size="xs"/>;
   const starArr = [];
   const populateStar = () => {
+    let id = 0;
     for (var i = 0; i < Math.floor(average); i++) {
-      starArr.push(star);
+      starArr.push(<span key={uniqid()}><FontAwesomeIcon key={id} icon={faStar} size="xs"/></span>);
+      id++;
     }
 
     if (average % 1 >= 0.5) {
-      starArr.push(halfStar);
+      starArr.push(<span key={uniqid()}><FontAwesomeIcon key={id} icon={faStarHalf} size="xs"/></span>);
+      id++;
     }
-  };
 
+  };
   populateStar();
 
 
   return (
     <div>
       { starArr }
-      <a className={css.reviewLink} href="#ratings-and-reviews">Read all reviews</a>
+      <a className={css.reviewLink} href="#ratings-and-reviews">Read all {length} reviews</a>
     </div>
   );
 };

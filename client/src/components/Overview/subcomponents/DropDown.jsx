@@ -1,5 +1,7 @@
 import React from 'react';
 import css from '../styles/dropDown.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown} from '@fortawesome/free-solid-svg-icons';
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -10,29 +12,18 @@ class Dropdown extends React.Component {
     };
 
     this.toggleMenu = this.toggleMenu.bind(this);
-    this.closeMenu = this.closeMenu.bind(this);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.closeMemu);
-  }
-
-  closeMenu() {
-    this.setState({ showMenu: false }, () => {
-      document.removeEventListener('click', this.closeMemu);
-    });
+    this.selectOption = this.selectOption.bind(this);
   }
 
   toggleMenu(e) {
-    e.stopPropagation();
-    this.setState({ showMenu: true }, () => {
-      if (this.state.showMenu) {
-
-        document.addEventListener('click', this.closeMemu);
-      }
-    });
+    this.setState({ showMenu: !this.state.showMenu});
   }
 
+  selectOption(option) {
+    console.log('selected option');
+    this.props.clickHandler(option);
+    this.setState({ showMenu: false});
+  }
 
   render() {
     const { options, clickHandler, mainMessage } = this.props;
@@ -40,14 +31,17 @@ class Dropdown extends React.Component {
     return (
       <div className={css.dropDownContainer}>
         <div onClick={this.toggleMenu} className={css.dropDownButton}>
-          {mainMessage}
+          <div className={css.mainMessage}>{mainMessage}</div>
+          <div className={css.downIcon}>
+            <FontAwesomeIcon icon={faChevronDown} color="black" size="sm"/>
+          </div>
         </div>
 
 
         {
           this.state.showMenu ? (
-            <div className="menu">
-              {Object.keys(options).map(option => <div className={css.dropDownOptions} key={option} onClick={() => clickHandler(option)}>{options[option]}</div>)}
+            <div className={css.menu}>
+              {Object.keys(options).map(option => <div className={css.dropDownOptions} key={option} onClick={() => this.selectOption(option)}>{options[option]}</div>)}
             </div>
           )
             : ( null )

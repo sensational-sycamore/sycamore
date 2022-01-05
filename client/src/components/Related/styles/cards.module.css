@@ -1,0 +1,11 @@
+.cardsContainer {
+  width: 110%;
+  display: flex;
+  flex-direction: row;
+}
+
+.scrollIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

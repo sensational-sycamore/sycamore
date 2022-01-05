@@ -6,8 +6,8 @@ const Price = ({ currStyle }) => {
     if (currStyle.sale_price) {
       return (
         <div className={css.priceContainer}>
-          <div className={css.oldPrice}>${ currStyle.original_price }</div>
           <div className={css.newPrice}>${currStyle.sale_price}</div>
+          <div className={css.oldPrice}>${ currStyle.original_price }</div>
         </div>
       );
     } else {
