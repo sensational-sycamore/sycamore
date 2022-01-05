@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import css from '../styles/styleSelector.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import uniqid from 'uniqid';
 
 const StyleSelector = ({ styles, currStyle, handleStyleSelect }) => {
 
@@ -10,7 +11,7 @@ const StyleSelector = ({ styles, currStyle, handleStyleSelect }) => {
       <h4><b>STYLE {'>'} </b> {currStyle.name}</h4>
       <div className={css.styleContainer}>
         {styles.map(style => (
-          <div className={css.styleImageContainer}>
+          <div className={css.styleImageContainer} key={uniqid()}>
             {currStyle.style_id === style.style_id ?
               <div className={css.checkMark}><FontAwesomeIcon icon={faCheck} size="xs"/></div> :
               null

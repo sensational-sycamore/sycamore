@@ -31,7 +31,7 @@ class Dropdown extends React.Component {
     return (
       <div className={css.dropDownContainer}>
         <div onClick={this.toggleMenu} className={css.dropDownButton}>
-          <div class={css.mainMessage}>{mainMessage}</div>
+          <div className={css.mainMessage}>{mainMessage}</div>
           <div className={css.downIcon}>
             <FontAwesomeIcon icon={faChevronDown} color="black" size="sm"/>
           </div>
