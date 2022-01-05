@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Overview/subcomponents/Gallery.jsx</title>
+    <title>Code coverage report for Overview/subcomponents/GalleryImages.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">Overview/subcomponents</a> Gallery.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">Overview/subcomponents</a> GalleryImages.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.48% </span>
+                <span class="strong">77.27% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>33/41</span>
+                <span class='fraction'>34/44</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.48% </span>
+                <span class="strong">77.27% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>33/41</span>
+                <span class='fraction'>34/44</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -104,11 +104,11 @@
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a>
 <a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -124,12 +124,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -145,47 +147,57 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import GalleryImages from './GalleryImages.jsx';
-import css from '../styles/gallery.module.css';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useEffect } from 'react';
+import css from '../styles/galleryImages.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 &nbsp;
-class Gallery extends React.Component {
-  constructor(props) {
-    super(props);
 &nbsp;
-    this.state = {
-      currImage: this.props.currStyle.photos[0].url
-    };
+const GalleryImages = ({ handleImageSelect, photos}) =&gt; {
 &nbsp;
-    this.handleImageSelect = this.handleImageSelect.bind(this);
-  }
+  const [photosStart, setPhotosStart] = useState(0);
+  const [photosEnd, setPhotosEnd] = useState(6);
 &nbsp;
-<span class="fstat-no" title="function not covered" >  componentDidUpdate(prevProps) {</span>
-<span class="cstat-no" title="statement not covered" >    if (this.props.currStyle !== prevProps.currStyle) {</span>
-<span class="cstat-no" title="statement not covered" >      this.setState({currImage: this.props.currStyle.photos[0].url});</span>
+  const handleUp = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (photosStart &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      setPhotosStart(photosStart - 1);</span>
+<span class="cstat-no" title="statement not covered" >      setPhotosEnd(photosEnd - 1);</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >  handleImageSelect(photo) {</span>
-<span class="cstat-no" title="statement not covered" >    this.setState({</span>
-<span class="cstat-no" title="statement not covered" >      currImage: photo.url</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+  const handleDown = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (photosEnd &lt; photos.length) {</span>
+<span class="cstat-no" title="statement not covered" >      setPhotosStart(photosStart + 1);</span>
+<span class="cstat-no" title="statement not covered" >      setPhotosEnd(photosEnd + 1);</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
 &nbsp;
-  render() {
-    const { currStyle } = this.props;
-    return (
-      &lt;div className={css.gallery}&gt;
-        &lt;img className={css.hero} src={this.state.currImage} alt="" /&gt;
-        &lt;div className={css.imageOptions}&gt;
-          &lt;GalleryImages handleImageSelect={this.handleImageSelect} photos={currStyle.photos} /&gt;
-        &lt;/div&gt;
+&nbsp;
+  return (
+    &lt;div className={css.imageOptions}&gt;
+      &lt;div onClick={handleUp} &gt;
+        &lt;FontAwesomeIcon color="white" icon={faChevronUp} size="sm"/&gt;
       &lt;/div&gt;
-    );
-  }
-}
 &nbsp;
-export default Gallery;
+      {photos.slice(photosStart, photosEnd).map(photo =&gt; (
+        &lt;img className={css.eachImage} onClick={<span class="fstat-no" title="function not covered" >() =&gt; h</span>andleImageSelect(photo)} src={photo.thumbnail_url} alt="" key={photo.url}/&gt;
+      ))}
+&nbsp;
+      &lt;div onClick={handleDown} className={css.scrollButton}&gt;
+        &lt;FontAwesomeIcon color="white" icon={faChevronDown} size="sm"/&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+&nbsp;
+export default GalleryImages;
+&nbsp;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

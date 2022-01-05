@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
@@ -80,7 +80,17 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -96,22 +106,42 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from 'react';
 import css from '../styles/styleSelector.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import uniqid from 'uniqid';
 &nbsp;
-const StyleSelector = ({ styles, currStyle, handleStyleSelect }) =&gt; (
-  &lt;div&gt;
-    &lt;h4&gt;&lt;b&gt;STYLE {'&gt;'} &lt;/b&gt; {currStyle.name}&lt;/h4&gt;
-    &lt;div className={css.styleContainer}&gt;
-      {styles.map(style =&gt; (
-        &lt;div key={style.style_id} className={css.styleImageContainer}&gt;
-          &lt;img key={style.style_id} className={css.styleImage} src={style.photos[0].thumbnail_url} alt="thumbnail" onClick={() =&gt; handleStyleSelect(style)}/&gt;
-        &lt;/div&gt;
-      ))}
+const StyleSelector = ({ styles, currStyle, handleStyleSelect }) =&gt; {
+&nbsp;
+  return (
+    &lt;div&gt;
+      &lt;h4&gt;&lt;b&gt;STYLE {'&gt;'} &lt;/b&gt; {currStyle.name}&lt;/h4&gt;
+      &lt;div className={css.styleContainer}&gt;
+        {styles.map(style =&gt; (
+          &lt;div id="styleImageContainer" className={css.styleImageContainer} key={uniqid()}&gt;
+            {currStyle.style_id === style.style_id ?
+              &lt;div className={css.checkMark}&gt;&lt;FontAwesomeIcon icon={faCheck} size="xs"/&gt;&lt;/div&gt; :
+              null
+            }
+            &lt;img id="styleImage" key={style.style_id} className={`${css.styleImage} ${currStyle.style_id === style.style_id ? css.selected : null}`} src={style.photos[0].thumbnail_url} alt="thumbnail" onClick={() =&gt; handleStyleSelect(style)}/&gt;
+          &lt;/div&gt;
+        ))}
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-);
+  );
+};
 &nbsp;
 export default StyleSelector;
 &nbsp;</pre></td></tr></table></pre>
@@ -121,7 +151,7 @@ export default StyleSelector;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
-                at Sun Jan 02 2022 23:38:30 GMT-0800 (Pacific Standard Time)
+                at Tue Jan 04 2022 23:43:48 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
