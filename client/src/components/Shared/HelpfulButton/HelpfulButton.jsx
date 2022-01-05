@@ -9,9 +9,9 @@ const HelpfulButton = ({helpfulness, id, onHelpulButtonClick}) => {
 
   return (
     <div className="helpful-button">
-      <p>Helpful?</p>
-      <button onClick={handleClick}>Yes</button>
-      <p>({helpfulness})</p>
+      <p data-testid='helpful-title'>Helpful?</p>
+      <button data-testid='helpful-yes-button' onClick={handleClick}>Yes</button>
+      <p data-testid='helpful-count'>({helpfulness})</p>
     </div>
   );
 };

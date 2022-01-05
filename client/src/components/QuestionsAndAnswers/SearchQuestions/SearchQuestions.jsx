@@ -16,3 +16,4 @@ const SearchQuestions = ({setSearchQuery}) => {
 };
 
 export default SearchQuestions;
+

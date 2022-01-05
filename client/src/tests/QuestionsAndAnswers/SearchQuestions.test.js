@@ -1,7 +1,7 @@
 import {act, render, fireEvent, waitFor, screen} from '@testing-library/react';
 import SearchQuestions from '../../components/QuestionsAndAnswers/SearchQuestions/SearchQuestions.jsx';
 
-test('renders the input with the expected placeholder', async () => {
+test('it renders the input with the expected placeholder', async () => {
   // Render the component to be tested
   render(<SearchQuestions />);
 
