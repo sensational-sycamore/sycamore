@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import StyleSelector from '../../components/Overview/subcomponents/StyleSelector.jsx';
 
-describe('StyleSelector',  () => {
+describe('StyleSelector', () => {
   let container;
 
   beforeEach(() => {
@@ -24,10 +24,10 @@ describe('StyleSelector',  () => {
     count++;
   };
 
-  it('can render',  () => {
+  it('can render', () => {
     // Test first render and componentDidMount
     act(() => {
-      ReactDOM.render(<StyleSelector styles={fakeStyles.results} currStyle={fakeStyles.results[0]} handleStyleSelect={clickIncreaseCount}/>,  container);
+      ReactDOM.render(<StyleSelector styles={fakeStyles.results} currStyle={fakeStyles.results[0]} handleStyleSelect={clickIncreaseCount}/>, container);
     });
     const label = container.querySelector('h4');
     const img = container.querySelector('#styleImage');
