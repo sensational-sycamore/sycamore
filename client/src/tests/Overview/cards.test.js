@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import StyleSelector from '../../components/Overview/subcomponents/StyleSelector.jsx';
+import Cards from '../../components/Related/Cards.jsx';
 
 describe('StyleSelector', () => {
   let container;
