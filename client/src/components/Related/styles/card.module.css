@@ -4,6 +4,7 @@
   border: solid black 1px;
   margin-right: 1%;
   margin-left: 1%;
+  position: relative;
 }
 
 /* .imageContainer {
@@ -43,4 +44,19 @@
 
 .rating {
   padding: 0.2rem;
+}
+
+.comparison {
+  position: absolute;
+  border: 1px black solid;
+  background: white;
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  top: 0;
+  font-size: 12px;
+}
+
+.icon {
+  display: inline-block;
 }
