@@ -10,9 +10,10 @@ const SearchQuestions = ({setSearchQuery}) => {
 
   return (
     <div className="search-question">
-      <input ref={searchRef} onChange={handleOnChangeSeachQuery} type="search" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."/>
+      <input data-testid='search-input' ref={searchRef} onChange={handleOnChangeSeachQuery} type="search" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."/>
     </div>
   );
 };
 
 export default SearchQuestions;
+
