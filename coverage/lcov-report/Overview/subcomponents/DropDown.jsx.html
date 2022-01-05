@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">87.03% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>45/60</span>
+                <span class='fraction'>47/54</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">87.03% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>45/60</span>
+                <span class='fraction'>47/54</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -117,13 +117,9 @@
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -149,17 +145,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -185,6 +173,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import css from '../styles/dropDown.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown} from '@fortawesome/free-solid-svg-icons';
 &nbsp;
 class Dropdown extends React.Component {
   constructor(props) {
@@ -195,29 +185,18 @@ class Dropdown extends React.Component {
     };
 &nbsp;
     this.toggleMenu = this.toggleMenu.bind(this);
-    this.closeMenu = this.closeMenu.bind(this);
+    this.selectOption = this.selectOption.bind(this);
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  componentWillUnmount() {</span>
-<span class="cstat-no" title="statement not covered" >    document.removeEventListener('click', this.closeMemu);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-&nbsp;
-<span class="fstat-no" title="function not covered" >  closeMenu() {</span>
-<span class="cstat-no" title="statement not covered" >    this.setState({ showMenu: false }, () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      document.removeEventListener('click', this.closeMemu);</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-&nbsp;
 <span class="fstat-no" title="function not covered" >  toggleMenu(e) {</span>
-<span class="cstat-no" title="statement not covered" >    e.stopPropagation();</span>
-<span class="cstat-no" title="statement not covered" >    this.setState({ showMenu: true }, () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (this.state.showMenu) {</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        document.addEventListener('click', this.closeMemu);</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" >    this.setState({ showMenu: !this.state.showMenu});</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
+<span class="fstat-no" title="function not covered" >  selectOption(option) {</span>
+<span class="cstat-no" title="statement not covered" >    console.log('selected option');</span>
+<span class="cstat-no" title="statement not covered" >    this.props.clickHandler(option);</span>
+<span class="cstat-no" title="statement not covered" >    this.setState({ showMenu: false});</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
   render() {
     const { options, clickHandler, mainMessage } = this.props;
@@ -225,14 +204,17 @@ class Dropdown extends React.Component {
     return (
       &lt;div className={css.dropDownContainer}&gt;
         &lt;div onClick={this.toggleMenu} className={css.dropDownButton}&gt;
-          {mainMessage}
+          &lt;div className={css.mainMessage}&gt;{mainMessage}&lt;/div&gt;
+          &lt;div className={css.downIcon}&gt;
+            &lt;FontAwesomeIcon icon={faChevronDown} color="black" size="sm"/&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
 &nbsp;
 &nbsp;
         {
 <span class="branch-0 cbranch-no" title="branch not covered" >          this.state.showMenu ? (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;div className="menu"&gt;</span>
-              {Object.keys(options).map(option =&gt; &lt;div className={css.dropDownOptions} key={option} onClick={() =&gt; clickHandler(option)}&gt;{options[option]}&lt;/div&gt;)}
+<span class="cstat-no" title="statement not covered" >            &lt;div className={css.menu}&gt;</span>
+              {Object.keys(options).map(option =&gt; &lt;div className={css.dropDownOptions} key={option} onClick={() =&gt; this.selectOption(option)}&gt;{options[option]}&lt;/div&gt;)}
             &lt;/div&gt;
           )
             : ( null )
@@ -250,7 +232,7 @@ export default Dropdown;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
-                at Sun Jan 02 2022 23:38:30 GMT-0800 (Pacific Standard Time)
+                at Tue Jan 04 2022 19:09:17 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
