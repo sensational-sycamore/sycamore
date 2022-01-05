@@ -43,6 +43,7 @@
     "react-modal": "^3.14.4",
     "react-number-format": "^4.9.0",
     "react-responsive-carousel": "^3.2.22",
+    "react-router-dom": "^6.2.1",
     "regenerator-runtime": "^0.13.9",
     "uniqid": "^5.4.0"
   },
