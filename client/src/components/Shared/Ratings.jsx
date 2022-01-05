@@ -1,4 +1,5 @@
 import React from 'react';
+import css from './styles/ratings.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
 import uniqid from 'uniqid';
@@ -28,7 +29,7 @@ const Ratings = ({ reviews }) => {
 
 
   return (
-    <div>
+    <div className={css.ratingsContainer} >
       { starArr }
     </div>
   );

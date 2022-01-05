@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import Category from './subcomponents/Category.jsx';
 import Description from './subcomponents/Description.jsx';
-import Ratings from './subcomponents/Ratings.jsx';
+import Ratings from '../Shared/Ratings.jsx';
+import Reviews from './subcomponents/Reviews.jsx';
 import Title from './subcomponents/Title.jsx';
 import Price from './subcomponents/Price.jsx';
 import StyleSelector from './subcomponents/StyleSelector.jsx';
@@ -76,6 +77,7 @@ class Overview extends React.Component {
         </div>
         <div className={css.minor}>
           <Ratings reviews={this.state.reviews} />
+          <Reviews />
           <Category product={this.state.product} />
           <Title product={this.state.product} />
           <Price currStyle={this.state.currStyle} />
