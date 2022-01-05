@@ -22,7 +22,7 @@ const QuestionListItemQuestionActions = ({
         onHelpulButtonClick={onHelpulButtonClick}
       />
       <p className="separator">|</p>
-      <button className="add-answer-button" onClick={onOpenAddAnswerModal}>Add answer</button>
+      <button data-testid='add-answer-button' className="add-answer-button" onClick={onOpenAddAnswerModal}>Add answer</button>
     </div>
   );
 };
