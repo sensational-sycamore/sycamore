@@ -30,7 +30,7 @@ const QuestionsAndAnswers = ({productId}) => {
   };
 
   const fetchAllQuestions = () => {
-    axios(`http://localhost:3000/qa/questions?product_id=${productId}`)
+    axios(`http://localhost:3000/qa/questions?product_id=${productId}&page=1&count=100`)
       .then(res => {
         setQuestionsAndAnswers(res.data.results);
       });
