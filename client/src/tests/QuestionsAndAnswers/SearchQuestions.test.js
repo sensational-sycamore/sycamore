@@ -36,3 +36,4 @@ test('it calls setSearchQuery prop with the expected string when typing on the i
   // Assert that the passed in function was called with the string typed into the input.
   expect(setSearchQuerySpy).toHaveBeenCalledWith(testString);
 });
+

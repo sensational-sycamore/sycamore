@@ -45,5 +45,4 @@ test('it calls handleOpenAddAnswerModal and setShowAddAnswerModal props with the
 
   expect(handleOpenAddAnswerModalSpy).toHaveBeenCalledWith(id);
   expect(setShowAddAnswerModalSpy).toHaveBeenCalledWith(true);
-
 });

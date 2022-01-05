@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watch",
+    "test:all": "jest --watchAll",
+    "coverage": "jest --coverage --watch",
+    "coverage:all": "jest --coverage --watchAll",
     "dev": "webpack --config webpack.config.js --mode development --watch",
     "watch": "nodemon ./server/index.js",
     "start": "node ./server/index.js"
