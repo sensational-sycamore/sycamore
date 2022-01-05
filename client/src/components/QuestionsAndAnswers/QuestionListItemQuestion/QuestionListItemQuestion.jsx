@@ -10,7 +10,8 @@ const QuestionListItemQuestion = ({
   id,
   reported,
   onHelpulButtonClick,
-  setShowAddAnswerModal
+  setShowAddAnswerModal,
+  handleOpenAddAnswerModal
 }) => {
   return (
     <div className="question">
@@ -20,6 +21,7 @@ const QuestionListItemQuestion = ({
         id={id}
         onHelpulButtonClick={onHelpulButtonClick}
         setShowAddAnswerModal={setShowAddAnswerModal}
+        handleOpenAddAnswerModal={handleOpenAddAnswerModal}
       />
     </div>
   );
