@@ -65,3 +65,52 @@ To see coverage report, go to:
 [http://localhost:52330/coverage/lcov-report/](http://localhost:52330/coverage/lcov-report/)
 
 To see coverage of the main branch on gitHub go to: [https://sensational-sycamore.github.io/sycamore/coverage/lcov-report](https://sensational-sycamore.github.io/sycamore/coverage/lcov-report)
+
+
+# Deployment
+
+1. Create a EC2 instance running Ubuntu(linux).
+2. Save the pem key somewhere secure in your computer and give it read permition.
+```
+chmod 400 aws-keypair.pem
+```
+3. Connect to your EC2 via SSH.
+```
+ssh -i "aws-keypair.pem" ubuntu@ec2-00-000-000-00.us-west-1.compute.amazonaws.com
+```
+4. Install EC2 dependencies.
+```bash
+sudo apt-get update && sudo apt-get upgrade -y
+
+# download node make sure your version on your local matches the version you get
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
+# install node
+sudo apt-get install -y nodejs
+
+# set up port fowarding You might need to make a change
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000
+
+sudo apt-get install gcc g++ make
+
+sudo apt-get install git
+```
+5. Clone code base into EC2.
+```
+git clone https://github.com/sensational-sycamore/sycamore.git
+```
+6. Install project dependencies.
+```
+cd sycamore
+npm install
+```
+7. Run project.
+```
+npm run start
+```
+
+8. PM2 [PM2 cheatsheet](https://devhints.io/pm2)
+```
+sudo npm install pm2 -g
+pm2 start server/index.js
+```
