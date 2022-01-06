@@ -16,8 +16,7 @@ class RatingsAndReviews extends React.Component {
       percentRecommend: 0,
       ratingArray: [],
       numStarReviewsToRender: [],
-      page: 1,
-      helpfulButtonClick: false
+      page: 1
     };
     this.calcRating = this.calcRating.bind(this);
     this.AddReview = this.AddReview.bind(this);
@@ -120,7 +119,6 @@ class RatingsAndReviews extends React.Component {
 
   onHelpulButtonClick(id) {
     const { reviews, helpfulButtonClick } = this.state;
-    if (!helpfulButtonClick) {
       this.setState({helpfulButtonClick: true})
       axios.put(`/reviews/${id}/helpful`)
         .then(res => {
@@ -135,7 +133,6 @@ class RatingsAndReviews extends React.Component {
         .catch(err => {
           console.log('error in updating helpful button:', err);
         });
-    }
   }
 
   render() {
