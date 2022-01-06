@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './HelpfulButton.scss';
 
 const HelpfulButton = ({helpfulness, id, onHelpulButtonClick}) => {
+  const [hasBeenClicked, setHasBeenClicked] = useState(false);
 
   const handleClick = () => {
-    onHelpulButtonClick(id);
+    if (!hasBeenClicked) {
+      onHelpulButtonClick(id);
+      setHasBeenClicked(true);
+    }
   };
 
   return (
