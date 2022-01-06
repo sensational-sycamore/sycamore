@@ -77,8 +77,7 @@ class Overview extends React.Component {
           <Description className={css.description} product={product} />
         </div>
         <div className={css.minor}>
-          <Ratings reviews={reviews} />
-          <Reviews />
+          <Reviews reviews={reviews}/>
           <Category product={product} />
           <Title product={product} />
           <Price currStyle={currStyle} />

@@ -1,10 +1,12 @@
 import React from 'react';
-import css from '../styles/ratings.modules.css';
+import Ratings from '../../Shared/Ratings.jsx';
+import css from '../styles/reviews.modules.css';
 
 
-const Reviews = () => {
+const Reviews = ({ reviews }) => {
   return (
-    <div>
+    <div className={css.reviewsContainer}>
+      <Ratings reviews={reviews} />
       <a className={css.reviewLink} href="#ratings-and-reviews">Read all reviews</a>
     </div>
   );
