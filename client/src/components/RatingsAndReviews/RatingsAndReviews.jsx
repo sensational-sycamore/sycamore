@@ -1,9 +1,7 @@
 import React from 'react';
 import './RatingsAndReviews.scss';
-import Sorting from './Sorting/Sorting.jsx';
 import ReviewsList from './ReviewsList/ReviewsList.jsx';
 import RatingBreakdown from './RatingBreakdown/RatingBreakdown.jsx';
-import ProductBreakdown from './ProductBreakdown/ProductBreakdown.jsx';
 import axios from 'axios';
 
 class RatingsAndReviews extends React.Component {
@@ -18,7 +16,8 @@ class RatingsAndReviews extends React.Component {
       percentRecommend: 0,
       ratingArray: [],
       numStarReviewsToRender: [],
-      page: 1
+      page: 1,
+      helpfulButtonClick: false
     };
     this.calcRating = this.calcRating.bind(this);
     this.AddReview = this.AddReview.bind(this);
@@ -30,7 +29,6 @@ class RatingsAndReviews extends React.Component {
   getMeta(id) {
     axios.get(`/reviews/meta/?product_id=${id}`)
       .then(response => {
-        console.log('response from axios get meta:', response.data);
         this.setState({ meta: response.data }, () => this.calcRating(this.state.meta));
       })
       .catch(err => {
@@ -59,7 +57,6 @@ class RatingsAndReviews extends React.Component {
     const {productId} = this.props;
     axios.post('/reviews', review)
       .then((response) => {
-        console.log('success', response.data);
         this.getMeta(productId);
       })
       .catch(err => {
@@ -100,7 +97,6 @@ class RatingsAndReviews extends React.Component {
         totalScore += Number(rating[key]) * Number(key);
       }
       const averageRating = parseFloat(totalScore / totalNumberRating).toFixed(1);
-      console.log('averageRating from ratingandreviews:', averageRating);
       this.setState({ averageRating: averageRating });
       this.setState({ totalNumberRating: totalNumberRating });
       if (totalNumberRating <= 2 || this.state.reviews.length >= totalNumberRating) {
@@ -123,21 +119,23 @@ class RatingsAndReviews extends React.Component {
   }
 
   onHelpulButtonClick(id) {
-    const { reviews } = this.state;
-    axios.put(`/reviews/${id}/helpful`)
-      .then(res => {
-        let nReviews = reviews.map(review => {
-          if (review.review_id === id) {
-            return {...review, helpfulness: review.helpfulness + 1}
-          }
-          return review;
+    const { reviews, helpfulButtonClick } = this.state;
+    if (!helpfulButtonClick) {
+      this.setState({helpfulButtonClick: true})
+      axios.put(`/reviews/${id}/helpful`)
+        .then(res => {
+          let nReviews = reviews.map(review => {
+            if (review.review_id === id) {
+              return {...review, helpfulness: review.helpfulness + 1}
+            }
+            return review;
+          })
+          this.setState({reviews: nReviews});
         })
-        this.setState({reviews: nReviews});
-      })
-      .catch(err => {
-        console.log('error in updating helpful button:', err);
-      })
-      ;
+        .catch(err => {
+          console.log('error in updating helpful button:', err);
+        });
+    }
   }
 
   render() {
