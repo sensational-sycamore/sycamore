@@ -13,7 +13,8 @@ const QuestionsListItem = ({
   answers,
   onQuestionHelpulButtonClick,
   onAnswerHelpulButtonClick,
-  setShowAddAnswerModal
+  setShowAddAnswerModal,
+  handleOpenAddAnswerModal
 }) => {
 
   const [showMoreAnswers, setShowMoreAnswers] = useState(false);
@@ -45,6 +46,7 @@ const QuestionsListItem = ({
           reported={reported}
           onHelpulButtonClick={onQuestionHelpulButtonClick}
           setShowAddAnswerModal={setShowAddAnswerModal}
+          handleOpenAddAnswerModal={handleOpenAddAnswerModal}
         />
       </div>
       { !!Object.keys(answers).length && <div className="answer-wrapper">

@@ -38,3 +38,30 @@ git pull origin main
 ```
 npm install
 ```
+
+# Tests and coverage
+
+Test only the changes from last commit
+```
+npm run test
+```
+
+Test all the files
+```
+npm run test:all
+```
+
+Generate coverage to change from last commit
+```
+npm run coverage
+```
+
+Generate coverage to all files
+```
+npm run coverage:all
+```
+
+To see coverage report, go to:
+[http://localhost:52330/coverage/lcov-report/](http://localhost:52330/coverage/lcov-report/)
+
+To see coverage of the main branch on gitHub go to: [https://sensational-sycamore.github.io/sycamore/coverage/lcov-report](https://sensational-sycamore.github.io/sycamore/coverage/lcov-report)

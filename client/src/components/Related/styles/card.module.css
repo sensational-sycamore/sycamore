@@ -1,3 +1,62 @@
+.cardContainer {
+  max-height: 100%;
+  width: 19%;
+  border: solid black 1px;
+  margin-right: 1%;
+  margin-left: 1%;
+  position: relative;
+}
+
+/* .imageContainer {
+  width: ;
+} */
+
 .cardImg {
-  height: 50px;
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+}
+
+
+
+.compare {
+  padding: 1.5%;
+  position: absolute;
+}
+
+.category {
+  font-size: 0.8rem;
+  font-weight: 100;
+  padding: 0.2rem;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding: 0.2rem;
+}
+
+.price {
+  font-size: 0.8rem;
+  font-weight: 100;
+  padding: 0.2rem;
+}
+
+.rating {
+  padding: 0.2rem;
+}
+
+.comparison {
+  position: absolute;
+  border: 1px black solid;
+  background: white;
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  top: 0;
+  font-size: 12px;
+}
+
+.icon {
+  display: inline-block;
 }

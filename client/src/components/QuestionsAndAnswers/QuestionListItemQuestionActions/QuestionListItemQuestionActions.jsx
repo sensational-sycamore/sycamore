@@ -6,9 +6,11 @@ const QuestionListItemQuestionActions = ({
   helpfulness,
   id,
   onHelpulButtonClick,
-  setShowAddAnswerModal
+  setShowAddAnswerModal,
+  handleOpenAddAnswerModal
 }) => {
-  const handleOpenAddAnswerModal = () => {
+  const onOpenAddAnswerModal = () => {
+    handleOpenAddAnswerModal(id);
     setShowAddAnswerModal(true);
   };
 
@@ -20,7 +22,7 @@ const QuestionListItemQuestionActions = ({
         onHelpulButtonClick={onHelpulButtonClick}
       />
       <p className="separator">|</p>
-      <button className="add-answer-button" onClick={handleOpenAddAnswerModal}>Add answer</button>
+      <button data-testid='add-answer-button' className="add-answer-button" onClick={onOpenAddAnswerModal}>Add answer</button>
     </div>
   );
 };

@@ -2,4 +2,3 @@
 node_modules/
 .DS_Store
 compiled/
-client/dist/main.js

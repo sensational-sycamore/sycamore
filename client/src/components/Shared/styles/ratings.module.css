@@ -1,0 +1,4 @@
+.ratingsContainer {
+  display: flex;
+  flex-direction: row;
+}
