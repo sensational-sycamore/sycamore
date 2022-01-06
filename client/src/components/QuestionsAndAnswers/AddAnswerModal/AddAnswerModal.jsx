@@ -116,7 +116,10 @@ const AddAnswerModal = ({ handleCloseAnswerModal, productId, questionBody, quest
       <div className="modal">
         <header>
           <h2>Submit your Answer!</h2>
-          <h3>{productName}: {questionBody}</h3>
+          <h3>
+            <span data-testid="product-name">{productName}</span> :
+            <span data-testid="question-body">{questionBody}</span>
+          </h3>
           <button className="close-button" onClick={onCloseModal}>x</button>
         </header>
         <main>
