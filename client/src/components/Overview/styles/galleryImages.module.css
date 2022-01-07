@@ -18,3 +18,21 @@
 .selected {
   border: rgba(255,255,255, 0.7) 1.5px solid;
 }
+
+.leftIcon {
+  position: absolute;
+  z-index: 3;
+  left: 10%;
+  top: 80%;
+}
+
+.rightIcon {
+  position: absolute;
+  z-index: 4;
+  left: 63%;
+  top: 80%;
+}
+
+.scrollButton {
+  margin: 3%;
+}
