@@ -27,16 +27,27 @@ class ReviewsList extends React.Component {
   }
 
   render() {
-    const { reviews, productId, characteristics, AddReview, totalNumberRating, showMoreReviewsButton } = this.props;
+    const {
+      reviews,
+      productId,
+      characteristics,
+      AddReview,
+      totalNumberRating,
+      showMoreReviewsButton,
+      onHelpulButtonClick
+    } = this.props;
     const { showAddReviewsForm } = this.state;
+
     return (
       <div className='reviews_section'>
         <h4>{totalNumberRating} reviews, sorted by relevance</h4>
         <div>
           {
-            reviews.map((review, index) => <ReviewsListItem review={review} key={review.review_id} />)
+            reviews.map((review, index) =>
+              <ReviewsListItem review={review} key={review.review_id} onHelpulButtonClick={onHelpulButtonClick} />)
           }
         </div>
+
         <div className='addReviews'>
           {showMoreReviewsButton && <button onClick={this.handMoreReviewsClick} className='review_btn' >MORE REVIEWS</button>}
           <button onClick={this.handleCloseAddReviewsForm} className='review_btn' >ADD A REVIEW  +</button>
