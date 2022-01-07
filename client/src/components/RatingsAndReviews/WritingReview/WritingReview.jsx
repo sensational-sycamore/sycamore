@@ -7,8 +7,11 @@ class WritingReview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isEmailInvalid: false,
+      hasEmptyNicknameError: false,
+      hasEmptyEmailError: false,
       'product_id': props.productId,
-      rating: 5,
+      rating: 0,
       summary: '',
       body: '',
       recommend: true,
@@ -45,14 +48,49 @@ class WritingReview extends React.Component {
 
   handleSubmitReview(event) {
     event.preventDefault();
-    this.props.AddReview(this.state);
-    this.props.handleCloseAddReviewsForm(event);
+    const {name, email} = this.state;
+
+    if (email.length === 0) {
+      this.setState({hasEmptyEmailError: true});
+    }
+
+    if (name.length === 0) {
+      this.setState({hasEmptyNicknameError: true});
+    }
+
+    const validEmailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match
+    if (!email.match(validEmailRegex)) {
+      this.setState({isEmailInvalid: true});
+    }
+
+    const {
+      isEmailInvalid,
+      hasEmptyNicknameError,
+      hasEmptyEmailError,
+      ...newReview
+    } = this.state;
+
+    if (name.length > 0 && email.length > 0 && email.match(validEmailRegex)) {
+      console.log(newReview);
+      this.props.AddReview(newReview);
+      this.props.handleCloseAddReviewsForm(event);
+    }
   }
 
   render() {
     const chars = this.props.characteristics;
     const { handleCloseAddReviewsForm } = this.props;
-    const { summary, body, name, email } = this.state;
+    const {
+      summary,
+      body,
+      name,
+      email,
+      isEmailInvalid,
+      hasEmptyNicknameError,
+      hasEmptyEmailError
+      } = this.state;
+
     let sizeStr = !!chars.Size ? `${chars.Size.id}` : 'size';
     let widthStr= !!chars.Width ? `${chars.Width.id}` : 'width';
     let comfortStr = !!chars.Comfort ? `${chars.Comfort.id}` : 'comfort';
@@ -62,7 +100,11 @@ class WritingReview extends React.Component {
 
     return (
       <form onSubmit={this.handleSubmitReview}>
+      <div className='modal-review'>
         <h4>Write Your Review </h4>
+        <button className="close-btn" onClick={handleCloseAddReviewsForm}>x</button>
+      </div>
+        {hasEmptyNicknameError || hasEmptyEmailError && <h4>You must enter the following:</h4>}
         <div>
             <p>Overall rating</p>
             <SetStarRating getRating={this.getRating} />
@@ -164,14 +206,15 @@ class WritingReview extends React.Component {
             />
       </div>
       <div>
-          <p>your nickname:
-            <input name='name' type='text' value={name} onChange={this.handleChange} />
-          </p>
+          {hasEmptyNicknameError && <span>You must enter a nickname!</span>}
+          <p>your nickname(mandatory):</p>
+            <textarea name='name' type='text' value={name} onChange={this.handleChange} placeholder="Example: user123" rows={1} cols={50} />
       </div>
       <div>
-            <p>your email:
-            <input name='email' type='text' value={email} onChange={this.handleChange} />
-          </p>
+            {!hasEmptyEmailError && isEmailInvalid && <h4>Please enter a valid email</h4>}
+            {hasEmptyEmailError && <span>You must enter a email!</span>}
+            <p>your email(mandatory):</p>
+            <textarea name='email' type='text' value={email} onChange={this.handleChange} placeholder="Example: example@gmail.com" rows={1} cols={50} />
       </div>
       <button className='submit_btn'>Submit</button>
       </form>
