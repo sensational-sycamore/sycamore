@@ -74,7 +74,7 @@ class Overview extends React.Component {
       <div className={css.gridContainer}>
         <div className={css.major}>
           <Gallery className={css.gallery} currStyle={currStyle} />
-          <Description className={css.description} product={product} />
+          <Description className={css.description} slogan={product.slogan} description={product.description} />
         </div>
         <div className={css.minor}>
           <Reviews reviews={reviews}/>
