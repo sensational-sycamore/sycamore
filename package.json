@@ -9,6 +9,7 @@
     "coverage": "jest --coverage --watch",
     "coverage:all": "jest --coverage --watchAll",
     "dev": "webpack --config webpack.config.js --mode development --watch",
+    "frontend:build": "webpack --config webpack.config.js --mode production",
     "watch": "nodemon ./server/index.js",
     "start": "node ./server/index.js"
   },
