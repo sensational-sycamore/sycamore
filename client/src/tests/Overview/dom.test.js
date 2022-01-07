@@ -6,45 +6,58 @@ import Title from '../../components/Overview/subcomponents/Title.jsx';
 import Category from '../../components/Overview/subcomponents/Category.jsx';
 import Description from '../../components/Overview/subcomponents/Description.jsx';
 import Price from '../../components/Overview/subcomponents/Price.jsx';
+import Reviews from '../../components/Overview/subcomponents/Reviews.jsx';
 
 let container = null;
 beforeEach(() => {
-  // setup a DOM element as a render target
   container = document.createElement('div');
   document.body.appendChild(container);
 });
 
 afterEach(() => {
-  // cleanup on exiting
   unmountComponentAtNode(container);
   container.remove();
   container = null;
 });
 
-it('renders with a name', () => {
+it('Title renders with a name', () => {
   act(() => {
-    render(<Title product={{name: 'a product'}}/>, container);
+    render(<Title name='a product'/>, container);
   });
   expect(container.textContent).toBe('a product');
 });
 
-it('renders with a category name', () => {
+it('Category renders with a category name', () => {
   act(() => {
-    render(<Category product={{category: 'fruit'}}/>, container);
+    render(<Category category='fruit'/>, container);
   });
   expect(container.textContent).toBe('fruit');
 });
 
-it('renders with original Price', () => {
+it('Price renders with original Price', () => {
   act(() => {
-    render(<Price currStyle={{ 'original_price': '69.00' }}/>, container);
+    render(<Price originalPrice='69.00'/>, container);
   });
   expect(container.textContent).toBe('$69.00');
 });
 
-it('renders with original Price', () => {
+it('Price renders with sales price and original price when given both', () => {
   act(() => {
-    render(<Price currStyle={{ 'original_price': '69.00', 'sale_price': '59.00' }}/>, container);
+    render(<Price originalPrice='69.00' salePrice='59.00'/>, container);
   });
   expect(container.textContent).toBe('$59.00$69.00');
+});
+
+it('Description renders with slogan and description', () => {
+  act(() => {
+    render(<Description slogan='slogan' description='description'/>, container);
+  });
+  expect(container.textContent).toBe('slogandescription');
+});
+
+it('Reviews renders with link', () => {
+  act(() => {
+    render(<Reviews reviews={[]} />, container);
+  });
+  expect(container.textContent).toBe('Read all reviews');
 });
