@@ -19,9 +19,10 @@ class Gallery extends React.Component {
     }
   }
 
-  handleImageSelect(photo) {
+  handleImageSelect(index) {
+    console.log({index}, this.props.currStyle.photos);
     this.setState({
-      currImage: photo.url
+      currImage: this.props.currStyle.photos[index].url
     });
   }
 

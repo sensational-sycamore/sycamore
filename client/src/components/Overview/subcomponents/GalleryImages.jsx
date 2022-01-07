@@ -4,10 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 
 
-const GalleryImages = ({ handleImageSelect, photos}) => {
+const GalleryImages = ({ handleImageSelect, photos, currImage}) => {
 
   const [photosStart, setPhotosStart] = useState(0);
   const [photosEnd, setPhotosEnd] = useState(6);
+  const [selectedImg, setSelectedImg] = useState(0);
 
   const handleUp = () => {
     if (photosStart > 0) {
@@ -23,6 +24,11 @@ const GalleryImages = ({ handleImageSelect, photos}) => {
     }
   };
 
+  const handleSelect = (index) => {
+    setSelectedImg(index);
+    handleImageSelect(index);
+  };
+
 
   return (
     <div className={css.imageOptions}>
@@ -30,8 +36,8 @@ const GalleryImages = ({ handleImageSelect, photos}) => {
         <FontAwesomeIcon color="white" icon={faChevronUp} size="sm"/>
       </div>
 
-      {photos.slice(photosStart, photosEnd).map(photo => (
-        <img className={css.eachImage} onClick={() => handleImageSelect(photo)} src={photo.thumbnail_url} alt="" key={photo.url}/>
+      {photos.slice(photosStart, photosEnd).map((photo, index) => (
+        <img className={`${css.eachImage} ${index === selectedImg ? css.selected : null}`} onClick={() => handleSelect(index)} src={photo.thumbnail_url} alt="" key={index}/>
       ))}
 
       <div onClick={handleDown} className={css.scrollButton}>
