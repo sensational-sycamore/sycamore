@@ -96,21 +96,25 @@ sudo apt-get install gcc g++ make
 
 sudo apt-get install git
 ```
-6. Clone code base into EC2.
+6. Setup environment variables
+```
+export GITHUB_TOKEN=xxxxxxxxxxxx
+```
+7. Clone code base into EC2.
 ```
 git clone https://github.com/sensational-sycamore/sycamore.git
 ```
-7. Install project dependencies.
+8. Install project dependencies.
 ```
 cd sycamore
 npm install
 ```
-8. Run project.
+9. Run project.
 ```
 npm run start
 ```
 
-9. PM2 [PM2 cheatsheet](https://devhints.io/pm2)
+10. PM2 [PM2 cheatsheet](https://devhints.io/pm2)
 ```
 sudo npm install pm2 -g
 pm2 start server/index.js
