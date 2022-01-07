@@ -13,6 +13,7 @@ const GalleryImages = ({ handleImageSelect, photos, currImage}) => {
     if (photosStart > 0) {
       setPhotosStart(photosStart - 1);
       setPhotosEnd(photosEnd - 1);
+      handleImageSelect(selectedImg + photosStart - 1);
     }
   };
 
@@ -20,12 +21,13 @@ const GalleryImages = ({ handleImageSelect, photos, currImage}) => {
     if (photosEnd < photos.length) {
       setPhotosStart(photosStart + 1);
       setPhotosEnd(photosEnd + 1);
+      handleImageSelect(selectedImg + photosStart + 1);
     }
   };
 
   const handleSelect = (index) => {
     setSelectedImg(index);
-    handleImageSelect(index);
+    handleImageSelect(index + photosStart);
   };
 
 
@@ -42,7 +44,7 @@ const GalleryImages = ({ handleImageSelect, photos, currImage}) => {
           <FontAwesomeIcon color="white" icon={faChevronUp} size="sm"/>
         </div>
         {photos.slice(photosStart, photosEnd).map((photo, index) => (
-          <img className={`${css.eachImage} ${index === selectedImg ? css.selected : null}`} onClick={() => handleSelect(index)} src={photo.thumbnail_url} alt="" key={index}/>
+          <img className={`${css.eachImage} ${index === selectedImg ? css.selected : null}`} onClick={() => handleSelect(index)} src={photo.thumbnail_url} alt="" key={index + photosStart}/>
         ))}
 
         <div onClick={handleDown} className={css.scrollButton}>
