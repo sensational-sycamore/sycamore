@@ -78,7 +78,7 @@ class Overview extends React.Component {
         </div>
         <div className={css.minor}>
           <Reviews reviews={reviews}/>
-          <Category product={product} />
+          <Category category={product.category} />
           <Title product={product} />
           <Price currStyle={currStyle} />
           <StyleSelector styles={styles} currStyle={currStyle} handleStyleSelect={this.handleStyleSelect}/>
