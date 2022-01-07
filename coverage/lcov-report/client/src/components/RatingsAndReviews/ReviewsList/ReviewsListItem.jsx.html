@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/35</span>
+                <span class='fraction'>0/32</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/35</span>
+                <span class='fraction'>0/32</span>
             </div>
         
             
@@ -95,13 +95,7 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -137,35 +131,32 @@
 <span class="cstat-no" title="statement not covered" >import './ReviewsListItem.scss';</span>
 <span class="cstat-no" title="statement not covered" >const moment = require('moment');</span>
 <span class="cstat-no" title="statement not covered" >import StarRating from '../../Shared/StarRating/StarRating.jsx';</span>
+<span class="cstat-no" title="statement not covered" >import HelpfulButton from '../../Shared/HelpfulButton/HelpfulButton.jsx';</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >class ReviewsListItem extends React.Component {</span>
-<span class="cstat-no" title="statement not covered" >  constructor(props) {</span>
-<span class="cstat-no" title="statement not covered" >    super(props);</span>
-<span class="cstat-no" title="statement not covered" >    this.state = {</span>
-<span class="cstat-no" title="statement not covered" >    };</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >const ReviewsListItem = ({</span>
+<span class="cstat-no" title="statement not covered" >  review,</span>
+<span class="cstat-no" title="statement not covered" >  onHelpulButtonClick</span>
+<span class="cstat-no" title="statement not covered" >}) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  render() {</span>
-<span class="cstat-no" title="statement not covered" >    const { review } = this.props;</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className='review_list'&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className='reviewer_name'&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;span&gt;&lt;StarRating averageRating={review.rating} /&gt;&lt;/span&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;span&gt;{review.reviewer_name} &lt;/span&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;span&gt;{moment(review.date).format('MM/DD/YYYY')} &lt;/span&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;h4&gt;{review.summary}&lt;/h4&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;p&gt;{review.body}&lt;/p&gt;</span>
-<span class="cstat-no" title="statement not covered" >        {review.recommend &amp;&amp; &lt;p&gt;I recommend this product&lt;/p&gt;}</span>
-<span class="cstat-no" title="statement not covered" >        {review.response !== null &amp;&amp; &lt;div&gt;review.response:{review.response}&lt;/div&gt;}</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div className='reviewer_helpful'&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;span&gt;Helpful? Yes({review.helpfulness})&lt;/span&gt;</span>
-<span class="cstat-no" title="statement not covered" >          &lt;span&gt; | Report &lt;/span&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;div className='review_list'&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className='reviewer_name'&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;span&gt;&lt;StarRating averageRating={review.rating} /&gt;&lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;span&gt;{review.reviewer_name} &lt;/span&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;span&gt;{moment(review.date).format('MM/DD/YYYY')} &lt;/span&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" >      &lt;h4&gt;{review.summary}&lt;/h4&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;p&gt;{review.body}&lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >      {review.recommend &amp;&amp; &lt;p&gt;I recommend this product&lt;/p&gt;}</span>
+<span class="cstat-no" title="statement not covered" >      {review.response !== null &amp;&amp; &lt;div&gt;review.response:{review.response}&lt;/div&gt;}</span>
+<span class="cstat-no" title="statement not covered" >      &lt;div className="reviewer_helpful"&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;HelpfulButton helpfulness={review.helpfulness} id={review.review_id} onHelpulButtonClick={onHelpulButtonClick} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;p className="separator"&gt;|&lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;button className="report-button"&gt;Report&lt;/button&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" >};</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >export default ReviewsListItem;</span>
 &nbsp;</pre></td></tr></table></pre>
@@ -175,7 +166,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
-                at Fri Jan 07 2022 13:45:28 GMT-0800 (Pacific Standard Time)
+                at Fri Jan 07 2022 13:48:32 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>

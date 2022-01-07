@@ -3,13 +3,14 @@ const app = express();
 const port = 3000;
 const axios = require('axios');
 const path = require('path');
+const cors = require('cors');
 
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }));
-
+app.use(cors());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 // GitHub token is stored in an .env file
