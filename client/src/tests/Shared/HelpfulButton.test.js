@@ -17,7 +17,7 @@ test('it renders as expected', () => {
   expect(helpfulCount.innerHTML).toBe(`(${count})`);
 });
 
-test('it calls onHelpulButtonClick prop with the expected id when clicking on the button', () => {
+test('it calls onHelpulButtonClick prop with the expected id when clicking on the button only once per session', () => {
   const onHelpulButtonClickSpy = jest.fn();
   const id = 1234;
 
@@ -29,6 +29,8 @@ test('it calls onHelpulButtonClick prop with the expected id when clicking on th
   const helpfulYesButton = screen.getByTestId('helpful-yes-button');
 
   fireEvent.click(helpfulYesButton, {});
+  fireEvent.click(helpfulYesButton, {});
 
   expect(onHelpulButtonClickSpy).toHaveBeenCalledWith(id);
+  expect(onHelpulButtonClickSpy).toHaveBeenCalledTimes(1);
 });

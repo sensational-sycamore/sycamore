@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Dropdown from './Dropdown.jsx';
+import Dropdown from './DropDown.jsx';
 
 const SizeSelector = ({ currStyle, handleSizeSelect }) => {
   const [selected, setSelected] = useState('SELECT SIZE');
