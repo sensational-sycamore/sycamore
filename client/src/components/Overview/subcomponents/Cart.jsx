@@ -18,19 +18,17 @@ class Cart extends React.Component {
   }
 
   handleSizeSelect(sku) {
-    console.log(sku);
     this.setState({currSku: sku});
   }
   handleQuantitySelect(quantity) {
     this.setState({currQuantity: quantity});
-    console.log(this.state);
   }
 
   render() {
     return (
       <div>
         <SizeSelector currStyle={this.props.currStyle} handleSizeSelect={this.handleSizeSelect}/>
-        <QuantitySelector handleQuantitySelect={this.handleQuantitySelect}/>
+        <QuantitySelector currSku={this.state.currSku} handleQuantitySelect={this.handleQuantitySelect}/>
         <AddToCart currSku={this.state.currSku} currQuantity={this.state.currQuantity}/>
       </div>
     );

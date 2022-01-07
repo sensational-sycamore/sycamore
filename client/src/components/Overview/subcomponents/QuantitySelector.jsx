@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Dropdown from './DropDown.jsx';
 
 
-const QuantitySelector = ({ handleQuantitySelect }) => {
+const QuantitySelector = ({ currSku, handleQuantitySelect }) => {
   const [selected, setSelected] = useState('SELECT QUANTITY');
 
   const selectQuantity = (selection) => {
