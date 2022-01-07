@@ -34,25 +34,22 @@ const AddAnswerModal = ({ handleCloseAnswerModal, productId, questionBody, quest
   const handleAnswerInputChange = () => {
     if (answerRef.current.value.length > 1000) {
       answerRef.current.value = answerRef.current.value.slice(0, 1000);
-    } else {
-      setAnswerLength(answerRef.current.value.length);
     }
+    setAnswerLength(answerRef.current.value.length);
   };
 
   const handleNicknameInputChange = () => {
     if (nicknameRef.current.value.length > 1000) {
       nicknameRef.current.value = nicknameRef.current.value.slice(0, 1000);
-    } else {
-      setNicknameLength(nicknameRef.current.value.length);
     }
+    setNicknameLength(nicknameRef.current.value.length);
   };
 
   const handleEmailInputChange = () => {
     if (emailRef.current.value.length > 1000) {
       emailRef.current.value = emailRef.current.value.slice(0, 1000);
-    } else {
-      setEmailLength(emailRef.current.value.length);
     }
+    setEmailLength(emailRef.current.value.length);
   };
 
   const handleSubmitAnswer = () => {
@@ -125,7 +122,7 @@ const AddAnswerModal = ({ handleCloseAnswerModal, productId, questionBody, quest
         <main>
           <div>
             {hasEmptyAnswerError || hasEmptyNicknameError || hasEmptyEmailError && <h4>You must enter the following:</h4>}
-            {hasEmptyAnswerError && <span>You must enter a answer!</span>}
+            {hasEmptyAnswerError && <span data-testid="answer-error">You must enter a answer!</span>}
             <label>Your answer (mandatory)</label>
             <input data-testid="answer-input" ref={answerRef} onChange={handleAnswerInputChange}/>
             <div className="input-info">
@@ -134,7 +131,7 @@ const AddAnswerModal = ({ handleCloseAnswerModal, productId, questionBody, quest
           </div>
 
           <div>
-            {hasEmptyNicknameError && <span>You must enter a nickname!</span>}
+            {hasEmptyNicknameError && <span data-testid="nickname-error">You must enter a nickname!</span>}
             <label>What is your nickname (mandatory)</label>
             <input data-testid="nickname-input" ref={nicknameRef} onChange={handleNicknameInputChange} placeholder="Example: Fernanda123!"/>
             <div className="input-info">
@@ -144,8 +141,8 @@ const AddAnswerModal = ({ handleCloseAnswerModal, productId, questionBody, quest
           </div>
 
           <div>
-            {isEmailInvalid && <h4>Please enter a valid email</h4>}
-            {hasEmptyEmailError && <span>You must enter a email!</span>}
+            {isEmailInvalid && <h4 data-testid="email-error-invalid">Please enter a valid email</h4>}
+            {hasEmptyEmailError && <span data-testid="email-error-empty">You must enter a email!</span>}
             <label>Your email (mandatory)</label>
             <input data-testid="email-input" ref={emailRef} onChange={handleEmailInputChange} placeholder="Example: fernanda@gmail.com"/>
             <div className="input-info">
@@ -162,7 +159,7 @@ const AddAnswerModal = ({ handleCloseAnswerModal, productId, questionBody, quest
 
         <footer>
           {hasApiError && <h4>Failed to save! Please try again.</h4>}
-          <button onClick={handleSubmitAnswer}>Submit answer</button>
+          <button data-testid="submit-answer-button" onClick={handleSubmitAnswer}>Submit answer</button>
         </footer>
       </div>
     </div>
