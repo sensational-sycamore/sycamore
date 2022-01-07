@@ -80,7 +80,7 @@ class Overview extends React.Component {
           <Reviews reviews={reviews}/>
           <Category category={product.category} />
           <Title name={product.name} />
-          <Price currStyle={currStyle} />
+          <Price salePrice={currStyle.sale_price } originalPrice={currStyle.original_price} />
           <StyleSelector styles={styles} currStyle={currStyle} handleStyleSelect={this.handleStyleSelect}/>
           <Cart styles={styles} currStyle={currStyle} />
         </div>
