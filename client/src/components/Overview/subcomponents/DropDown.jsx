@@ -20,7 +20,6 @@ class Dropdown extends React.Component {
   }
 
   selectOption(option) {
-    console.log('selected option');
     this.props.clickHandler(option);
     this.setState({ showMenu: false});
   }

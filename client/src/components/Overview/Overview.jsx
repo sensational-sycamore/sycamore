@@ -82,7 +82,7 @@ class Overview extends React.Component {
           <Title name={product.name} />
           <Price salePrice={currStyle.sale_price } originalPrice={currStyle.original_price} />
           <StyleSelector styles={styles} currStyle={currStyle} handleStyleSelect={this.handleStyleSelect}/>
-          <Cart styles={styles} currStyle={currStyle} />
+          <Cart currStyle={currStyle} />
         </div>
       </div>
     );
