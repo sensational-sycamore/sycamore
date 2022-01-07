@@ -120,25 +120,25 @@ const AddAnswerModal = ({ handleCloseAnswerModal, productId, questionBody, quest
             <span data-testid="product-name">{productName}</span> :
             <span data-testid="question-body">{questionBody}</span>
           </h3>
-          <button className="close-button" onClick={onCloseModal}>x</button>
+          <button data-testid="close-button" className="close-button" onClick={onCloseModal}>x</button>
         </header>
         <main>
           <div>
             {hasEmptyAnswerError || hasEmptyNicknameError || hasEmptyEmailError && <h4>You must enter the following:</h4>}
             {hasEmptyAnswerError && <span>You must enter a answer!</span>}
             <label>Your answer (mandatory)</label>
-            <input ref={answerRef} onChange={handleAnswerInputChange}/>
+            <input data-testid="answer-input" ref={answerRef} onChange={handleAnswerInputChange}/>
             <div className="input-info">
-              <span className="char-count">{1000 - answerLength} characters</span>
+              <span data-testid="answer-input-counter" className="char-count">{1000 - answerLength} characters</span>
             </div>
           </div>
 
           <div>
             {hasEmptyNicknameError && <span>You must enter a nickname!</span>}
             <label>What is your nickname (mandatory)</label>
-            <input ref={nicknameRef} onChange={handleNicknameInputChange} placeholder="Example: Fernanda123!"/>
+            <input data-testid="nickname-input" ref={nicknameRef} onChange={handleNicknameInputChange} placeholder="Example: Fernanda123!"/>
             <div className="input-info">
-              <span className="char-count">{60 - nicknameLength} characters</span>
+              <span data-testid="nickname-input-counter" className="char-count">{60 - nicknameLength} characters</span>
               <span className="disclosure">For privacy reasons, do not use your full name or email address</span>
             </div>
           </div>
@@ -147,9 +147,9 @@ const AddAnswerModal = ({ handleCloseAnswerModal, productId, questionBody, quest
             {isEmailInvalid && <h4>Please enter a valid email</h4>}
             {hasEmptyEmailError && <span>You must enter a email!</span>}
             <label>Your email (mandatory)</label>
-            <input ref={emailRef} onChange={handleEmailInputChange} placeholder="Example: fernanda@gmail.com"/>
+            <input data-testid="email-input" ref={emailRef} onChange={handleEmailInputChange} placeholder="Example: fernanda@gmail.com"/>
             <div className="input-info">
-              <span className="char-count">{60 - emailLength} characters</span>
+              <span data-testid="email-input-counter" className="char-count">{60 - emailLength} characters</span>
               <span className="disclosure">For authentication reasons, you will not be emailed</span>
             </div>
           </div>
