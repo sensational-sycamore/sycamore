@@ -70,15 +70,19 @@ To see coverage of the main branch on gitHub go to: [https://sensational-sycamor
 # Deployment
 
 1. Create a EC2 instance running Ubuntu(linux).
+
 2. Set EC2 security groups rules(add inboud rule for HTTP).
+
 3. Save the pem key somewhere secure in your computer and give it read permition.
 ```
 chmod 400 aws-keypair.pem
 ```
+
 4. Connect to your EC2 via SSH.
 ```
 ssh -i "aws-keypair.pem" ubuntu@ec2-00-000-000-00.us-west-1.compute.amazonaws.com
 ```
+
 5. Install EC2 dependencies.
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y
@@ -96,25 +100,40 @@ sudo apt-get install gcc g++ make
 
 sudo apt-get install git
 ```
+
 6. Setup environment variables
 ```
 export GITHUB_TOKEN=xxxxxxxxxxxx
 ```
+You can check if the variable was set with:
+```
+printenv
+```
+
 7. Clone code base into EC2.
 ```
 git clone https://github.com/sensational-sycamore/sycamore.git
 ```
+
 8. Install project dependencies.
 ```
 cd sycamore
 npm install
 ```
-9. Run project.
+9. Build frontend
+```
+npm run dev
+```
+Stop the watch with `crtl + c`
+
+10. Test if project runs
 ```
 npm run start
 ```
 
-10. PM2 [PM2 cheatsheet](https://devhints.io/pm2)
+Stop the server with `ctrl + c`
+
+11. PM2 [PM2 cheatsheet](https://devhints.io/pm2)
 ```
 sudo npm install pm2 -g
 pm2 start server/index.js

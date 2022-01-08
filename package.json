@@ -8,7 +8,12 @@
     "test:all": "jest --watchAll",
     "coverage": "jest --coverage --watch",
     "coverage:all": "jest --coverage --watchAll",
+<<<<<<< HEAD
     "dev": "webpack serve --open --config webpack.dev.js",
+=======
+    "dev": "webpack --config webpack.config.js --mode development --watch",
+    "frontend:build": "webpack --config webpack.config.js --mode production",
+>>>>>>> origin
     "watch": "nodemon ./server/index.js",
     "start": "node ./server/index.js",
     "build": "webpack --config webpack.prod.js"
