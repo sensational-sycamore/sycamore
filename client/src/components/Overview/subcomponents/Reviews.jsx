@@ -7,7 +7,7 @@ const Reviews = ({ reviews }) => {
   return (
     <div className={css.reviewsContainer}>
       <Ratings reviews={reviews} />
-      <a className={css.reviewLink} href="#ratings-and-reviews">Read all reviews</a>
+      <a className={css.reviewLink} href="#ratings-and-reviews">Read all {reviews.length} reviews</a>
     </div>
   );
 };

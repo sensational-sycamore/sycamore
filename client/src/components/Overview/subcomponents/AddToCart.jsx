@@ -14,9 +14,7 @@ const AddToCart = ({ currSku, currQuantity }) => {
 
   const handleClicked = () => {
     if (currSku.length === 0) {
-      console.log('need size');
     } else if (currQuantity.length === 0 || currQuantity === 0) {
-      console.log('need quantity');
     } else {
       for (let i = 0; i < currQuantity; i++) {
         postToCart();
