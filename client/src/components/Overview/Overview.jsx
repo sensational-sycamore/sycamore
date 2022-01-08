@@ -69,20 +69,20 @@ class Overview extends React.Component {
   }
 
   render() {
+    const { currStyle, product, reviews, styles } = this.state;
     return (
       <div className={css.gridContainer}>
         <div className={css.major}>
-          <Gallery className={css.gallery} currStyle={this.state.currStyle} />
-          <Description className={css.description} product={this.state.product} />
+          <Gallery className={css.gallery} currStyle={currStyle} />
+          <Description className={css.description} slogan={product.slogan} description={product.description} />
         </div>
         <div className={css.minor}>
-          <Ratings reviews={this.state.reviews} />
-          <Reviews />
-          <Category product={this.state.product} />
-          <Title product={this.state.product} />
-          <Price currStyle={this.state.currStyle} />
-          <StyleSelector styles={this.state.styles} currStyle={this.state.currStyle} handleStyleSelect={this.handleStyleSelect}/>
-          <Cart styles={this.state.styles} currStyle={this.state.currStyle} />
+          <Reviews reviews={reviews}/>
+          <Category category={product.category} />
+          <Title name={product.name} />
+          <Price salePrice={currStyle.sale_price } originalPrice={currStyle.original_price} />
+          <StyleSelector styles={styles} currStyle={currStyle} handleStyleSelect={this.handleStyleSelect}/>
+          <Cart currStyle={currStyle} />
         </div>
       </div>
     );
