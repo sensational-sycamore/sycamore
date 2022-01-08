@@ -8,9 +8,10 @@
     "test:all": "jest --watchAll",
     "coverage": "jest --coverage --watch",
     "coverage:all": "jest --coverage --watchAll",
-    "dev": "webpack --config webpack.config.js --mode development --watch",
+    "dev": "webpack serve --open --config webpack.dev.js",
     "watch": "nodemon ./server/index.js",
-    "start": "node ./server/index.js"
+    "start": "node ./server/index.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "express-static-gzip": "^2.1.1",
     "identity-obj-proxy": "^3.0.0",
     "jest-mock-axios": "^4.5.0",
     "moment": "^2.29.1",
@@ -57,6 +59,7 @@
     "@testing-library/react": "^12.1.2",
     "babel-jest": "^27.4.5",
     "babel-loader": "^8.2.3",
+    "compression-webpack-plugin": "^9.2.0",
     "css-loader": "^6.5.1",
     "eslint": "^8.5.0",
     "file-loader": "^6.2.0",
@@ -74,6 +77,7 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.7.0"
+    "webpack-dev-server": "^4.7.0",
+    "webpack-merge": "^5.8.0"
   }
 }

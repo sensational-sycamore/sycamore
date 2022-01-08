@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+var expressStaticGzip = require('express-static-gzip');
 const port = 3000;
 const axios = require('axios');
 const path = require('path');
@@ -11,7 +12,11 @@ app.use(express.urlencoded({
   extended: true
 }));
 app.use(cors());
+app.use(expressStaticGzip(path.join(__dirname, '/../client/dist')));
 app.use(express.static(path.join(__dirname, '/../client/dist')));
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
+});
 
 // GitHub token is stored in an .env file
 // please create a .env file in root directory
