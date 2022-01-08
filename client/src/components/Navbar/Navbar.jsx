@@ -11,10 +11,6 @@ const Navbar = () => {
     <div className={css.navbarContainer}>
       <img className={css.logo} src={img} alt="" />
       <h1 className={css.title}>Sycamore</h1>
-      <form action="#" className={css.searchContainer}>
-        <input type="text" className={css.input} />
-        <div className={css.searchIcon}>{search}</div>
-      </form>
     </div>
   );
 };
