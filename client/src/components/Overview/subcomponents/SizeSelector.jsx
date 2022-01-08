@@ -19,7 +19,7 @@ const SizeSelector = ({ currStyle, handleSizeSelect }) => {
   }
 
   return (
-    <Dropdown options={availableSizes} clickHandler={selectSize} mainMessage={selected}/>
+    <Dropdown options={availableSizes} clickHandler={selectSize} mainMessage={Object.keys(availableSizes).length ? selected : 'OUT OF STOCK'}/>
   );
 };
 
