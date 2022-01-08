@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/52</span>
+                <span class='fraction'>0/63</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/52</span>
+                <span class='fraction'>0/63</span>
             </div>
         
             
@@ -115,7 +115,29 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -196,16 +218,27 @@
 <span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  render() {</span>
-<span class="cstat-no" title="statement not covered" >    const { reviews, productId, characteristics, AddReview, totalNumberRating, showMoreReviewsButton } = this.props;</span>
+<span class="cstat-no" title="statement not covered" >    const {</span>
+<span class="cstat-no" title="statement not covered" >      reviews,</span>
+<span class="cstat-no" title="statement not covered" >      productId,</span>
+<span class="cstat-no" title="statement not covered" >      characteristics,</span>
+<span class="cstat-no" title="statement not covered" >      AddReview,</span>
+<span class="cstat-no" title="statement not covered" >      totalNumberRating,</span>
+<span class="cstat-no" title="statement not covered" >      showMoreReviewsButton,</span>
+<span class="cstat-no" title="statement not covered" >      onHelpulButtonClick</span>
+<span class="cstat-no" title="statement not covered" >    } = this.props;</span>
 <span class="cstat-no" title="statement not covered" >    const { showAddReviewsForm } = this.state;</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    return (</span>
 <span class="cstat-no" title="statement not covered" >      &lt;div className='reviews_section'&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;h4&gt;{totalNumberRating} reviews, sorted by relevance&lt;/h4&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;div&gt;</span>
 <span class="cstat-no" title="statement not covered" >          {</span>
-<span class="cstat-no" title="statement not covered" >            reviews.map((review, index) =&gt; &lt;ReviewsListItem review={review} key={review.review_id} /&gt;)</span>
+<span class="cstat-no" title="statement not covered" >            reviews.map((review, index) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >              &lt;ReviewsListItem review={review} key={review.review_id} onHelpulButtonClick={onHelpulButtonClick} /&gt;)</span>
 <span class="cstat-no" title="statement not covered" >          }</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/div&gt;</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >        &lt;div className='addReviews'&gt;</span>
 <span class="cstat-no" title="statement not covered" >          {showMoreReviewsButton &amp;&amp; &lt;button onClick={this.handMoreReviewsClick} className='review_btn' &gt;MORE REVIEWS&lt;/button&gt;}</span>
 <span class="cstat-no" title="statement not covered" >          &lt;button onClick={this.handleCloseAddReviewsForm} className='review_btn' &gt;ADD A REVIEW  +&lt;/button&gt;</span>
@@ -226,7 +259,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
-                at Thu Jan 06 2022 18:29:22 GMT-0800 (Pacific Standard Time)
+                at Sat Jan 08 2022 09:25:48 GMT-0800 (Pacific Standard Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>
