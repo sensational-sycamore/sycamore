@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Navbar from './Navbar/Navbar.jsx';
 import Overview from './Overview/Overview.jsx';
-import Related from './Related/Related.jsx';
-import QuestionsAndAnswers from './QuestionsAndAnswers/QuestionsAndAnswers.jsx';
-import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
+const Related = React.lazy(() => import('./Related/Related.jsx'));
+const QuestionsAndAnswers = React.lazy(() => import('./QuestionsAndAnswers/QuestionsAndAnswers.jsx'));
+const RatingsAndReviews = React.lazy(() => import('./RatingsAndReviews/RatingsAndReviews.jsx'));
 import './App.scss';
 import { useNavigate } from 'react-router-dom';
 
@@ -36,9 +36,11 @@ const App = () => {
     <div>
       <Navbar />
       <Overview productId={productId}/>
-      <Related productId={productId} changeProductId={changeProductId}/>
-      <QuestionsAndAnswers productId={productId}/>
-      <RatingsAndReviews productId={productId}/>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Related productId={productId} changeProductId={changeProductId}/>
+        <QuestionsAndAnswers productId={productId}/>
+        <RatingsAndReviews productId={productId}/>
+      </Suspense>
     </div>
   );
 };
