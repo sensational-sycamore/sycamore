@@ -1,43 +1,42 @@
-# sycamore
+# About The Project
 
-This is our project Front-End Capstone.
+This is an online shoping website built to create a seamless and beautiful shopping experience with the online fashion brand Sycamore. This website supports customers to:
 
-# Setup & GitHub Flow
+   ![chrome-capture](https://user-images.githubusercontent.com/87162829/152849311-14320f09-a64b-4a36-b599-a2a3c6ce0daf.gif)
 
-1. Clone the repo from the organization to your computer
-```
-git clone https://github.com/sensational-sycamore/sycamore
-```
-2. Create a feature branch on your computer, and commit your work to it
-```
-git checkout main
-git pull origin main
-git checkout -b feature-branch-name
-git add .
-git commit
-```
-5. Push your work to a feature branch on your fork repo
-```
-git push origin feature-branch-name
-```
-6. Create a pull request from your feature branch to the main branch on the organization repo
+- Browse individual apparel item's different styles and images.
+- Add desire items to cart, specifying the quantity and sizes
+- Browse related items
+- Write, read & search for Questions and Answers
 
-7. To comeback to the main branch
-```
-git checkout main
-git pull origin main
-```
-8. To added new branch, start with the step 2.
+## Built With
 
-# Code Review
+* [React.js](https://reactjs.org/)
+* [Express.js](https://expressjs.com/)
+* [Axios](https://axios-http.com/docs/intro)
+* [Sass](https://sass-lang.com/)
+* [Babel](https://babeljs.io/)
+* [Webpack](https://webpack.js.org/)
 
-1. Every PR should get code review and approval for all the team members prior to "Merge pull request"
 
-# Get Started
 
+# Getting Started
+
+1. Install dependencies
 ```
 npm install
 ```
+2. Create a config.js file with Github token to link to Atlier API. If you do not have access, reference the server code to create the backened to supply the data.
+
+3. Start the server
+```
+npm start
+```
+4. Bundle with Webpack
+```
+npm run dev
+```
+
 
 # Tests and coverage
 
